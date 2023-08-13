@@ -3,7 +3,7 @@ from Menus.principal import MenuUsuario as MU
 class MainMenu(tk.Tk):
     def __init__(self):
         super().__init__()
-        self.minsize(300,200)
+        self.minsize(300,300)
         self.title('BlaBlaCar')
         self.label1 = tk.Label(self, text ='Bienvenido a BlaBlaCar!')
         self.label1.pack(pady=20)
@@ -15,7 +15,9 @@ class MainMenu(tk.Tk):
         self.btn_quit.pack(pady=20)
 
     def InicioSesion(self):
-        MU()
+        self.destroy()
+        IS = MU()
+        IS.mainloop()
     def CrearCuenta(self):
         None
 
