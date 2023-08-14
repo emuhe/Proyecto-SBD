@@ -1,6 +1,6 @@
 import tkinter as tk
 import tkinter.font as tkFont
-import Menus.CrearCuenta as CC
+from Menus.CrearCuenta import App as CC
 class MainMenu:
     def __init__(self,root):
         # setting title
@@ -106,7 +106,8 @@ class MainMenu:
 
     def GButton_748_command(self): #Abrir otra ventana para lo de crear cuenta
         print("command1")
-        CC.Execute()
+        root.destroy()
+        CC()
 
 
 if __name__ == "__main__":
