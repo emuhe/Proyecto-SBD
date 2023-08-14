@@ -1,6 +1,6 @@
 import tkinter as tk
 import tkinter.font as tkFont
-from Menus.principal import MenuUsuario as MU
+import Menus.CrearCuenta as CC
 class MainMenu:
     def __init__(self,root):
         # setting title
@@ -50,24 +50,24 @@ class MainMenu:
         GLabel_410["text"] = "Contraseña:"
         GLabel_410.place(x=50, y=190, width=130, height=33)
 
-        GLineEdit_742 = tk.Entry(root)
-        GLineEdit_742["borderwidth"] = "1px"
+        self.GLineEdit_742 = tk.Entry(root)
+        self.GLineEdit_742["borderwidth"] = "1px"
         ft = tkFont.Font(family='Times', size=13)
-        GLineEdit_742["font"] = ft
-        GLineEdit_742["fg"] = "#333333"
-        GLineEdit_742["justify"] = "center"
-        GLineEdit_742["text"] = ""
-        GLineEdit_742.place(x=220, y=130, width=179, height=31)
+        self.GLineEdit_742["font"] = ft
+        self.GLineEdit_742["fg"] = "#333333"
+        self.GLineEdit_742["justify"] = "center"
+        self.GLineEdit_742["text"] = ""
+        self.GLineEdit_742.place(x=220, y=130, width=179, height=31)
 
-        GLineEdit_325 = tk.Entry(root)
-        GLineEdit_325["borderwidth"] = "1px"
+        self.GLineEdit_325 = tk.Entry(root)
+        self.GLineEdit_325["borderwidth"] = "1px"
         ft = tkFont.Font(family='Times', size=13)
-        GLineEdit_325["font"] = ft
-        GLineEdit_325["fg"] = "#333333"
-        GLineEdit_325["justify"] = "center"
-        GLineEdit_325["text"] = ""
-        GLineEdit_325['show'] = '*'
-        GLineEdit_325.place(x=220, y=190, width=179, height=30)
+        self.GLineEdit_325["font"] = ft
+        self.GLineEdit_325["fg"] = "#333333"
+        self.GLineEdit_325["justify"] = "center"
+        self.GLineEdit_325["text"] = ""
+        self.GLineEdit_325['show'] = '*'
+        self.GLineEdit_325.place(x=220, y=190, width=179, height=30)
 
         GLabel_803 = tk.Label(root)
         ft = tkFont.Font(family='Times', size=10)
@@ -88,19 +88,26 @@ class MainMenu:
         GButton_748.place(x=190, y=320, width=120, height=30)
         GButton_748["command"] = self.GButton_748_command
 
-        GLabel_316 = tk.Label(root)
+        self.GLabel_316 = tk.Label(root) #SA
         ft = tkFont.Font(family='Times', size=10)
-        GLabel_316["font"] = ft
-        GLabel_316["fg"] = "#000000"
-        GLabel_316["justify"] = "center"
-        GLabel_316["text"] = ""
-        GLabel_316.place(x=100, y=220, width=313, height=30)
+        self.GLabel_316["font"] = ft
+        self.GLabel_316["fg"] = "#000000"
+        self.GLabel_316["justify"] = "center"
+        self.GLabel_316["text"] = ""
+        self.GLabel_316.place(x=100, y=220, width=313, height=30)
 
     def GButton_760_command(self): #Verificar si los datos ingresados son correctos
         print("command")
+        _mcache = True
+        if not _mcache:
+            self.GLabel_316['text'] = 'Usuario y/o Contraseña incorrecta, intente otra vez '
+        else:
+            print('abrir')
 
     def GButton_748_command(self): #Abrir otra ventana para lo de crear cuenta
-        print("command")
+        print("command1")
+        CC.Execute()
+
 
 if __name__ == "__main__":
     root = tk.Tk()
