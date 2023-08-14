@@ -105,7 +105,6 @@ class MainMenu:
             print('abrir')
 
     def GButton_748_command(self): #Abrir otra ventana para lo de crear cuenta
-        print("command1")
         root.destroy()
         CC()
 

@@ -3,7 +3,7 @@ from tkinter import ttk
 import tkinter.font as tkFont
 from tkcalendar import DateEntry
 from datetime import datetime
-
+import re
 
 
 class App:
@@ -30,7 +30,7 @@ class App:
         GLabel_963["fg"] = "#333333"
         GLabel_963["justify"] = "left"
         GLabel_963["text"] = "*Nombre:"
-        GLabel_963.place(x=30,y=60,width=71,height=31)
+        GLabel_963.place(x=30,y=60,width=70,height=31)
 
         GLineEdit_554=tk.Entry(self.rootCC)
         GLineEdit_554["borderwidth"] = "1px"
@@ -47,7 +47,7 @@ class App:
         GLabel_6["fg"] = "#333333"
         GLabel_6["justify"] = "left"
         GLabel_6["text"] = "*Apellido:"
-        GLabel_6.place(x=230,y=60,width=72,height=30)
+        GLabel_6.place(x=230,y=60,width=70,height=30)
 
         GLineEdit_531=tk.Entry(self.rootCC)
         GLineEdit_531["borderwidth"] = "1px"
@@ -64,7 +64,7 @@ class App:
         GLabel_426["fg"] = "#333333"
         GLabel_426["justify"] = "left"
         GLabel_426["text"] = "*Correo:"
-        GLabel_426.place(x=30,y=110,width=72,height=35)
+        GLabel_426.place(x=30,y=110,width=70,height=35)
 
         GLineEdit_983=tk.Entry(self.rootCC)
         GLineEdit_983["borderwidth"] = "1px"
@@ -103,6 +103,36 @@ class App:
         GComboBox['state'] = 'readonly'
         GComboBox.place(x=335,y=155,width=75,height=35)
 
+        GLabel_844=tk.Label(self.rootCC)
+        ft = tkFont.Font(family='Times',size=10)
+        GLabel_844["font"] = ft
+        GLabel_844["fg"] = "#333333"
+        GLabel_844["justify"] = "left"
+        GLabel_844["text"] = "*Direccion:"
+        GLabel_844.place(x=30,y=200,width=75,height=30)
 
+        GLineEdit_984=tk.Entry(self.rootCC)
+        GLineEdit_984["borderwidth"] = "1px"
+        ft = tkFont.Font(family='Times',size=10)
+        GLineEdit_984["font"] = ft
+        GLineEdit_984["fg"] = "#333333"
+        GLineEdit_984["justify"] = "center"
+        GLineEdit_984["text"] = ""
+        GLineEdit_984.place(x=100,y=200,width=331,height=30)
 
+        GLabel_845 = tk.Label(self.rootCC)
+        ft = tkFont.Font(family='Times', size=10)
+        GLabel_845["font"] = ft
+        GLabel_845["fg"] = "#333333"
+        GLabel_845["justify"] = "left"
+        GLabel_845["text"] = "*Telefono:"
+        GLabel_845.place(x=30, y=245, width=75, height=30)
 
+        GLineEdit_985=tk.Entry(self.rootCC)
+        GLineEdit_985["borderwidth"] = "1px"
+        ft = tkFont.Font(family='Times',size=10)
+        GLineEdit_985["font"] = ft
+        GLineEdit_985["fg"] = "#333333"
+        GLineEdit_985["justify"] = "center"
+        GLineEdit_985["text"] = ""
+        GLineEdit_985.place(x=100,y=245,width=100,height=30)
