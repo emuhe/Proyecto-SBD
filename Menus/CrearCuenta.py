@@ -94,11 +94,11 @@ class App:
         GLabel_843["fg"] = "#333333"
         GLabel_843["justify"] = "left"
         GLabel_843["text"] = "*Genero:"
-        GLabel_843.place(x=265,y=125,width=70,height=45)
+        GLabel_843.place(x=265,y=120,width=70,height=45)
 
-        genero = tk.StringVar()
+        self.genero = tk.StringVar()
         GComboBox = ttk.Combobox(self.rootCC)
-        GComboBox['textvariable'] = genero
+        GComboBox['textvariable'] = self.genero
         GComboBox['values'] = ['Hombre','Mujer','Otro']
         GComboBox['state'] = 'readonly'
         GComboBox.place(x=335,y=125,width=75,height=35)
@@ -174,11 +174,11 @@ class App:
         GLabel_847["text"] = "Fumar en el viaje:"
         GLabel_847.place(x=35, y=270, width=105, height=30)
 
-        Pref_1 = tk.IntVar()
-        Pref_1.set(2)
+        self.Pref_1 = tk.IntVar()
+        self.Pref_1.set(2)
         P1_Opt1 = tk.Radiobutton(self.rootCC)
         P1_Opt1['value'] = 1
-        P1_Opt1['variable'] = Pref_1
+        P1_Opt1['variable'] = self.Pref_1
         P1_Opt1.place(x=190,y=265)
 
         GLabel_848 = tk.Label(self.rootCC)
@@ -191,7 +191,7 @@ class App:
 
         P1_Opt2 = tk.Radiobutton(self.rootCC)
         P1_Opt2['value'] = 2
-        P1_Opt2['variable'] = Pref_1
+        P1_Opt2['variable'] = self.Pref_1
         P1_Opt2.place(x=285, y=265)
 
         GLabel_848 = tk.Label(self.rootCC)
@@ -204,7 +204,7 @@ class App:
 
         P1_Opt3 = tk.Radiobutton(self.rootCC)
         P1_Opt3['value'] = 3
-        P1_Opt3['variable'] = Pref_1
+        P1_Opt3['variable'] = self.Pref_1
         P1_Opt3.place(x=385, y=265)
 
         GLabel_848 = tk.Label(self.rootCC)
@@ -227,10 +227,12 @@ class App:
         GLabel_849["text"] = "Mascotas a bordo:"
         GLabel_849.place(x=35, y=320, width=105, height=30)
 
-        Pref_2 = tk.IntVar()
+        self.Pref_2 = tk.IntVar()
+        self.Pref_2.set(2)
+
         P2_Opt1 = tk.Radiobutton(self.rootCC)
         P2_Opt1['value'] = 1
-        P2_Opt1['variable'] = Pref_2
+        P2_Opt1['variable'] = self.Pref_2
         P2_Opt1.place(x=190, y=315)
 
         GLabel_849 = tk.Label(self.rootCC)
@@ -243,7 +245,7 @@ class App:
 
         P2_Opt2 = tk.Radiobutton(self.rootCC)
         P2_Opt2['value'] = 2
-        P2_Opt2['variable'] = Pref_2
+        P2_Opt2['variable'] = self.Pref_2
         P2_Opt2.place(x=285, y=315)
 
         GLabel_850 = tk.Label(self.rootCC)
@@ -256,7 +258,7 @@ class App:
 
         P2_Opt3 = tk.Radiobutton(self.rootCC)
         P2_Opt3['value'] = 3
-        P2_Opt3['variable'] = Pref_2
+        P2_Opt3['variable'] = self.Pref_2
         P2_Opt3.place(x=385, y=315)
 
         GLabel_851 = tk.Label(self.rootCC)
@@ -279,10 +281,12 @@ class App:
         GLabel_860["text"] = "Musica a Bordo:"
         GLabel_860.place(x=35, y=370, width=105, height=30)
 
-        Pref_3 = tk.IntVar()
+        self.Pref_3 = tk.IntVar()
+        self.Pref_3.set(2)
+
         P3_Opt1 = tk.Radiobutton(self.rootCC)
         P3_Opt1['value'] = 1
-        P3_Opt1['variable'] = Pref_3
+        P3_Opt1['variable'] = self.Pref_3
         P3_Opt1.place(x=190, y=365)
 
         GLabel_849 = tk.Label(self.rootCC)
@@ -295,7 +299,7 @@ class App:
 
         P3_Opt2 = tk.Radiobutton(self.rootCC)
         P3_Opt2['value'] = 2
-        P3_Opt2['variable'] = Pref_3
+        P3_Opt2['variable'] = self.Pref_3
         P3_Opt2.place(x=285, y=365)
 
         GLabel_850 = tk.Label(self.rootCC)
@@ -308,7 +312,7 @@ class App:
 
         P3_Opt3 = tk.Radiobutton(self.rootCC)
         P3_Opt3['value'] = 3
-        P3_Opt3['variable'] = Pref_3
+        P3_Opt3['variable'] = self.Pref_3
         P3_Opt3.place(x=385, y=365)
 
         GLabel_851 = tk.Label(self.rootCC)
@@ -331,10 +335,12 @@ class App:
         GLabel_861["text"] = "Charla a bordo:"
         GLabel_861.place(x=35, y=420, width=105, height=30)
 
-        Pref_4 = tk.IntVar()
+        self.Pref_4 = tk.IntVar()
+        self.Pref_4.set(2)
+
         P4_Opt1 = tk.Radiobutton(self.rootCC)
         P4_Opt1['value'] = 1
-        P4_Opt1['variable'] = Pref_4
+        P4_Opt1['variable'] = self.Pref_4
         P4_Opt1.place(x=190, y=415)
 
         GLabel_862 = tk.Label(self.rootCC)
@@ -347,7 +353,7 @@ class App:
 
         P4_Opt2 = tk.Radiobutton(self.rootCC)
         P4_Opt2['value'] = 2
-        P4_Opt2['variable'] = Pref_4
+        P4_Opt2['variable'] = self.Pref_4
         P4_Opt2.place(x=285, y=415)
 
         GLabel_862 = tk.Label(self.rootCC)
@@ -360,7 +366,7 @@ class App:
 
         P4_Opt3 = tk.Radiobutton(self.rootCC)
         P4_Opt3['value'] = 3
-        P4_Opt3['variable'] = Pref_4
+        P4_Opt3['variable'] = self.Pref_4
         P4_Opt3.place(x=385, y=415)
 
         GLabel_863 = tk.Label(self.rootCC)
