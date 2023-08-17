@@ -154,3 +154,46 @@ class App:
         GLineEdit_986["text"] = ""
         GLineEdit_986.place(x=300, y=245, width=130, height=30)
 
+        GLabel_846 = tk.Label(self.rootCC)
+        ft = tkFont.Font(family='Times', size=10)
+        GLabel_846["font"] = ft
+        GLabel_846["fg"] = "#333333"
+        GLabel_846["justify"] = "left"
+        GLabel_846["text"] = "*Preferencias"
+        GLabel_846.place(x=35, y=295, width=75, height=30)
+
+        GLabel_847 = tk.Label(self.rootCC)
+        ft = tkFont.Font(family='Times', size=10)
+        GLabel_847["font"] = ft
+        GLabel_847["fg"] = "#333333"
+        GLabel_847["justify"] = "left"
+        GLabel_847["text"] = "Fumar en el viaje:"
+        GLabel_847.place(x=35, y=315, width=105, height=30)
+
+        Pref_1 = tk.IntVar()
+        P1_Opt1 = tk.Radiobutton(self.rootCC)
+        P1_Opt1['value'] = 1
+        P1_Opt1['variable'] = Pref_1
+        P1_Opt1.place(x=190,y=315)
+
+        GLabel_848 = tk.Label(self.rootCC)
+        ft = tkFont.Font(family='Times', size=10)
+        GLabel_848["font"] = ft
+        GLabel_848["fg"] = "#333333"
+        GLabel_848["justify"] = "left"
+        GLabel_848["text"] = "En desacuerdo"
+        GLabel_848.place(x=145, y=335, width=105, height=30)
+
+        Pref_2 = tk.IntVar()
+        P1_Opt2 = tk.Radiobutton(self.rootCC)
+        P1_Opt2['value'] = 2
+        P1_Opt2['variable'] = Pref_2
+        P1_Opt2.place(x=285, y=315)
+
+        GLabel_848 = tk.Label(self.rootCC)
+        ft = tkFont.Font(family='Times', size=10)
+        GLabel_848["font"] = ft
+        GLabel_848["fg"] = "#333333"
+        GLabel_848["justify"] = "left"
+        GLabel_848["text"] = "Neutro"
+        GLabel_848.place(x=245, y=335, width=105, height=30)
