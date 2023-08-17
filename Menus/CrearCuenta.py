@@ -135,4 +135,22 @@ class App:
         GLineEdit_985["fg"] = "#333333"
         GLineEdit_985["justify"] = "center"
         GLineEdit_985["text"] = ""
-        GLineEdit_985.place(x=100,y=245,width=100,height=30)
+        GLineEdit_985.place(x=100,y=245,width=150,height=30)
+
+        GLabel_846 = tk.Label(self.rootCC)
+        ft = tkFont.Font(family='Times', size=10)
+        GLabel_846["font"] = ft
+        GLabel_846["fg"] = "#333333"
+        GLabel_846["justify"] = "left"
+        GLabel_846["text"] = "*I.D:"
+        GLabel_846.place(x=240, y=245, width=75, height=30)
+
+        GLineEdit_986 = tk.Entry(self.rootCC)
+        GLineEdit_986["borderwidth"] = "1px"
+        ft = tkFont.Font(family='Times', size=10)
+        GLineEdit_986["font"] = ft
+        GLineEdit_986["fg"] = "#333333"
+        GLineEdit_986["justify"] = "center"
+        GLineEdit_986["text"] = ""
+        GLineEdit_986.place(x=300, y=245, width=130, height=30)
+
