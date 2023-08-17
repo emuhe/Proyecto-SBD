@@ -209,3 +209,51 @@ class App:
         GLabel_848["justify"] = "left"
         GLabel_848["text"] = "De Acuerdo"
         GLabel_848.place(x=345, y=335, width=105, height=30)
+
+        GLabel_849 = tk.Label(self.rootCC)
+        ft = tkFont.Font(family='Times', size=10)
+        GLabel_849["font"] = ft
+        GLabel_849["fg"] = "#333333"
+        GLabel_849["justify"] = "left"
+        GLabel_849["text"] = "Mascotas a bordo:"
+        GLabel_849.place(x=35, y=370, width=105, height=30)
+
+        Pref_2 = tk.IntVar()
+        P1_Opt1 = tk.Radiobutton(self.rootCC)
+        P1_Opt1['value'] = 1
+        P1_Opt1['variable'] = Pref_2
+        P1_Opt1.place(x=190, y=365)
+
+        GLabel_849 = tk.Label(self.rootCC)
+        ft = tkFont.Font(family='Times', size=10)
+        GLabel_849["font"] = ft
+        GLabel_849["fg"] = "#333333"
+        GLabel_849["justify"] = "left"
+        GLabel_849["text"] = "En desacuerdo"
+        GLabel_849.place(x=145, y=385, width=105, height=30)
+
+        P2_Opt2 = tk.Radiobutton(self.rootCC)
+        P2_Opt2['value'] = 2
+        P2_Opt2['variable'] = Pref_2
+        P2_Opt2.place(x=285, y=365)
+
+        GLabel_850 = tk.Label(self.rootCC)
+        ft = tkFont.Font(family='Times', size=10)
+        GLabel_850["font"] = ft
+        GLabel_850["fg"] = "#333333"
+        GLabel_850["justify"] = "left"
+        GLabel_850["text"] = "Neutro"
+        GLabel_850.place(x=245, y=385, width=105, height=30)
+
+        P2_Opt3 = tk.Radiobutton(self.rootCC)
+        P2_Opt3['value'] = 3
+        P2_Opt3['variable'] = Pref_2
+        P2_Opt3.place(x=385, y=365)
+
+        GLabel_851 = tk.Label(self.rootCC)
+        ft = tkFont.Font(family='Times', size=10)
+        GLabel_851["font"] = ft
+        GLabel_851["fg"] = "#333333"
+        GLabel_851["justify"] = "left"
+        GLabel_851["text"] = "De Acuerdo"
+        GLabel_851.place(x=345, y=385, width=105, height=30)
