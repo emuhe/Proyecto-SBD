@@ -39,7 +39,7 @@ class MainMenu:
         GLabel_238["font"] = ft
         GLabel_238["fg"] = "#333333"
         GLabel_238["justify"] = "center"
-        GLabel_238["text"] = "Usuario:"
+        GLabel_238["text"] = "Correo:"
         GLabel_238.place(x=80, y=130, width=104, height=32)
 
         GLabel_410 = tk.Label(root)
@@ -47,7 +47,7 @@ class MainMenu:
         GLabel_410["font"] = ft
         GLabel_410["fg"] = "#333333"
         GLabel_410["justify"] = "center"
-        GLabel_410["text"] = "Contraseña:"
+        GLabel_410["text"] = "Nombre:"
         GLabel_410.place(x=50, y=190, width=130, height=33)
 
         self.GLineEdit_742 = tk.Entry(root)
@@ -106,7 +106,12 @@ class MainMenu:
 
     def GButton_748_command(self): #Abrir otra ventana para lo de crear cuenta
         root.destroy()
-        CC()
+        a = CC()
+        print('a')
+        if a:
+            root2 =tk.Tk()
+            app = MainMenu(root2)
+            root2.mainloop()
 
 
 if __name__ == "__main__":

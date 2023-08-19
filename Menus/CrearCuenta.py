@@ -425,7 +425,7 @@ class App:
         GButton_749.place(x=260, y=480, width=120, height=30)
         GButton_749["command"] = self.CrearCuenta
     def CrearCuenta(self):
-        None
+        self.popup()
     def LimpiarDatos(self):
         print('limpio')
         #Limpia Preferencias
@@ -447,3 +447,29 @@ class App:
         if (P.isdigit() or P == "") and len(P) <= 10:
             return True
         return False
+    def popup(self):
+        self.pop = tk.Toplevel(self.rootCC)
+        self.pop.title('Cuenta Creada')
+        width = 300
+        height = 100
+        screenwidth = self.pop.winfo_screenwidth()
+        screenheight = self.pop.winfo_screenheight()
+        alignstr = '%dx%d+%d+%d' % (width, height, (screenwidth - width) / 2, (screenheight - height) / 2)
+        self.pop.geometry(alignstr)
+        self.pop.resizable(width=False, height=False)
+        label = tk.Label(self.pop, text= 'Cuenta creada exitosamente!')
+        label.pack(padx=20)
+        label2 = tk.Label(self.pop, text='Desea ingresar ahora?')
+        label2.pack(padx=20)
+        b1 = tk.Button(self.pop, text = 'Menu principal',command=self.MenuPrincipal)
+        b1.place(x=40, y=50,width=100)
+        b2 = tk.Button(self.pop, text = 'Continuar',command=self.continuar)
+        b2.place(x=160,y=50,width=100)
+        self.pop.grab_set()
+    def MenuPrincipal(self):
+        self.pop.destroy()
+        self.rootCC.destroy()
+        return True
+
+    def continuar(self):
+        None
