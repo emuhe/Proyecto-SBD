@@ -145,7 +145,7 @@ class App:
         GLabel_845.place(x=30, y=215, width=75, height=30)
 
         self.telefono = tk.StringVar()
-
+        self.validate_cmd = self.rootCC.register(self.num_validation)
         GLineEdit_985=tk.Entry(self.rootCC)
         GLineEdit_985["borderwidth"] = "1px"
         ft = tkFont.Font(family='Times',size=10)
@@ -154,6 +154,8 @@ class App:
         GLineEdit_985["justify"] = "center"
         GLineEdit_985["text"] = ""
         GLineEdit_985['textvariable'] = self.telefono
+        GLineEdit_985['validate'] = 'key'
+        GLineEdit_985['validatecommand'] = (self.validate_cmd,'%P')
         GLineEdit_985.place(x=100,y=215,width=150,height=30)
 
         GLabel_846 = tk.Label(self.rootCC)
@@ -174,6 +176,8 @@ class App:
         GLineEdit_986["justify"] = "center"
         GLineEdit_986["text"] = ""
         GLineEdit_986['textvariable'] = self.ID
+        GLineEdit_986['validate'] = "key"
+        GLineEdit_986['validatecommand'] = (self.validate_cmd,'%P')
         GLineEdit_986.place(x=300, y=215, width=130, height=30)
 
         GLabel_846 = tk.Label(self.rootCC)
@@ -439,4 +443,7 @@ class App:
         self.telefono.set('')
         self.GDateEntry.set_date(datetime.today().date())
 
-
+    def num_validation(self,P):
+        if (P.isdigit() or P == "") and len(P) <= 10:
+            return True
+        return False
