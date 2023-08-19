@@ -93,10 +93,12 @@ class App:
         GLabel_842["text"] = "*Fecha de Nacimiento:"
         GLabel_842.place(x=30,y=120,width=135,height=45)
 
-        GDateEntry = DateEntry(self.rootCC)
-        GDateEntry['date_pattern'] = 'DD/MM/YYYY'
-        GDateEntry['maxdate'] = datetime.today().date()
-        GDateEntry.place (x=170,y=125,width=90,height=35)
+
+        self.GDateEntry = DateEntry(self.rootCC)
+        self.GDateEntry['date_pattern'] = 'DD/MM/YYYY'
+        self.GDateEntry['maxdate'] = datetime.today().date()
+        self.GDateEntry.place (x=170,y=125,width=90,height=35)
+
 
         GLabel_843=tk.Label(self.rootCC)
         ft = tkFont.Font(family='Times',size=10)
@@ -142,6 +144,8 @@ class App:
         GLabel_845["text"] = "*Telefono:"
         GLabel_845.place(x=30, y=215, width=75, height=30)
 
+        self.telefono = tk.StringVar()
+
         GLineEdit_985=tk.Entry(self.rootCC)
         GLineEdit_985["borderwidth"] = "1px"
         ft = tkFont.Font(family='Times',size=10)
@@ -149,6 +153,7 @@ class App:
         GLineEdit_985["fg"] = "#333333"
         GLineEdit_985["justify"] = "center"
         GLineEdit_985["text"] = ""
+        GLineEdit_985['textvariable'] = self.telefono
         GLineEdit_985.place(x=100,y=215,width=150,height=30)
 
         GLabel_846 = tk.Label(self.rootCC)
@@ -431,5 +436,7 @@ class App:
         self.genero.set('-Seleccionar-')
         self.direccion.set('')
         self.ID.set('')
+        self.telefono.set('')
+        self.GDateEntry.set_date(datetime.today().date())
 
 
