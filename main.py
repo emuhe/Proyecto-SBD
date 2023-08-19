@@ -1,6 +1,7 @@
 import tkinter as tk
 import tkinter.font as tkFont
 from Menus.CrearCuenta import App as CC
+from Menus.principal import MenuUsuario as MU
 class MainMenu:
     def __init__(self,root):
         # setting title
@@ -103,6 +104,9 @@ class MainMenu:
             self.GLabel_316['text'] = 'Usuario y/o Contraseña incorrecta, intente otra vez '
         else:
             print('abrir')
+            root.destroy()
+            MU()
+
 
     def GButton_748_command(self): #Abrir otra ventana para lo de crear cuenta
         root.destroy()
