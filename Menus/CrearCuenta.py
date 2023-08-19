@@ -4,7 +4,7 @@ import tkinter.font as tkFont
 from tkcalendar import DateEntry
 from datetime import datetime
 import re
-
+from SQL_conection.conector import Conection
 
 class App:
     def __init__(self):
@@ -426,6 +426,9 @@ class App:
         GButton_749["command"] = self.CrearCuenta
     def CrearCuenta(self):
         self.popup()
+        list = [self.Nombre.get(),self.Apellido.get(),self.Correo.get(),self.genero.get(),self.direccion.get(),self.ID.get(),self.telefono.get(),self.GDateEntry.get_date()]
+        Bab = Conection()
+        Bab.Cuentacrear(list)
     def LimpiarDatos(self):
         print('limpio')
         #Limpia Preferencias
@@ -465,7 +468,6 @@ class App:
     def MenuPrincipal(self):
         self.pop.destroy()
         self.rootCC.destroy()
-        return True
 
     def continuar(self):
         None
