@@ -1,11 +1,13 @@
 import tkinter as tk
 import tkinter.font as tkFont
+from Menus.EditarCuenta import EditarCuenta as EC
 
 class MenuUsuario:
     def __init__(self):
         self.rootCC = tk.Tk()
         self.Startup(self.rootCC)
         self.rootCC.mainloop()
+
 
     def Startup(self,rootCC):
         #setting title
@@ -111,7 +113,8 @@ class MenuUsuario:
         print("command")
 
     def GButton_809_command(self):
-        print("command")
+        self.rootCC.destroy()
+        EC()
 
     def GButton_83_command(self):
         print("command")

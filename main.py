@@ -2,6 +2,7 @@ import tkinter as tk
 import tkinter.font as tkFont
 from Menus.CrearCuenta import App as CC
 from Menus.principal import MenuUsuario as MU
+from Menus.EditarCuenta import EditarCuenta as EC
 class MainMenu:
     def __init__(self,root):
         # setting title
