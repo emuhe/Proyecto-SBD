@@ -34,6 +34,7 @@ class MenuUsuario:
         GButton_248["fg"] = "#000000"
         GButton_248["justify"] = "center"
         GButton_248["text"] = "Buscar Viaje"
+        GButton_248["relief"] = "groove"
         GButton_248.place(x=180, y=100, width=112, height=30)
         GButton_248["command"] = self.GButton_248_command
 
@@ -44,6 +45,7 @@ class MenuUsuario:
         GButton_804["fg"] = "#000000"
         GButton_804["justify"] = "center"
         GButton_804["text"] = "Crear Viaje"
+        GButton_804["relief"] = "groove"
         GButton_804.place(x=310, y=100, width=112, height=30)
         GButton_804["command"] = self.GButton_804_command
 
@@ -62,6 +64,7 @@ class MenuUsuario:
         GButton_171["fg"] = "#000000"
         GButton_171["justify"] = "center"
         GButton_171["text"] = "Vehiculos"
+        GButton_171["relief"] = "groove"
         GButton_171.place(x=180, y=210, width=112, height=30)
         GButton_171["command"] = self.GButton_171_command
 
@@ -72,6 +75,7 @@ class MenuUsuario:
         GButton_809["fg"] = "#000000"
         GButton_809["justify"] = "center"
         GButton_809["text"] = "Datos de Cuenta"
+        GButton_809["relief"] = "groove"
         GButton_809.place(x=310, y=210, width=112, height=30)
         GButton_809["command"] = self.GButton_809_command
 
@@ -82,6 +86,7 @@ class MenuUsuario:
         GButton_83["fg"] = "#000000"
         GButton_83["justify"] = "center"
         GButton_83["text"] = "Metodos de pago"
+        GButton_83["relief"] = "groove"
         GButton_83.place(x=250, y=260, width=112, height=30)
         GButton_83["command"] = self.GButton_83_command
 
@@ -92,6 +97,7 @@ class MenuUsuario:
         GButton_923["fg"] = "#000000"
         GButton_923["justify"] = "center"
         GButton_923["text"] = "Historial"
+        GButton_923["relief"] = "groove"
         GButton_923.place(x=250, y=140, width=112, height=30)
         GButton_923["command"] = self.GButton_923_command
 

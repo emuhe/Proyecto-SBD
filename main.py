@@ -98,12 +98,10 @@ class MainMenu:
         self.GLabel_316.place(x=100, y=220, width=313, height=30)
 
     def GButton_760_command(self): #Verificar si los datos ingresados son correctos
-        print("command")
         _mcache = True
         if not _mcache:
             self.GLabel_316['text'] = 'Usuario y/o Contraseña incorrecta, intente otra vez '
         else:
-            print('abrir')
             root.destroy()
             MU()
 
