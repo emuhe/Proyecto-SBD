@@ -36,7 +36,6 @@ class EditarCuenta:
         self.direccion.set('')
         self.ID.set('')
         self.telefono.set('')
-        self.GDateEntry.set_date(datetime.today().date())
         self.Pref_4.set(2)
         self.Pref_3.set(2)
         self.Pref_2.set(2)
@@ -47,6 +46,7 @@ class EditarCuenta:
 
             self.CreateVar()
             self.tim = False
+            self.Change()
         #setting title
         self.rootCC.title("BlaBlaCar - Crear Cuenta")
         #setting window size
