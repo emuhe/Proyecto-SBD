@@ -427,7 +427,7 @@ class EditarCuenta:
         GButton_749["font"] = ft
         GButton_749["fg"] = "#000000"
         GButton_749["justify"] = "center"
-        GButton_749["text"] = "Crear Cuenta"
+        GButton_749["text"] = "Confirmar Cambios"
         GButton_749["relief"] = "groove"
         GButton_749.place(x=200, y=480, width=120, height=30)
         GButton_749["command"] = self.CrearCuenta
@@ -453,10 +453,7 @@ class EditarCuenta:
         b2 = tk.Button(self.pop, text = 'Continuar',command=self.continuar)
         b2.place(x=100,y=50,width=100)
         self.pop.grab_set()
-    def MenuPrincipal(self):
-        self.pop.destroy()
-        self.rootCC.destroy()
-        return True
 
     def continuar(self):
-        None
+        self.pop.destroy()
+        self.rootCC.destroy()

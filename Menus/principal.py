@@ -1,6 +1,6 @@
 import tkinter as tk
 import tkinter.font as tkFont
-from Menus.EditarCuenta import EditarCuenta as EC
+from Menus.EditarCuenta import EditarCuenta as EC #Ignorar lo rojo, la linea funciona correctamente!
 
 class MenuUsuario:
     def __init__(self):
@@ -115,6 +115,7 @@ class MenuUsuario:
     def GButton_809_command(self):
         self.rootCC.destroy()
         EC()
+        MenuUsuario()
 
     def GButton_83_command(self):
         print("command")
