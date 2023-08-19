@@ -106,12 +106,7 @@ class MainMenu:
 
     def GButton_748_command(self): #Abrir otra ventana para lo de crear cuenta
         root.destroy()
-        a = CC()
-        print('a')
-        if a:
-            root2 =tk.Tk()
-            app = MainMenu(root2)
-            root2.mainloop()
+        CC()
 
 
 if __name__ == "__main__":
