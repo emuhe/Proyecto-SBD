@@ -142,12 +142,23 @@ class Vehiculos:
         self.marca.unbind('<Key>')
         self.Fmatricula.unbind('<Key>')
         self.editaract.config(state="disabled")
+        self.nuevoact.config(state="disabled")
+        self.eliminaract.config(state="disabled")
+        self.botlef.config(state="disabled")
+        self.botrig.config(state="disabled")
+
+
         self.Restablecer.config(state="active")
         self.Guardar.config(state="active")
     def Guardar(self):
         self.editaract.config(state='active')
         self.Guardar.config(state="disabled")
         self.Restablecer.config(state="disabled")
+        self.nuevoact.config(state="active")
+        self.eliminaract.config(state="active")
+        self.botlef.config(state="active")
+        self.botrig.config(state="active")
+
 
     def Crear(self):
         None
