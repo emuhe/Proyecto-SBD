@@ -426,7 +426,10 @@ class App:
         GButton_749["command"] = self.CrearCuenta
     def CrearCuenta(self):
         self.popup()
-        list = [self.Nombre.get(),self.Apellido.get(),self.Correo.get(),self.genero.get(),self.direccion.get(),self.ID.get(),self.telefono.get(),self.GDateEntry.get_date()]
+        list = [self.Nombre.get(),self.Apellido.get(),self.Correo.get(),
+                self.genero.get(),self.direccion.get(),self.ID.get(),self.telefono.get(),
+                self.GDateEntry.get_date()
+                ]
         Bab = Conection()
         Bab.Cuentacrear(list)
     def LimpiarDatos(self):

@@ -16,3 +16,13 @@ class Conection:
         print(datos)
         cursor = self.conection.cursor()
         cursor.execute("INSERT INTO dates (nombre,apellido,correo_electronico,genero,cedula,numero_movil,fecha_nacimiento) VALUES (?)", datos)
+    def InicioSesion(self,ID,NOMBRE):
+        cursor = self.conection.cursor()
+        cursor.execute('SELECT id,nombre from usuario where cedula = %s and nombre = %s', (ID,NOMBRE))
+        resultado = cursor.fetchone()
+        print(resultado)
+        cursor.close()
+        if resultado == None:
+            return False,None
+        else:
+            return True,ID

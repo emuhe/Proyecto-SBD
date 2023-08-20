@@ -4,7 +4,7 @@ from Menus.EditarCuenta import EditarCuenta as EC #Ignorar lo rojo, la linea fun
 from Menus.Vehiculos import Vehiculos
 
 class MenuUsuario:
-    def __init__(self):
+    def __init__(self,usuario):
         self.rootCC = tk.Tk()
         self.Startup(self.rootCC)
         self.rootCC.mainloop()

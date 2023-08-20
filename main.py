@@ -3,8 +3,10 @@ import tkinter.font as tkFont
 from Menus.CrearCuenta import App as CC
 from Menus.principal import MenuUsuario as MU
 from Menus.EditarCuenta import EditarCuenta as EC
+from SQL_conection.conector import Conection as SQLC
 class MainMenu:
     def __init__(self,root):
+        self.conect = SQLC()
         # setting title
         root.title("BlaBlaCar")
         # setting window size
@@ -37,19 +39,22 @@ class MainMenu:
         GButton_760["command"] = self.GButton_760_command
 
         GLabel_238 = tk.Label(root)
+        self.Cedula = tk.StringVar()
         ft = tkFont.Font(family='Times', size=18)
         GLabel_238["font"] = ft
         GLabel_238["fg"] = "#333333"
         GLabel_238["justify"] = "center"
-        GLabel_238["text"] = "Correo:"
+        GLabel_238["text"] = "Cedula:"
         GLabel_238.place(x=80, y=130, width=104, height=32)
 
         GLabel_410 = tk.Label(root)
+        self.Nombre = tk.StringVar()
         ft = tkFont.Font(family='Times', size=18)
         GLabel_410["font"] = ft
         GLabel_410["fg"] = "#333333"
         GLabel_410["justify"] = "center"
         GLabel_410["text"] = "Nombre:"
+
         GLabel_410.place(x=50, y=190, width=130, height=33)
 
         self.GLineEdit_742 = tk.Entry(root)
@@ -59,6 +64,8 @@ class MainMenu:
         self.GLineEdit_742["fg"] = "#333333"
         self.GLineEdit_742["justify"] = "center"
         self.GLineEdit_742["text"] = ""
+        self.GLineEdit_742['textvariable'] = self.Cedula
+
         self.GLineEdit_742.place(x=220, y=130, width=179, height=31)
 
         self.GLineEdit_325 = tk.Entry(root)
@@ -68,7 +75,7 @@ class MainMenu:
         self.GLineEdit_325["fg"] = "#333333"
         self.GLineEdit_325["justify"] = "center"
         self.GLineEdit_325["text"] = ""
-        self.GLineEdit_325['show'] = '*'
+        self.GLineEdit_325['textvariable'] = self.Nombre
         self.GLineEdit_325.place(x=220, y=190, width=179, height=30)
 
         GLabel_803 = tk.Label(root)
@@ -99,12 +106,13 @@ class MainMenu:
         self.GLabel_316.place(x=100, y=220, width=313, height=30)
 
     def GButton_760_command(self): #Verificar si los datos ingresados son correctos
-        _mcache = True
-        if not _mcache:
-            self.GLabel_316['text'] = 'Usuario y/o Contraseña incorrecta, intente otra vez '
-        else:
+        _mcache,ID = self.conect.InicioSesion(self.Cedula.get(),self.Nombre.get())
+        print(_mcache)
+        if _mcache:
             root.destroy()
-            MU()
+            MU(ID)
+        else:
+            self.GLabel_316['text'] = 'Usuario y/o Contraseña incorrecta, intente otra vez '
 
 
     def GButton_748_command(self): #Abrir otra ventana para lo de crear cuenta
