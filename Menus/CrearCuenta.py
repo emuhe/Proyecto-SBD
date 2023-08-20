@@ -1,10 +1,13 @@
 import tkinter as tk
 from tkinter import ttk
+import re
 import tkinter.font as tkFont
 from tkcalendar import DateEntry
-from datetime import datetime
-import re
+from datetime import date,timedelta
 from SQL_conection.conector import Conection
+from Menus.principal import MenuUsuario as MU
+
+pattern = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
 
 class App:
     def __init__(self):
@@ -96,7 +99,8 @@ class App:
 
         self.GDateEntry = DateEntry(self.rootCC)
         self.GDateEntry['date_pattern'] = 'DD/MM/YYYY'
-        self.GDateEntry['maxdate'] = datetime.today().date()
+        self.GDateEntry['maxdate'] = date.today()- timedelta(days=18*365.25)
+        self.GDateEntry.set_date(date.today()- timedelta(days=18*365.25))
         self.GDateEntry.place (x=170,y=125,width=90,height=35)
 
 
@@ -111,7 +115,7 @@ class App:
         self.genero = tk.StringVar()
         GComboBox = ttk.Combobox(self.rootCC)
         GComboBox['textvariable'] = self.genero
-        GComboBox['values'] = ['-Seleccionar-','Hombre','Mujer','Otro']
+        GComboBox['values'] = ['-Seleccionar-','Masculino','Femenino']
         GComboBox['state'] = 'readonly'
         self.genero.set('-Seleccionar-')
         GComboBox.place(x=335,y=125,width=100,height=35)
@@ -185,8 +189,11 @@ class App:
         GLabel_846["font"] = ft
         GLabel_846["fg"] = "#333333"
         GLabel_846["justify"] = "left"
-        GLabel_846["text"] = "*Preferencias"
-        GLabel_846.place(x=35, y=245, width=75, height=30)
+        GLabel_846["text"] = "*Mini-Biografia:"
+        GLabel_846.place(x=30, y=250)
+
+        self.text_entry = tk.Text(self.rootCC,width = 50, height= 3)
+        self.text_entry.place(x= 30, y = 270)
 
         #######################################################
         #  ----------------- SEPARACION --------------------- #
@@ -197,211 +204,18 @@ class App:
         GLabel_847["font"] = ft
         GLabel_847["fg"] = "#333333"
         GLabel_847["justify"] = "left"
-        GLabel_847["text"] = "Fumar en el viaje:"
-        GLabel_847.place(x=35, y=270, width=105, height=30)
+        GLabel_847["text"] = "Cual es su preferencia:"
+        GLabel_847.place(x=30, y=330, height=30)
 
-        self.Pref_1 = tk.IntVar()
-        self.Pref_1.set(2)
-        P1_Opt1 = tk.Radiobutton(self.rootCC)
-        P1_Opt1['value'] = 1
-        P1_Opt1['variable'] = self.Pref_1
-        P1_Opt1.place(x=190,y=265)
+        self.preferencia = tk.StringVar()
+        Preferenc = ttk.Combobox(self.rootCC)
+        Preferenc['textvariable'] = self.preferencia
+        Preferenc['values'] = ['Fumar', 'Mascotas', 'Musica', 'Conversacion']
+        Preferenc['state'] = 'readonly'
+        self.preferencia.set('-Seleccionar-')
+        Preferenc.place(x=160, y=333)
 
-        GLabel_848 = tk.Label(self.rootCC)
-        ft = tkFont.Font(family='Times', size=10)
-        GLabel_848["font"] = ft
-        GLabel_848["fg"] = "#333333"
-        GLabel_848["justify"] = "left"
-        GLabel_848["text"] = "En desacuerdo"
-        GLabel_848.place(x=145, y=285, width=105, height=30)
 
-        P1_Opt2 = tk.Radiobutton(self.rootCC)
-        P1_Opt2['value'] = 2
-        P1_Opt2['variable'] = self.Pref_1
-        P1_Opt2.place(x=285, y=265)
-
-        GLabel_848 = tk.Label(self.rootCC)
-        ft = tkFont.Font(family='Times', size=10)
-        GLabel_848["font"] = ft
-        GLabel_848["fg"] = "#333333"
-        GLabel_848["justify"] = "left"
-        GLabel_848["text"] = "Neutro"
-        GLabel_848.place(x=245, y=285, width=105, height=30)
-
-        P1_Opt3 = tk.Radiobutton(self.rootCC)
-        P1_Opt3['value'] = 3
-        P1_Opt3['variable'] = self.Pref_1
-        P1_Opt3.place(x=385, y=265)
-
-        GLabel_848 = tk.Label(self.rootCC)
-        ft = tkFont.Font(family='Times', size=10)
-        GLabel_848["font"] = ft
-        GLabel_848["fg"] = "#333333"
-        GLabel_848["justify"] = "left"
-        GLabel_848["text"] = "De Acuerdo"
-        GLabel_848.place(x=345, y=285, width=105, height=30)
-
-        #######################################################
-        #  ----------------- SEPARACION --------------------- #
-        #######################################################
-
-        GLabel_849 = tk.Label(self.rootCC)
-        ft = tkFont.Font(family='Times', size=10)
-        GLabel_849["font"] = ft
-        GLabel_849["fg"] = "#333333"
-        GLabel_849["justify"] = "left"
-        GLabel_849["text"] = "Mascotas a bordo:"
-        GLabel_849.place(x=35, y=320, width=105, height=30)
-
-        self.Pref_2 = tk.IntVar()
-        self.Pref_2.set(2)
-
-        P2_Opt1 = tk.Radiobutton(self.rootCC)
-        P2_Opt1['value'] = 1
-        P2_Opt1['variable'] = self.Pref_2
-        P2_Opt1.place(x=190, y=315)
-
-        GLabel_849 = tk.Label(self.rootCC)
-        ft = tkFont.Font(family='Times', size=10)
-        GLabel_849["font"] = ft
-        GLabel_849["fg"] = "#333333"
-        GLabel_849["justify"] = "left"
-        GLabel_849["text"] = "En desacuerdo"
-        GLabel_849.place(x=145, y=335, width=105, height=30)
-
-        P2_Opt2 = tk.Radiobutton(self.rootCC)
-        P2_Opt2['value'] = 2
-        P2_Opt2['variable'] = self.Pref_2
-        P2_Opt2.place(x=285, y=315)
-
-        GLabel_850 = tk.Label(self.rootCC)
-        ft = tkFont.Font(family='Times', size=10)
-        GLabel_850["font"] = ft
-        GLabel_850["fg"] = "#333333"
-        GLabel_850["justify"] = "left"
-        GLabel_850["text"] = "Neutro"
-        GLabel_850.place(x=245, y=335, width=105, height=30)
-
-        P2_Opt3 = tk.Radiobutton(self.rootCC)
-        P2_Opt3['value'] = 3
-        P2_Opt3['variable'] = self.Pref_2
-        P2_Opt3.place(x=385, y=315)
-
-        GLabel_851 = tk.Label(self.rootCC)
-        ft = tkFont.Font(family='Times', size=10)
-        GLabel_851["font"] = ft
-        GLabel_851["fg"] = "#333333"
-        GLabel_851["justify"] = "left"
-        GLabel_851["text"] = "De Acuerdo"
-        GLabel_851.place(x=345, y=335, width=105, height=30)
-
-        #######################################################
-        #  ----------------- SEPARACION --------------------- #
-        #######################################################
-
-        GLabel_860 = tk.Label(self.rootCC)
-        ft = tkFont.Font(family='Times', size=10)
-        GLabel_860["font"] = ft
-        GLabel_860["fg"] = "#333333"
-        GLabel_860["justify"] = "left"
-        GLabel_860["text"] = "Musica a Bordo:"
-        GLabel_860.place(x=35, y=370, width=105, height=30)
-
-        self.Pref_3 = tk.IntVar()
-        self.Pref_3.set(2)
-
-        P3_Opt1 = tk.Radiobutton(self.rootCC)
-        P3_Opt1['value'] = 1
-        P3_Opt1['variable'] = self.Pref_3
-        P3_Opt1.place(x=190, y=365)
-
-        GLabel_849 = tk.Label(self.rootCC)
-        ft = tkFont.Font(family='Times', size=10)
-        GLabel_849["font"] = ft
-        GLabel_849["fg"] = "#333333"
-        GLabel_849["justify"] = "left"
-        GLabel_849["text"] = "En desacuerdo"
-        GLabel_849.place(x=145, y=385, width=105, height=30)
-
-        P3_Opt2 = tk.Radiobutton(self.rootCC)
-        P3_Opt2['value'] = 2
-        P3_Opt2['variable'] = self.Pref_3
-        P3_Opt2.place(x=285, y=365)
-
-        GLabel_850 = tk.Label(self.rootCC)
-        ft = tkFont.Font(family='Times', size=10)
-        GLabel_850["font"] = ft
-        GLabel_850["fg"] = "#333333"
-        GLabel_850["justify"] = "left"
-        GLabel_850["text"] = "Neutro"
-        GLabel_850.place(x=245, y=385, width=105, height=30)
-
-        P3_Opt3 = tk.Radiobutton(self.rootCC)
-        P3_Opt3['value'] = 3
-        P3_Opt3['variable'] = self.Pref_3
-        P3_Opt3.place(x=385, y=365)
-
-        GLabel_851 = tk.Label(self.rootCC)
-        ft = tkFont.Font(family='Times', size=10)
-        GLabel_851["font"] = ft
-        GLabel_851["fg"] = "#333333"
-        GLabel_851["justify"] = "left"
-        GLabel_851["text"] = "De Acuerdo"
-        GLabel_851.place(x=345, y=385, width=105, height=30)
-
-        #######################################################
-        #  ----------------- SEPARACION --------------------- #
-        #######################################################
-
-        GLabel_861 = tk.Label(self.rootCC)
-        ft = tkFont.Font(family='Times', size=10)
-        GLabel_861["font"] = ft
-        GLabel_861["fg"] = "#333333"
-        GLabel_861["justify"] = "left"
-        GLabel_861["text"] = "Charla a bordo:"
-        GLabel_861.place(x=35, y=420, width=105, height=30)
-
-        self.Pref_4 = tk.IntVar()
-        self.Pref_4.set(2)
-
-        P4_Opt1 = tk.Radiobutton(self.rootCC)
-        P4_Opt1['value'] = 1
-        P4_Opt1['variable'] = self.Pref_4
-        P4_Opt1.place(x=190, y=415)
-
-        GLabel_862 = tk.Label(self.rootCC)
-        ft = tkFont.Font(family='Times', size=10)
-        GLabel_862["font"] = ft
-        GLabel_862["fg"] = "#333333"
-        GLabel_862["justify"] = "left"
-        GLabel_862["text"] = "En desacuerdo"
-        GLabel_862.place(x=145, y=435, width=105, height=30)
-
-        P4_Opt2 = tk.Radiobutton(self.rootCC)
-        P4_Opt2['value'] = 2
-        P4_Opt2['variable'] = self.Pref_4
-        P4_Opt2.place(x=285, y=415)
-
-        GLabel_862 = tk.Label(self.rootCC)
-        ft = tkFont.Font(family='Times', size=10)
-        GLabel_862["font"] = ft
-        GLabel_862["fg"] = "#333333"
-        GLabel_862["justify"] = "left"
-        GLabel_862["text"] = "Neutro"
-        GLabel_862.place(x=245, y=435, width=105, height=30)
-
-        P4_Opt3 = tk.Radiobutton(self.rootCC)
-        P4_Opt3['value'] = 3
-        P4_Opt3['variable'] = self.Pref_4
-        P4_Opt3.place(x=385, y=415)
-
-        GLabel_863 = tk.Label(self.rootCC)
-        ft = tkFont.Font(family='Times', size=10)
-        GLabel_863["font"] = ft
-        GLabel_863["fg"] = "#333333"
-        GLabel_863["justify"] = "left"
-        GLabel_863["text"] = "De Acuerdo"
-        GLabel_863.place(x=345, y=435, width=105, height=30)
 
         GButton_748 = tk.Button(self.rootCC)
         GButton_748["bg"] = "#f0f0f0"
@@ -425,21 +239,18 @@ class App:
         GButton_749.place(x=260, y=480, width=120, height=30)
         GButton_749["command"] = self.CrearCuenta
     def CrearCuenta(self):
-        self.popup()
-        list = [self.Nombre.get(),self.Apellido.get(),self.Correo.get(),
-                self.genero.get(),self.direccion.get(),self.ID.get(),self.telefono.get(),
-                self.GDateEntry.get_date()
-                ]
-        Bab = Conection()
-        Bab.Cuentacrear(list)
+        print('hi')
+        self.ValidarCont()
+        if self.Valid:
+            self.popup()
+            list = [0,self.Nombre.get(),self.Apellido.get(),self.preferencia.get(),None,
+                    self.text_entry.get("1.0", "end-1c"),self.ID.get(),
+                    self.genero.get(),self.direccion.get(),
+                    self.GDateEntry.get_date(),self.telefono.get(),'pasajero',self.Correo.get(),9,9]
+            Bab = Conection()
+            Bab.Cuentacrear(list)
     def LimpiarDatos(self):
-        print('limpio')
-        #Limpia Preferencias
-        self.Pref_4.set(2)
-        self.Pref_3.set(2)
-        self.Pref_2.set(2)
-        self.Pref_1.set(2)
-        #Limpia Entradas de texto
+        self.preferencia.set('-Seleccionar-')
         self.Nombre.set('')
         self.Apellido.set('')
         self.Correo.set('')
@@ -447,7 +258,8 @@ class App:
         self.direccion.set('')
         self.ID.set('')
         self.telefono.set('')
-        self.GDateEntry.set_date(datetime.today().date())
+        self.GDateEntry.set_date(date.today()- timedelta(days=18*365.25))
+        self.text_entry.delete("1.0", "end")
 
     def num_validation(self,P):
         if (P.isdigit() or P == "") and len(P) <= 10:
@@ -473,4 +285,16 @@ class App:
         self.rootCC.destroy()
 
     def continuar(self):
-        None
+        self.rootCC.destroy()
+        MU(self.ID.get())
+
+    def ValidarCont(self):
+        print(self.Nombre.get())
+        if (self.Nombre.get() == '' or any(char.isdigit() for char in self.Nombre.get()))\
+                or (self.Apellido.get() == '' or any(char.isdigit() for char in self.Apellido.get()))\
+                or (self.Correo.get() == '' or not bool(re.match(pattern, self.Correo.get())))\
+                or self.preferencia.get() == '-Seleccionar-':
+            print('invalid')
+            self.Valid = False
+        else:
+            self.Valid = True
