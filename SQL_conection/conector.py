@@ -15,7 +15,8 @@ class Conection:
         #nombre,apellido,correo,genero,direccion,ID,telefono,fecha-nac
         print(datos)
         cursor = self.conection.cursor()
-        cursor.execute("INSERT INTO dates (nombre,apellido,correo_electronico,genero,cedula,numero_movil,fecha_nacimiento) VALUES (?)", datos)
+        cursor.execute("INSERT INTO usuario VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)", datos)
+        cursor.close()
     def InicioSesion(self,ID,NOMBRE):
         cursor = self.conection.cursor()
         cursor.execute('SELECT id,nombre from usuario where cedula = %s and nombre = %s', (ID,NOMBRE))
@@ -26,3 +27,10 @@ class Conection:
             return False,None
         else:
             return True,ID
+    def Autos(self,ID):
+        print(ID)
+        cursor = self.conection.cursor()
+        cursor.execute('SELECT v.MODELO,v.MARCA,v.FECHA_MATRICULA,v.TIPO_VEHICULO,v.COLOR,v.PLACA,v.ACTIVO FROM VEHICULO V JOIN vehiculo_conductor vd on v.id = vd.vehiculo_id JOIN usuario u on u.id = vd.conductor_id where u.cedula = %s', (ID,))
+        datos = cursor.fetchall()
+        cursor.close()
+        return datos
