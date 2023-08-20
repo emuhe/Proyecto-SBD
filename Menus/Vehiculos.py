@@ -27,28 +27,29 @@ class Vehiculos:
         self.rootCC.resizable(width=False, height=False)
 
         frame = tk.Frame(rootCC, relief= 'solid',width= 500, height= 200, bd= 1)
-        frame.pack(pady=40,padx=20)
+        frame.pack(pady=20,padx=20)
         frame.grid_propagate(False)
-
+        label0 = tk.Label(frame,text = 'VEHICULO 1')
+        label0.grid(column=0,row=0,columnspan=5,pady=10)
         label1 = tk.Label(frame,text='PLACA:')
-        label1.grid(column=0,row=0,padx=5,pady=5)
+        label1.grid(column=0,row=1,padx=5,pady=5)
         placa = tk.Entry(frame)
-        placa.grid(column=1,row=0,padx=5,pady=5)
+        placa.grid(column=1,row=1,padx=5,pady=5)
         placa.insert(0, "Holder")
         placa.bind("<Key>", block_input)
         flab = tk.Label(frame, text='')
-        flab.grid(column=2, row=0, padx=1,pady=5)
+        flab.grid(column=2, row=1, padx=1,pady=5)
         label2 = tk.Label(frame,text='MARCA:')
-        label2.grid(column=3,row=0,padx=10,pady=5)
+        label2.grid(column=3,row=1,padx=10,pady=5)
 
 
         marca = tk.Entry(frame)
-        marca.grid(column=4, row=0,padx=5,pady=5)
+        marca.grid(column=4, row=1,padx=5,pady=5)
         marca.insert(0, "Holder1")
         marca.bind("<Key>", block_input)
 
         label3 = tk.Label(frame, text='TIPO:')
-        label3.grid(column=0,row=1,padx=5,pady=5)
+        label3.grid(column=0,row=2,padx=5,pady=5)
 
         self.Tipo = tk.StringVar()
         self.Tipo.set('Otro')
@@ -56,27 +57,27 @@ class Vehiculos:
         GComboBox['textvariable'] = self.Tipo
         GComboBox['values'] = ['SUV', 'Sedan', 'Camioneta', 'Deportivo', 'Crossover','Otro']
         GComboBox['state'] = 'disabled'
-        GComboBox.grid(column = 1, row = 1, padx= 5, pady=10)
+        GComboBox.grid(column = 1, row = 2, padx= 5, pady=10)
 
         label4 = tk.Label(frame, text = 'COLOR:')
-        label4.grid(column=3,row=1,pady=5,padx=5)
+        label4.grid(column=3,row=2,pady=5,padx=5)
 
         Color = tk.Entry(frame)
-        Color.grid(column=4, row=1, padx=5, pady=5)
+        Color.grid(column=4, row=2, padx=5, pady=5)
         Color.insert(0, "Holder2")
         Color.bind("<Key>", block_input)
 
         label5 = tk.Label(frame,text='F. MATRICULA:')
-        label5.grid(column=0,row=2,padx=2,pady=5)
+        label5.grid(column=0,row=3,padx=2,pady=5)
 
 
         Fmatricula = tk.Entry(frame)
-        Fmatricula.grid(column=1, row=2,padx=5,pady=5)
+        Fmatricula.grid(column=1, row=3,padx=5,pady=5)
         Fmatricula.insert(0, "Holder3")
         Fmatricula.bind("<Key>", block_input)
 
         label6 = tk.Label(frame, text='ESTADO:')
-        label6.grid(column=3, row=2, padx=2, pady=5)
+        label6.grid(column=3, row=3, padx=2, pady=5)
         EstdCol = 'red'
         Estad = 'ACTIVO'
         if Estad == 'ACTIVO':
@@ -85,7 +86,26 @@ class Vehiculos:
             EstdCol = 'red'
 
         Fmatricula = tk.Label(frame)
-        Fmatricula.grid(column=4, row=2, padx=5, pady=5)
+        Fmatricula.grid(column=4, row=3, padx=5, pady=5)
         Fmatricula['text'] = Estad
         Fmatricula['fg'] = EstdCol
         Fmatricula.bind("<Key>", block_input)
+
+        frame2 = tk.Frame(rootCC)
+        frame2.pack()
+
+        label01 = tk.Label(frame2,text=' ')
+
+        label01.grid(column=0,row=0,padx=100)
+
+        eliminaract = tk.Button(frame2)
+        eliminaract['text'] = 'Eliminar'
+        eliminaract.grid(column=1,row=0,padx=5)
+
+        editaract = tk.Button(frame2)
+        editaract['text'] = 'Editar'
+        editaract.grid(column=2, row=0,padx=5)
+
+        nuevoact = tk.Button(frame2)
+        nuevoact['text'] = 'Nuevo'
+        nuevoact.grid(column=3, row=0, padx=5)
