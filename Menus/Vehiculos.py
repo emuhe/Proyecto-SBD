@@ -36,18 +36,56 @@ class Vehiculos:
         placa.grid(column=1,row=0,padx=5,pady=5)
         placa.insert(0, "Holder")
         placa.bind("<Key>", block_input)
-        flab = tk.Label(frame, text='  ')
-        flab.grid(column=2, row=0, padx=5,pady=5)
+        flab = tk.Label(frame, text='')
+        flab.grid(column=2, row=0, padx=1,pady=5)
         label2 = tk.Label(frame,text='MARCA:')
-        label2.grid(column=3,row=0,padx=20,pady=5)
+        label2.grid(column=3,row=0,padx=10,pady=5)
 
 
         marca = tk.Entry(frame)
-        marca['text'] = 'PLACEHOLDER'
         marca.grid(column=4, row=0,padx=5,pady=5)
-        marca.insert(0, "Holder2")
+        marca.insert(0, "Holder1")
         marca.bind("<Key>", block_input)
 
         label3 = tk.Label(frame, text='TIPO:')
         label3.grid(column=0,row=1,padx=5,pady=5)
 
+        self.Tipo = tk.StringVar()
+        self.Tipo.set('Otro')
+        GComboBox = ttk.Combobox(frame)
+        GComboBox['textvariable'] = self.Tipo
+        GComboBox['values'] = ['SUV', 'Sedan', 'Camioneta', 'Deportivo', 'Crossover','Otro']
+        GComboBox['state'] = 'disabled'
+        GComboBox.grid(column = 1, row = 1, padx= 5, pady=10)
+
+        label4 = tk.Label(frame, text = 'COLOR:')
+        label4.grid(column=3,row=1,pady=5,padx=5)
+
+        Color = tk.Entry(frame)
+        Color.grid(column=4, row=1, padx=5, pady=5)
+        Color.insert(0, "Holder2")
+        Color.bind("<Key>", block_input)
+
+        label5 = tk.Label(frame,text='F. MATRICULA:')
+        label5.grid(column=0,row=2,padx=2,pady=5)
+
+
+        Fmatricula = tk.Entry(frame)
+        Fmatricula.grid(column=1, row=2,padx=5,pady=5)
+        Fmatricula.insert(0, "Holder3")
+        Fmatricula.bind("<Key>", block_input)
+
+        label6 = tk.Label(frame, text='ESTADO:')
+        label6.grid(column=3, row=2, padx=2, pady=5)
+        EstdCol = 'red'
+        Estad = 'ACTIVO'
+        if Estad == 'ACTIVO':
+            EstdCol = 'green'
+        elif Estad == 'INACTIVO':
+            EstdCol = 'red'
+
+        Fmatricula = tk.Label(frame)
+        Fmatricula.grid(column=4, row=2, padx=5, pady=5)
+        Fmatricula['text'] = Estad
+        Fmatricula['fg'] = EstdCol
+        Fmatricula.bind("<Key>", block_input)
