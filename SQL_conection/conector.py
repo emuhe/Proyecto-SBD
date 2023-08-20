@@ -19,10 +19,11 @@ class Conection:
         query = ''
 
     def Cuentacrear(self,datos):
-        #nombre,apellido,correo,genero,direccion,ID,telefono,fecha-nac
         print(datos)
         cursor = self.conection.cursor()
-        cursor.execute("INSERT INTO usuario VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)", datos)
+        cursor.execute("INSERT INTO tarjeta_credito (id,nombre_titular,fecha_expiracion,numero_tarjeta,codigo_ccv) VALUES (%s,%s,%s,%s,%s)",(0,None,None,None,'000'))
+        cursor.execute("INSERT INTO usuario (id,nombre,apellido,preferencia,ruta_foto,perfil,minibiografia,cedula,genero,direccion,fecha_nacimiento,numero_movil,rol,correo_electronico,cuenta_banco_id,tarjeta_credito_id) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)", datos)
+
         cursor.close()
     def InicioSesion(self,ID,NOMBRE):
         cursor = self.conection.cursor()
@@ -33,11 +34,10 @@ class Conection:
         if resultado == None:
             return False,None
         else:
-            return True,ID
+            return True,resultado[0]
     def Autos(self,ID):
-        print(ID)
         cursor = self.conection.cursor()
-        cursor.execute('SELECT v.MODELO,v.MARCA,v.FECHA_MATRICULA,v.TIPO_VEHICULO,v.COLOR,v.PLACA,v.ACTIVO FROM VEHICULO V JOIN vehiculo_conductor vd on v.id = vd.vehiculo_id JOIN usuario u on u.id = vd.conductor_id where u.cedula = %s', (ID,))
+        cursor.execute('SELECT v.MODELO,v.MARCA,v.FECHA_MATRICULA,v.TIPO_VEHICULO,v.COLOR,v.PLACA,v.ACTIVO,v.ID FROM VEHICULO V JOIN vehiculo_conductor vd on v.id = vd.vehiculo_id where vd.conductor_id = %s', (ID,))
         datos = cursor.fetchall()
         cursor.close()
         return datos

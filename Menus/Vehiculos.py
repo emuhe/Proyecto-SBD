@@ -3,6 +3,8 @@ from tkinter import ttk
 import tkinter.font as tkFont
 from tkcalendar import DateEntry
 from datetime import datetime
+from tkcalendar import DateEntry
+from datetime import date,timedelta
 import re
 from SQL_conection.conector import Conection as CN
 
@@ -80,13 +82,11 @@ class Vehiculos:
         label5 = tk.Label(frame,text='F. MATRICULA:')
         label5.grid(column=0,row=3,padx=2,pady=5)
 
-        self.FmatriVar = tk.StringVar()
-        self.FmatriVar.set(self.Carros[0][2])
-
-        self.Fmatricula = tk.Entry(frame)
-        self.Fmatricula.grid(column=1, row=3,padx=5,pady=5)
-        self.Fmatricula['textvariable'] = self.FmatriVar
-        self.Fmatricula.bind("<Key>", block_input)
+        self.Fmatricula = DateEntry(frame)
+        self.Fmatricula['date_pattern'] = 'DD/MM/YYYY'
+        self.Fmatricula['maxdate'] = date.today()
+        self.Fmatricula.set_date(self.Carros[0][2])
+        self.Fmatricula.grid(column=1, row=3, padx=5, pady=5)
 
         label6 = tk.Label(frame, text='ESTADO:')
         label6.grid(column=3, row=3, padx=2, pady=5)
@@ -133,6 +133,7 @@ class Vehiculos:
 
         self.nuevoact = tk.Button(frame2)
         self.nuevoact['text'] = 'Nuevo'
+        self.nuevoact['command'] = self.Crear
         self.nuevoact.grid(column=3, row=0, padx=5)
 
         label02 = tk.Label(frame2,text=' ')
@@ -149,6 +150,7 @@ class Vehiculos:
     def Elimiar(self):
         None
     def Editar(self):
+        self._cache = False
         self.placa.unbind('<Key>')
         self.Color.unbind('<Key>')
         self.marca.unbind('<Key>')
@@ -158,7 +160,6 @@ class Vehiculos:
         self.eliminaract.config(state="disabled")
         self.botlef.config(state="disabled")
         self.botrig.config(state="disabled")
-
 
         self.Restablecer.config(state="active")
         self.Guardar.config(state="active")
@@ -171,8 +172,29 @@ class Vehiculos:
         self.botlef.config(state="active")
         self.botrig.config(state="active")
 
+        if self._cache:
+            None
+
     def Crear(self):
-        None
+        self._cache = True
+        self.placa.unbind('<Key>')
+        self.Color.unbind('<Key>')
+        self.marca.unbind('<Key>')
+        self.Fmatricula.unbind('<Key>')
+        self.editaract.config(state="disabled")
+        self.nuevoact.config(state="disabled")
+        self.eliminaract.config(state="disabled")
+        self.botlef.config(state="disabled")
+        self.botrig.config(state="disabled")
+
+        self.Restablecer.config(state="active")
+        self.Guardar.config(state="active")
+
+        self.PlacaVar.set('')
+        self.ColorVar.set('')
+        self.MarcaVar.set('')
+        self.FmatriVar.set('')
+        self.Fmatricula.set_date(date.today())
 
     def ConseguirDatos(self):
         a = CN()

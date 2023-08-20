@@ -5,6 +5,7 @@ from Menus.Vehiculos import Vehiculos
 
 class MenuUsuario:
     def __init__(self,usuario):
+        self.user = usuario
         self.rootCC = tk.Tk()
         self.Startup(self.rootCC)
         self.rootCC.mainloop()
@@ -113,13 +114,13 @@ class MenuUsuario:
     def GButton_171_command(self):
         print("command")
         self.rootCC.destroy()
-        Vehiculos()
-        MenuUsuario()
+        Vehiculos(self.user)
+        MenuUsuario(self.user)
 
     def GButton_809_command(self):
         self.rootCC.destroy()
         EC()
-        MenuUsuario()
+        MenuUsuario(self.user)
 
     def GButton_83_command(self):
         print("command")
