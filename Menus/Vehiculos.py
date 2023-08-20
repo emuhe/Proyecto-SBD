@@ -1,11 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
-import tkinter.font as tkFont
 from tkcalendar import DateEntry
-from datetime import datetime
-from tkcalendar import DateEntry
-from datetime import date,timedelta
-import re
+from datetime import date
 from SQL_conection.conector import Conection as CN
 
 class Vehiculos:
@@ -16,6 +12,7 @@ class Vehiculos:
         self.rootCC.mainloop()
 
     def Startup(self,rootCC):
+        self.Car_count = 0
         def block_input(event):
             return "break"
         #setting title
@@ -101,9 +98,18 @@ class Vehiculos:
         self.Estado.grid(column=4, row=3, padx=5, pady=5)
         self.Estado['text'] = Estad
         self.Estado['fg'] = EstdCol
-        self.Estado.bind("<Key>", block_input)
-        self.label04 = tk.Label(frame, text=' ')
+        self.label04 = tk.Label(frame, text='MODELO:')
         self.label04.grid(column=0, row=4)
+
+        self.ModeloVar = tk.StringVar()
+        self.ModeloVar.set(self.Carros[0][0])
+        self.Modelo = tk.Entry(frame)
+        self.Modelo = tk.Entry(frame)
+        self.Modelo.grid(column=1, row=4, padx=5)
+        self.Modelo['textvariable'] = self.ModeloVar
+        self.Modelo.bind("<Key>", block_input)
+
+
         frame3 = tk.Frame(frame,width=400,height=30)
         frame3.grid(column=0,row=5,columnspan=5)
         frame3.pack_propagate(False)
@@ -148,22 +154,31 @@ class Vehiculos:
         self.botrig.grid(column=6, row=0, padx=1)
 
     def Elimiar(self):
-        None
+        self.PlacaVar.set('')
+        self.ColorVar.set('')
+        self.MarcaVar.set('')
+        self.ModeloVar.set('')
+        self.Fmatricula.set_date(date.today())
     def Editar(self):
         self._cache = False
+        self.PermitirMod()
+    def PermitirMod(self):
         self.placa.unbind('<Key>')
         self.Color.unbind('<Key>')
         self.marca.unbind('<Key>')
-        self.Fmatricula.unbind('<Key>')
+        self.Modelo.unbind('<Key>')
         self.editaract.config(state="disabled")
         self.nuevoact.config(state="disabled")
         self.eliminaract.config(state="disabled")
         self.botlef.config(state="disabled")
         self.botrig.config(state="disabled")
-
         self.Restablecer.config(state="active")
         self.Guardar.config(state="active")
     def Guardar(self):
+
+        def block_input(event):
+            return "break"
+
         self.editaract.config(state='active')
         self.Guardar.config(state="disabled")
         self.Restablecer.config(state="disabled")
@@ -171,34 +186,26 @@ class Vehiculos:
         self.eliminaract.config(state="active")
         self.botlef.config(state="active")
         self.botrig.config(state="active")
+        self.Modelo.bind("<Key>", block_input)
+        self.placa.bind("<Key>", block_input)
+        self.Color.bind("<Key>", block_input)
+        self.marca.bind("<Key>", block_input)
 
+        datos = ['','']
+#v.MODELO,v.MARCA,v.FECHA_MATRICULA,v.TIPO_VEHICULO,v.COLOR,v.PLACA,v.ACTIVO,v.ID
         if self._cache:
             None
 
     def Crear(self):
-        self._cache = True
-        self.placa.unbind('<Key>')
-        self.Color.unbind('<Key>')
-        self.marca.unbind('<Key>')
-        self.Fmatricula.unbind('<Key>')
-        self.editaract.config(state="disabled")
-        self.nuevoact.config(state="disabled")
-        self.eliminaract.config(state="disabled")
-        self.botlef.config(state="disabled")
-        self.botrig.config(state="disabled")
+        self.PermitirMod()
 
-        self.Restablecer.config(state="active")
-        self.Guardar.config(state="active")
-
-        self.PlacaVar.set('')
-        self.ColorVar.set('')
-        self.MarcaVar.set('')
-        self.FmatriVar.set('')
-        self.Fmatricula.set_date(date.today())
+        #v.MODELO,v.MARCA,v.FECHA_MATRICULA,v.TIPO_VEHICULO,v.COLOR,v.PLACA,v.ACTIVO,v.ID
+        self.Elimiar()
 
     def ConseguirDatos(self):
         a = CN()
         self.Carros = a.Autos(self.ID)
-        if len(self.Carros) == 0:
-            self.Carros.append(['','','','','','',''])
+        self.CantCarr = len(self.Carros)
+        if self.CantCarr == 0:
+            self.Carros.append(['','','','','','','',''])
         print(self.Carros)
