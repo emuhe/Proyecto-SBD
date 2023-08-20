@@ -33,48 +33,48 @@ class Vehiculos:
         label0.grid(column=0,row=0,columnspan=5,pady=10)
         label1 = tk.Label(frame,text='PLACA:')
         label1.grid(column=0,row=1,padx=5,pady=5)
-        placa = tk.Entry(frame)
-        placa.grid(column=1,row=1,padx=5,pady=5)
-        placa.insert(0, "Holder")
-        placa.bind("<Key>", block_input)
+        self.placa = tk.Entry(frame)
+        self.placa.grid(column=1,row=1,padx=5,pady=5)
+        self.placa.insert(0, "Holder")
+        self.placa.bind("<Key>", block_input)
         flab = tk.Label(frame, text='')
         flab.grid(column=2, row=1, padx=1,pady=5)
         label2 = tk.Label(frame,text='MARCA:')
         label2.grid(column=3,row=1,padx=10,pady=5)
 
 
-        marca = tk.Entry(frame)
-        marca.grid(column=4, row=1,padx=5,pady=5)
-        marca.insert(0, "Holder1")
-        marca.bind("<Key>", block_input)
+        self.marca = tk.Entry(frame)
+        self.marca.grid(column=4, row=1,padx=5,pady=5)
+        self.marca.insert(0, "Holder1")
+        self.marca.bind("<Key>", block_input)
 
         label3 = tk.Label(frame, text='TIPO:')
         label3.grid(column=0,row=2,padx=5,pady=5)
 
         self.Tipo = tk.StringVar()
         self.Tipo.set('Otro')
-        GComboBox = ttk.Combobox(frame)
-        GComboBox['textvariable'] = self.Tipo
-        GComboBox['values'] = ['SUV', 'Sedan', 'Camioneta', 'Deportivo', 'Crossover','Otro']
-        GComboBox['state'] = 'disabled'
-        GComboBox.grid(column = 1, row = 2, padx= 5, pady=10)
+        self.GComboBox = ttk.Combobox(frame)
+        self.GComboBox['textvariable'] = self.Tipo
+        self.GComboBox['values'] = ['SUV', 'Sedan', 'Camioneta', 'Deportivo', 'Crossover','Otro']
+        self.GComboBox['state'] = 'disabled'
+        self.GComboBox.grid(column = 1, row = 2, padx= 5, pady=10)
 
         label4 = tk.Label(frame, text = 'COLOR:')
         label4.grid(column=3,row=2,pady=5,padx=5)
 
-        Color = tk.Entry(frame)
-        Color.grid(column=4, row=2, padx=5, pady=5)
-        Color.insert(0, "Holder2")
-        Color.bind("<Key>", block_input)
+        self.Color = tk.Entry(frame)
+        self.Color.grid(column=4, row=2, padx=5, pady=5)
+        self.Color.insert(0, "Holder2")
+        self.Color.bind("<Key>", block_input)
 
         label5 = tk.Label(frame,text='F. MATRICULA:')
         label5.grid(column=0,row=3,padx=2,pady=5)
 
 
-        Fmatricula = tk.Entry(frame)
-        Fmatricula.grid(column=1, row=3,padx=5,pady=5)
-        Fmatricula.insert(0, "Holder3")
-        Fmatricula.bind("<Key>", block_input)
+        self.Fmatricula = tk.Entry(frame)
+        self.Fmatricula.grid(column=1, row=3,padx=5,pady=5)
+        self.Fmatricula.insert(0, "Holder3")
+        self.Fmatricula.bind("<Key>", block_input)
 
         label6 = tk.Label(frame, text='ESTADO:')
         label6.grid(column=3, row=3, padx=2, pady=5)
@@ -85,27 +85,69 @@ class Vehiculos:
         elif Estad == 'INACTIVO':
             EstdCol = 'red'
 
-        Fmatricula = tk.Label(frame)
-        Fmatricula.grid(column=4, row=3, padx=5, pady=5)
-        Fmatricula['text'] = Estad
-        Fmatricula['fg'] = EstdCol
-        Fmatricula.bind("<Key>", block_input)
+        self.Estado = tk.Label(frame)
+        self.Estado.grid(column=4, row=3, padx=5, pady=5)
+        self.Estado['text'] = Estad
+        self.Estado['fg'] = EstdCol
+        self.Estado.bind("<Key>", block_input)
+        self.label04 = tk.Label(frame, text=' ')
+        self.label04.grid(column=0, row=4)
+        frame3 = tk.Frame(frame,width=400,height=30)
+        frame3.grid(column=0,row=5,columnspan=5)
+        frame3.pack_propagate(False)
+        self.Restablecer = tk.Button(frame3, text='Restablecer', width=10)
+        self.Restablecer.config(state="disabled")
+        self.Restablecer.pack(side = 'right',padx=5)
+        self.Guardar = tk.Button(frame3, text = 'Guardar', width=10, command= self.Guardar)
+        self.Guardar.config(state="disabled")
+        self.Guardar.pack(side = 'right',padx=5)
+
 
         frame2 = tk.Frame(rootCC)
         frame2.pack()
 
         label01 = tk.Label(frame2,text=' ')
 
-        label01.grid(column=0,row=0,padx=100)
+        label01.grid(column=0,row=0,padx=5)
 
-        eliminaract = tk.Button(frame2)
-        eliminaract['text'] = 'Eliminar'
-        eliminaract.grid(column=1,row=0,padx=5)
+        self.eliminaract = tk.Button(frame2)
+        self.eliminaract['text'] = 'Eliminar'
+        self.eliminaract.grid(column=1,row=0,padx=5)
 
-        editaract = tk.Button(frame2)
-        editaract['text'] = 'Editar'
-        editaract.grid(column=2, row=0,padx=5)
+        self.editaract = tk.Button(frame2)
+        self.editaract['text'] = 'Editar'
+        self.editaract.grid(column=2, row=0,padx=5)
+        self.editaract['command'] = self.Editar
 
-        nuevoact = tk.Button(frame2)
-        nuevoact['text'] = 'Nuevo'
-        nuevoact.grid(column=3, row=0, padx=5)
+        self.nuevoact = tk.Button(frame2)
+        self.nuevoact['text'] = 'Nuevo'
+        self.nuevoact.grid(column=3, row=0, padx=5)
+
+        label02 = tk.Label(frame2,text=' ')
+        label02.grid(column=4,row=0,padx=50)
+
+        self.botlef = tk.Button(frame2)
+        self.botlef['text'] = '<-'
+        self.botlef.grid(column=5,row=0,padx=1)
+
+        self.botrig = tk.Button(frame2)
+        self.botrig['text'] = '->'
+        self.botrig.grid(column=6, row=0, padx=1)
+
+    def Elimiar(self):
+        None
+    def Editar(self):
+        self.placa.unbind('<Key>')
+        self.Color.unbind('<Key>')
+        self.marca.unbind('<Key>')
+        self.Fmatricula.unbind('<Key>')
+        self.editaract.config(state="disabled")
+        self.Restablecer.config(state="active")
+        self.Guardar.config(state="active")
+    def Guardar(self):
+        self.editaract.config(state='active')
+        self.Guardar.config(state="disabled")
+        self.Restablecer.config(state="disabled")
+
+    def Crear(self):
+        None
