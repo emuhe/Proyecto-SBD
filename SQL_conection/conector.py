@@ -1,13 +1,20 @@
 import mysql.connector
 
+
 class Conection:
     def __init__(self):
+        a = open('datos_sensibles/sqlcontra.txt')
+        data = []
+        for i in a:
+            data.append(i.strip())
+        a.close()
         self.conection = mysql.connector.connect(
             host="proyecto-blablacar.mysql.database.azure.com",
-            user="blablacar",
-            password="Bl@bl4c4r",
+            user=data[0],
+            password=data[1],
             database="blablacar"
             )
+        data = None
     def recopilar_viajes(self):
         query = ''
 
