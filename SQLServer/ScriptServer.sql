@@ -333,3 +333,29 @@ FROM mensaje m
 INNER JOIN usuario u ON m.emisor_id = u.id
 WHERE m.conversacion_id = 5
 ORDER BY m.fecha_envio;
+
+-- 5. Consulta para ver pagos realizados por un usuario
+SELECT p.*, v.punto_partida, v.punto_llegada, v.tiempo_salida, u.nombre AS nombre_pasajero
+FROM pagos p
+INNER JOIN viaje v ON p.viaje_id = v.id
+INNER JOIN usuario u ON p.pasajero_id = u.id
+WHERE p.pasajero_id = 5
+ORDER BY p.fecha_pago;
+
+-- 6. Consulta para ver viajes no completados por un conductor
+SELECT v.id AS viaje_id, v.punto_partida, v.punto_llegada, v.tiempo_salida
+FROM viaje v
+INNER JOIN vehiculo_conductor vc ON v.vehiculo_conductor_id = vc.id
+WHERE vc.conductor_id = 2 AND v.viaje_completado = 0;
+
+-- 7. Consulta para ver numero de viajes de pasajero id=6
+SELECT COUNT(*) AS num_viajes_pasajero
+FROM reserva_asiento
+WHERE pasajero_id = 6;
+
+-- 8. Consulta para ver el numero asientos disponibles en un viaje
+SELECT v.id AS viaje_id, v.cantidad_pasajeros - COUNT(ra.id) AS asientos_disponibles
+FROM viaje v
+LEFT JOIN reserva_asiento ra ON v.id = ra.viaje_id
+WHERE v.id = 4
+GROUP BY v.id, v.cantidad_pasajeros;
