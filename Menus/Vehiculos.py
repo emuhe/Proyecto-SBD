@@ -4,10 +4,11 @@ import tkinter.font as tkFont
 from tkcalendar import DateEntry
 from datetime import datetime
 import re
-from SQL_conection.conector import Conection
+from SQL_conection.conector import Conection as CN
 
 class Vehiculos:
-    def __init__(self):
+    def __init__(self,ID):
+        self.ID = ID
         self.rootCC = tk.Tk()
         self.Startup(self.rootCC)
         self.rootCC.mainloop()
@@ -25,7 +26,7 @@ class Vehiculos:
         alignstr = '%dx%d+%d+%d' % (width, height, (screenwidth - width) / 2, (screenheight - height) / 2)
         self.rootCC.geometry(alignstr)
         self.rootCC.resizable(width=False, height=False)
-
+        self.ConseguirDatos()
         frame = tk.Frame(rootCC, relief= 'solid',width= 500, height= 200, bd= 1)
         frame.pack(pady=20,padx=20)
         frame.grid_propagate(False)
@@ -34,46 +35,57 @@ class Vehiculos:
         label1 = tk.Label(frame,text='PLACA:')
         label1.grid(column=0,row=1,padx=5,pady=5)
         self.placa = tk.Entry(frame)
+        self.PlacaVar = tk.StringVar()
+        self.PlacaVar.set(self.Carros[0][5])
         self.placa.grid(column=1,row=1,padx=5,pady=5)
-        self.placa.insert(0, "Holder")
+        self.placa['textvariable'] = self.PlacaVar
         self.placa.bind("<Key>", block_input)
         flab = tk.Label(frame, text='')
         flab.grid(column=2, row=1, padx=1,pady=5)
         label2 = tk.Label(frame,text='MARCA:')
         label2.grid(column=3,row=1,padx=10,pady=5)
 
+        self.MarcaVar = tk.StringVar()
+        self.MarcaVar.set(self.Carros[0][1])
 
         self.marca = tk.Entry(frame)
         self.marca.grid(column=4, row=1,padx=5,pady=5)
         self.marca.insert(0, "Holder1")
+        self.marca['textvariable'] = self.MarcaVar
+
         self.marca.bind("<Key>", block_input)
 
         label3 = tk.Label(frame, text='TIPO:')
         label3.grid(column=0,row=2,padx=5,pady=5)
 
         self.Tipo = tk.StringVar()
-        self.Tipo.set('Otro')
+        self.Tipo.set(self.Carros[0][3])
         self.GComboBox = ttk.Combobox(frame)
         self.GComboBox['textvariable'] = self.Tipo
-        self.GComboBox['values'] = ['SUV', 'Sedan', 'Camioneta', 'Deportivo', 'Crossover','Otro']
+        self.GComboBox['values'] = ['SUV', 'Sedán', 'Camioneta', 'Deportivo', 'Crossover','Otro']
         self.GComboBox['state'] = 'disabled'
         self.GComboBox.grid(column = 1, row = 2, padx= 5, pady=10)
 
         label4 = tk.Label(frame, text = 'COLOR:')
         label4.grid(column=3,row=2,pady=5,padx=5)
 
+        self.ColorVar = tk.StringVar()
+        self.ColorVar.set(self.Carros[0][4])
+
         self.Color = tk.Entry(frame)
         self.Color.grid(column=4, row=2, padx=5, pady=5)
-        self.Color.insert(0, "Holder2")
+        self.Color['textvariable'] = self.ColorVar
         self.Color.bind("<Key>", block_input)
 
         label5 = tk.Label(frame,text='F. MATRICULA:')
         label5.grid(column=0,row=3,padx=2,pady=5)
 
+        self.FmatriVar = tk.StringVar()
+        self.FmatriVar.set(self.Carros[0][2])
 
         self.Fmatricula = tk.Entry(frame)
         self.Fmatricula.grid(column=1, row=3,padx=5,pady=5)
-        self.Fmatricula.insert(0, "Holder3")
+        self.Fmatricula['textvariable'] = self.FmatriVar
         self.Fmatricula.bind("<Key>", block_input)
 
         label6 = tk.Label(frame, text='ESTADO:')
@@ -159,6 +171,12 @@ class Vehiculos:
         self.botlef.config(state="active")
         self.botrig.config(state="active")
 
-
     def Crear(self):
         None
+
+    def ConseguirDatos(self):
+        a = CN()
+        self.Carros = a.Autos(self.ID)
+        if len(self.Carros) == 0:
+            self.Carros.append(['','','','','','',''])
+        print(self.Carros)
