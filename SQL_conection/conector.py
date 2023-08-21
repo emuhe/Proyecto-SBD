@@ -14,7 +14,6 @@ class Conection:
             password=data[1],
             database="blablacar"
             )
-        data = None
     def recopilar_viajes(self):
         query = ''
 
@@ -22,7 +21,12 @@ class Conection:
         print(datos)
         cursor = self.conection.cursor()
         cursor.execute("INSERT INTO tarjeta_credito (id,nombre_titular,fecha_expiracion,numero_tarjeta,codigo_ccv) VALUES (%s,%s,%s,%s,%s)",(0,None,None,None,'000'))
-        cursor.execute("INSERT INTO usuario (id,nombre,apellido,preferencia,ruta_foto,perfil,minibiografia,cedula,genero,direccion,fecha_nacimiento,numero_movil,rol,correo_electronico,cuenta_banco_id,tarjeta_credito_id) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)", datos)
+        Tarjet_credit = cursor.lastrowid
+        cursor.execute("INSERT INTO cuenta_bancaria (id,numero_cuenta,titular_cuenta,cedula_titular) VALUES (%s,%s,%s,%s)",(0,'000000000','000000000','000000000'))
+        Cuenta_ban = cursor.lastrowid
+        datos.append(Cuenta_ban)
+        datos.append(Tarjet_credit)
+        cursor.execute("INSERT INTO usuario (id,nombre,apellido,preferencia,ruta_foto_perfil,minibiografia,cedula,genero,direccion,fecha_nacimiento,numero_movil,rol,correo_electronico,cuenta_banco_id,tarjeta_credito_id) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)", datos)
         self.conection.commit()
         cursor.close()
     def InicioSesion(self,ID,NOMBRE):

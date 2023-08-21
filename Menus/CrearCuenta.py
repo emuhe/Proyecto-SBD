@@ -246,7 +246,7 @@ class App:
             list = [0,self.Nombre.get(),self.Apellido.get(),self.preferencia.get(),None,
                     self.text_entry.get("1.0", "end-1c"),self.ID.get(),
                     self.genero.get(),self.direccion.get(),
-                    self.GDateEntry.get_date(),self.telefono.get(),'pasajero',self.Correo.get(),9,9]
+                    self.GDateEntry.get_date(),self.telefono.get(),'pasajero',self.Correo.get()]
             Bab = Conection()
             Bab.Cuentacrear(list)
     def LimpiarDatos(self):

@@ -173,6 +173,7 @@ class Vehiculos:
         self.marca.unbind('<Key>')
         self.Modelo.unbind('<Key>')
         self.Fmatricula.config(state='active')
+        self.GComboBox.config(state = 'active')
         self.editaract.config(state="disabled")
         self.nuevoact.config(state="disabled")
         self.eliminaract.config(state="disabled")
@@ -184,6 +185,7 @@ class Vehiculos:
 
         def block_input(event):
             return "break"
+        self.GComboBox.config(state = 'disabled')
         self.Fmatricula.config(state='disabled')
         self.editaract.config(state='active')
         self.Guardar.config(state="disabled")
@@ -263,8 +265,10 @@ class Vehiculos:
 
     def ConseguirDatos(self):
         self.Carros = self.conection.Autos(self.ID)
+        self.CantCarr = len(self.Carros)
+
+        if self.CantCarr == 0:
+            self.Carros.append(['','',date.today(),'','','','',''])
         self.CarrosAct = self.Carros[0]
         self.CantCarr = len(self.Carros)
-        if self.CantCarr == 0:
-            self.Carros.append(['','','','','','','',''])
         print(self.Carros)
