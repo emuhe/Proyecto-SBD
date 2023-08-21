@@ -39,12 +39,15 @@ class MainMenu:
         GButton_760["command"] = self.GButton_760_command
 
         GLabel_238 = tk.Label(root)
+        self.validate_cmd = root.register(self.num_validation)
+
         self.Cedula = tk.StringVar()
         ft = tkFont.Font(family='Times', size=18)
         GLabel_238["font"] = ft
         GLabel_238["fg"] = "#333333"
         GLabel_238["justify"] = "center"
         GLabel_238["text"] = "Cedula:"
+
         GLabel_238.place(x=80, y=130, width=104, height=32)
 
         GLabel_410 = tk.Label(root)
@@ -64,8 +67,9 @@ class MainMenu:
         self.GLineEdit_742["fg"] = "#333333"
         self.GLineEdit_742["justify"] = "center"
         self.GLineEdit_742["text"] = ""
+        self.GLineEdit_742['validate'] = 'key'
+        self.GLineEdit_742['validatecommand'] = (self.validate_cmd,'%P')
         self.GLineEdit_742['textvariable'] = self.Cedula
-
         self.GLineEdit_742.place(x=220, y=130, width=179, height=31)
 
         self.GLineEdit_325 = tk.Entry(root)
@@ -118,7 +122,10 @@ class MainMenu:
     def GButton_748_command(self): #Abrir otra ventana para lo de crear cuenta
         root.destroy()
         CC()
-
+    def num_validation(self,P):
+        if (P.isdigit() or P == "") and len(P) <= 10:
+            return True
+        return False
 
 if __name__ == "__main__":
     root = tk.Tk()

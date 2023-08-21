@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fff839a0-3c14-4ee0-b28d-c11a948149e7" name="Changes" comment="corregido errores en vehiculo, ahora se puede editar datos">
+    <list default="true" id="fff839a0-3c14-4ee0-b28d-c11a948149e7" name="Changes" comment="Ventana de vehiculos.py totalmente funcional, faltan corregir bugs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Menus/Vehiculos.py" beforeDir="false" afterPath="$PROJECT_DIR$/Menus/Vehiculos.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SQL_conection/conector.py" beforeDir="false" afterPath="$PROJECT_DIR$/SQL_conection/conector.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -255,7 +254,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692651476065</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Ventana de vehiculos.py totalmente funcional, faltan corregir bugs">
+      <option name="closed" value="true" />
+      <created>1692652369308</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1692652369308</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -263,6 +270,7 @@
     <MESSAGE value="Arreglos en ventana de Vehiculos.py" />
     <MESSAGE value="ahora es posible ver todos los vehiculos registrados por usuario" />
     <MESSAGE value="corregido errores en vehiculo, ahora se puede editar datos" />
-    <option name="LAST_COMMIT_MESSAGE" value="corregido errores en vehiculo, ahora se puede editar datos" />
+    <MESSAGE value="Ventana de vehiculos.py totalmente funcional, faltan corregir bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ventana de vehiculos.py totalmente funcional, faltan corregir bugs" />
   </component>
 </project>
