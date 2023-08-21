@@ -27,7 +27,7 @@ class Conection:
         datos.append(Cuenta_ban)
         datos.append(Tarjet_credit)
         cursor.execute("INSERT INTO usuario (id,nombre,apellido,preferencia,ruta_foto_perfil,minibiografia,cedula,genero,direccion,fecha_nacimiento,numero_movil,rol,correo_electronico,cuenta_banco_id,tarjeta_credito_id) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)", datos)
-        user_id = cursor.lastrowid()
+        user_id = cursor.lastrowid
         self.conection.commit()
         cursor.close()
         return user_id
