@@ -184,7 +184,7 @@ class Vehiculos:
 
         def block_input(event):
             return "break"
-
+        self.Fmatricula.config(state='disabled')
         self.editaract.config(state='active')
         self.Guardar.config(state="disabled")
         self.Restablecer.config(state="disabled")
@@ -196,12 +196,19 @@ class Vehiculos:
         self.placa.bind("<Key>", block_input)
         self.Color.bind("<Key>", block_input)
         self.marca.bind("<Key>", block_input)
-
-        datos = [0,self.ModeloVar.get(),self.MarcaVar.get(),self.Fmatricula.get_date(),self.Tipo.get(),self.ColorVar.get(),self.PlacaVar.get(),1]
         if self._cache:
+            datos = [0, self.ModeloVar.get(), self.MarcaVar.get(), self.Fmatricula.get_date(), self.Tipo.get(),
+                     self.ColorVar.get(), self.PlacaVar.get(), 1]
             print('guardado')
             print(datos)
             self.conection.AutosCrear(datos,self.ID)
+        else:
+            print('editado')
+            edited_data = [self.ModeloVar.get(), self.MarcaVar.get(), self.Fmatricula.get_date(), self.Tipo.get(),
+                     self.ColorVar.get(), self.PlacaVar.get(), self.CarrosAct[7]]
+            print(edited_data)
+            self.conection.AutoEditar(edited_data)
+        self.ConseguirDatos()
 
     def Crear(self):
         self.PermitirMod()

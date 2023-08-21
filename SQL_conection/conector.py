@@ -48,3 +48,8 @@ class Conection:
         cursor.execute('INSERT INTO VEHICULO_CONDUCTOR (id,vehiculo_id,conductor_id) values (%s,%s,%s)',(0,veh_id,id))
         self.conection.commit()
         cursor.close()
+    def AutoEditar(self,data):
+        cursor = self.conection.cursor()
+        cursor.execute('UPDATE VEHICULO SET modelo = %s, marca = %s, FECHA_MATRICULA = %s, TIPO_VEHICULO = %s, color = %s, placa = %s where id = %s', data)
+        self.conection.commit()
+        cursor.close()
