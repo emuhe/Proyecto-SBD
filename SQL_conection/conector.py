@@ -32,14 +32,14 @@ class Conection:
     def EditarCuenta(self,datos):
         cursor = self.conection.cursor()
         cursor.execute(
-            "UPDATE usuario SET nombre = %s,apellido= %s,preferencia= %s,minibiografia= %s,cedula= %s,genero= %s,direccion= %s,fecha_nacimiento= %s,numero_movil= %s,correo_electronico= %s",
+            "UPDATE usuario SET nombre = %s,apellido= %s,preferencia= %s,minibiografia= %s,cedula= %s,genero= %s,direccion= %s,fecha_nacimiento= %s,numero_movil= %s,correo_electronico= %s where id = %s",
             datos)
         self.conection.commit()
         cursor.close()
     def InicioSesion(self,ID,NOMBRE):
         cursor = self.conection.cursor()
         cursor.execute('SELECT id,nombre from usuario where cedula = %s and nombre = %s', (ID,NOMBRE))
-        resultado = cursor.fetchone()
+        resultado = cursor.fetchall()
         print(resultado)
         cursor.close()
         if resultado == None:
