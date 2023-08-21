@@ -227,6 +227,7 @@ class Vehiculos:
             self.CarrosAct = self.Carros[self.Car_count]
             self.ModeloVar.set(self.CarrosAct[0])
             self.MarcaVar.set(self.CarrosAct[1])
+            print(self.CarrosAct[2])
             self.Fmatricula.set_date(self.CarrosAct[2])
             self.Tipo.set(self.CarrosAct[3])
             self.ColorVar.set(self.CarrosAct[4])
@@ -241,6 +242,7 @@ class Vehiculos:
                 self.botlef.config(state='active')
             #SELECT v.MODELO,v.MARCA,v.FECHA_MATRICULA,v.TIPO_VEHICULO,v.COLOR,v.PLACA,v.ACTIVO,v.ID FROM VEHICULO V JOIN vehicul
             self.Car_count += 1
+            print(self.CarrosAct[2])
             self._text_cache = 'VEHICULO ' + str(self.Car_count + 1)
             self.label0.config(text=self._text_cache)
             self.CarrosAct = self.Carros[self.Car_count]
