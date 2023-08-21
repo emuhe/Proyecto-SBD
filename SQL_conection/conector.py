@@ -29,6 +29,13 @@ class Conection:
         cursor.execute("INSERT INTO usuario (id,nombre,apellido,preferencia,ruta_foto_perfil,minibiografia,cedula,genero,direccion,fecha_nacimiento,numero_movil,rol,correo_electronico,cuenta_banco_id,tarjeta_credito_id) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)", datos)
         self.conection.commit()
         cursor.close()
+    def EditarCuenta(self,datos):
+        cursor = self.conection.cursor()
+        cursor.execute(
+            "UPDATE usuario SET nombre = %s,apellido= %s,preferencia= %s,minibiografia= %s,cedula= %s,genero= %s,direccion= %s,fecha_nacimiento= %s,numero_movil= %s,correo_electronico= %s",
+            datos)
+        self.conection.commit()
+        cursor.close()
     def InicioSesion(self,ID,NOMBRE):
         cursor = self.conection.cursor()
         cursor.execute('SELECT id,nombre from usuario where cedula = %s and nombre = %s', (ID,NOMBRE))
@@ -62,3 +69,10 @@ class Conection:
         cursor.execute('DELETE FROM vehiculo_conductor where vehiculo_id = %s',(id,))
         cursor.execute('DELETE FROM vehiculo WHERE id = %s', (id,))
         self.conection.commit()
+
+    def ConsultarDatosUser(self,user_id):
+        cursor = self.conection.cursor()
+        cursor.execute('SELECT nombre,apellido,preferencia,minibiografia,cedula,genero,direccion,fecha_nacimiento,numero_movil,correo_electronico from usuario where id = %s', (user_id,))
+        values = cursor.fetchone()
+        cursor.close()
+        return values

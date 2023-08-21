@@ -119,7 +119,7 @@ class MenuUsuario:
 
     def GButton_809_command(self):
         self.rootCC.destroy()
-        EC()
+        EC(self.user)
         MenuUsuario(self.user)
 
     def GButton_83_command(self):
