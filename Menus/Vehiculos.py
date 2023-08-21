@@ -30,13 +30,14 @@ class Vehiculos:
         frame = tk.Frame(rootCC, relief= 'solid',width= 500, height= 200, bd= 1)
         frame.pack(pady=20,padx=20)
         frame.grid_propagate(False)
-        label0 = tk.Label(frame,text = 'VEHICULO 1')
-        label0.grid(column=0,row=0,columnspan=5,pady=10)
+        self._text_cache = 'VEHICULO ' + str(self.Car_count+1)
+        self.label0 = tk.Label(frame,text = 'VEHICULO 1')
+        self.label0.grid(column=0,row=0,columnspan=5,pady=10)
         label1 = tk.Label(frame,text='PLACA:')
         label1.grid(column=0,row=1,padx=5,pady=5)
         self.placa = tk.Entry(frame)
         self.PlacaVar = tk.StringVar()
-        self.PlacaVar.set(self.Carros[0][5])
+        self.PlacaVar.set(self.CarrosAct[5])
         self.placa.grid(column=1,row=1,padx=5,pady=5)
         self.placa['textvariable'] = self.PlacaVar
         self.placa.bind("<Key>", block_input)
@@ -46,7 +47,7 @@ class Vehiculos:
         label2.grid(column=3,row=1,padx=10,pady=5)
 
         self.MarcaVar = tk.StringVar()
-        self.MarcaVar.set(self.Carros[0][1])
+        self.MarcaVar.set(self.CarrosAct[1])
 
         self.marca = tk.Entry(frame)
         self.marca.grid(column=4, row=1,padx=5,pady=5)
@@ -70,7 +71,7 @@ class Vehiculos:
         label4.grid(column=3,row=2,pady=5,padx=5)
 
         self.ColorVar = tk.StringVar()
-        self.ColorVar.set(self.Carros[0][4])
+        self.ColorVar.set(self.CarrosAct[4])
 
         self.Color = tk.Entry(frame)
         self.Color.grid(column=4, row=2, padx=5, pady=5)
@@ -83,7 +84,8 @@ class Vehiculos:
         self.Fmatricula = DateEntry(frame)
         self.Fmatricula['date_pattern'] = 'DD/MM/YYYY'
         self.Fmatricula['maxdate'] = date.today()
-        self.Fmatricula.set_date(self.Carros[0][2])
+        self.Fmatricula.set_date(self.CarrosAct[2])
+        self.Fmatricula.config(state='disable')
         self.Fmatricula.grid(column=1, row=3, padx=5, pady=5)
 
         label6 = tk.Label(frame, text='ESTADO:')
@@ -103,7 +105,7 @@ class Vehiculos:
         self.label04.grid(column=0, row=4)
 
         self.ModeloVar = tk.StringVar()
-        self.ModeloVar.set(self.Carros[0][0])
+        self.ModeloVar.set(self.CarrosAct[0])
         self.Modelo = tk.Entry(frame)
         self.Modelo = tk.Entry(frame)
         self.Modelo.grid(column=1, row=4, padx=5)
@@ -148,10 +150,12 @@ class Vehiculos:
 
         self.botlef = tk.Button(frame2)
         self.botlef['text'] = '<-'
+        self.botlef['command'] = self.Atras
         self.botlef.grid(column=5,row=0,padx=1)
 
         self.botrig = tk.Button(frame2)
         self.botrig['text'] = '->'
+        self.botrig['command'] = self.Siguiente
         self.botrig.grid(column=6, row=0, padx=1)
 
     def Elimiar(self):
@@ -168,6 +172,7 @@ class Vehiculos:
         self.Color.unbind('<Key>')
         self.marca.unbind('<Key>')
         self.Modelo.unbind('<Key>')
+        self.Fmatricula.config(state='active')
         self.editaract.config(state="disabled")
         self.nuevoact.config(state="disabled")
         self.eliminaract.config(state="disabled")
@@ -203,8 +208,48 @@ class Vehiculos:
         self._cache = True
         self.Elimiar()
 
+    def Atras(self):
+        if self.Car_count-1 > -1:
+            if self.botrig.cget('state') == 'disabled':
+                self.botrig.config(state='active')
+            print('Atras')
+            #SELECT v.MODELO,v.MARCA,v.FECHA_MATRICULA,v.TIPO_VEHICULO,v.COLOR,v.PLACA,v.ACTIVO,v.ID FROM VEHICULO V JOIN vehicul
+            self.Car_count -= 1
+            self._text_cache = 'VEHICULO ' + str(self.Car_count + 1)
+            self.label0.config(text=self._text_cache)
+            self.CarrosAct = self.Carros[self.Car_count]
+            self.ModeloVar.set(self.CarrosAct[0])
+            self.MarcaVar.set(self.CarrosAct[1])
+            self.Fmatricula.set_date(self.CarrosAct[2])
+            self.Tipo.set(self.CarrosAct[3])
+            self.ColorVar.set(self.CarrosAct[4])
+            self.PlacaVar.set(self.CarrosAct[5])
+            if self.Car_count-1 == -1:
+                self.botlef.config(state='disabled')
+        else: self.botlef.config(state='disabled')
+    def Siguiente(self):
+        if self.Car_count+1 < self.CantCarr:
+            print('siguiente')
+            if self.botlef.cget('state') == 'disabled':
+                self.botlef.config(state='active')
+            #SELECT v.MODELO,v.MARCA,v.FECHA_MATRICULA,v.TIPO_VEHICULO,v.COLOR,v.PLACA,v.ACTIVO,v.ID FROM VEHICULO V JOIN vehicul
+            self.Car_count += 1
+            self._text_cache = 'VEHICULO ' + str(self.Car_count + 1)
+            self.label0.config(text=self._text_cache)
+            self.CarrosAct = self.Carros[self.Car_count]
+            self.ModeloVar.set(self.CarrosAct[0])
+            self.MarcaVar.set(self.CarrosAct[1])
+            self.Fmatricula.set_date(self.CarrosAct[2])
+            self.Tipo.set(self.CarrosAct[3])
+            self.ColorVar.set(self.CarrosAct[4])
+            self.PlacaVar.set(self.CarrosAct[5])
+            if self.Car_count+1 == self.CantCarr:
+                self.botrig.config(state='disabled')
+        else: self.botrig.config(state='disabled')
+
     def ConseguirDatos(self):
         self.Carros = self.conection.Autos(self.ID)
+        self.CarrosAct = self.Carros[0]
         self.CantCarr = len(self.Carros)
         if self.CantCarr == 0:
             self.Carros.append(['','','','','','','',''])
