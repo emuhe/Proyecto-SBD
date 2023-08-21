@@ -133,6 +133,7 @@ class Vehiculos:
 
         self.eliminaract = tk.Button(frame2)
         self.eliminaract['text'] = 'Eliminar'
+        self.eliminaract['command'] = self.Delete
         self.eliminaract.grid(column=1,row=0,padx=5)
 
         self.editaract = tk.Button(frame2)
@@ -272,3 +273,13 @@ class Vehiculos:
         self.CarrosAct = self.Carros[0]
         self.CantCarr = len(self.Carros)
         print(self.Carros)
+
+    def Delete(self):
+        if self.CantCarr == 0:
+            None
+        else:
+
+            print('eliminar carro ' + str(self.CarrosAct[-1]))
+
+            self.conection.EliminarAuto(self.CarrosAct[-1])
+            self.ConseguirDatos()

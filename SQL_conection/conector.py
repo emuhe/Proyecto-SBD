@@ -57,3 +57,8 @@ class Conection:
         cursor.execute('UPDATE VEHICULO SET modelo = %s, marca = %s, FECHA_MATRICULA = %s, TIPO_VEHICULO = %s, color = %s, placa = %s where id = %s', data)
         self.conection.commit()
         cursor.close()
+    def EliminarAuto(self,id):
+        cursor = self.conection.cursor()
+        cursor.execute('DELETE FROM vehiculo_conductor where vehiculo_id = %s',(id,))
+        cursor.execute('DELETE FROM vehiculo WHERE id = %s', (id,))
+        self.conection.commit()

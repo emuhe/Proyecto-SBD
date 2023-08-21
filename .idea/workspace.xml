@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="fff839a0-3c14-4ee0-b28d-c11a948149e7" name="Changes" comment="corregido errores en vehiculo, ahora se puede editar datos">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Menus/CrearCuenta.py" beforeDir="false" afterPath="$PROJECT_DIR$/Menus/CrearCuenta.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Menus/Vehiculos.py" beforeDir="false" afterPath="$PROJECT_DIR$/Menus/Vehiculos.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SQL_conection/conector.py" beforeDir="false" afterPath="$PROJECT_DIR$/SQL_conection/conector.py" afterDir="false" />
     </list>
@@ -248,7 +247,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692650189207</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="corregido errores en vehiculo, ahora se puede editar datos">
+      <option name="closed" value="true" />
+      <created>1692651476065</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1692651476065</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
