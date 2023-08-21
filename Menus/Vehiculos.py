@@ -228,7 +228,10 @@ class Vehiculos:
             self.ModeloVar.set(self.CarrosAct[0])
             self.MarcaVar.set(self.CarrosAct[1])
             print(self.CarrosAct[2])
+            self.Fmatricula.config(state='active')
             self.Fmatricula.set_date(self.CarrosAct[2])
+            self.Fmatricula.config(state='disabled')
+
             self.Tipo.set(self.CarrosAct[3])
             self.ColorVar.set(self.CarrosAct[4])
             self.PlacaVar.set(self.CarrosAct[5])
@@ -248,7 +251,9 @@ class Vehiculos:
             self.CarrosAct = self.Carros[self.Car_count]
             self.ModeloVar.set(self.CarrosAct[0])
             self.MarcaVar.set(self.CarrosAct[1])
+            self.Fmatricula.config(state='active')
             self.Fmatricula.set_date(self.CarrosAct[2])
+            self.Fmatricula.config(state='disabled')
             self.Tipo.set(self.CarrosAct[3])
             self.ColorVar.set(self.CarrosAct[4])
             self.PlacaVar.set(self.CarrosAct[5])
