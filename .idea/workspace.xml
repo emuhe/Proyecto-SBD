@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fff839a0-3c14-4ee0-b28d-c11a948149e7" name="Changes" comment="Editar cuenta ahora es posible">
+    <list default="true" id="fff839a0-3c14-4ee0-b28d-c11a948149e7" name="Changes" comment="Arreglado para que al editar usuario no cambie a todos xd">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Menus/CrearCuenta.py" beforeDir="false" afterPath="$PROJECT_DIR$/Menus/CrearCuenta.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Menus/Vehiculos.py" beforeDir="false" afterPath="$PROJECT_DIR$/Menus/Vehiculos.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SQL_conection/conector.py" beforeDir="false" afterPath="$PROJECT_DIR$/SQL_conection/conector.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -278,7 +280,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692657912554</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Arreglado para que al editar usuario no cambie a todos xd">
+      <option name="closed" value="true" />
+      <created>1692659245121</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1692659245121</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -289,6 +299,7 @@
     <MESSAGE value="Ventana de vehiculos.py totalmente funcional, faltan corregir bugs" />
     <MESSAGE value="correccion en iniciar sesion (validacion de cedula)" />
     <MESSAGE value="Editar cuenta ahora es posible" />
-    <option name="LAST_COMMIT_MESSAGE" value="Editar cuenta ahora es posible" />
+    <MESSAGE value="Arreglado para que al editar usuario no cambie a todos xd" />
+    <option name="LAST_COMMIT_MESSAGE" value="Arreglado para que al editar usuario no cambie a todos xd" />
   </component>
 </project>

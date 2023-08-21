@@ -257,7 +257,7 @@ class EditarCuenta:
             list = [self.Nombre.get(), self.Apellido.get(), self.preferencia.get(),
                     self.MiniBiogra.get("1.0", "end-1c"), self.ID.get(),
                     self.genero.get(), self.direccion.get(),
-                    self.GDateEntry.get_date(), self.telefono.get(), self.Correo.get()]
+                    self.GDateEntry.get_date(), self.telefono.get(), self.Correo.get(),self.user_id]
             A.EditarCuenta(list)
 
     def num_validation(self,P):

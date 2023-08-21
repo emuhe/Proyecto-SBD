@@ -248,7 +248,8 @@ class App:
                     self.genero.get(),self.direccion.get(),
                     self.GDateEntry.get_date(),self.telefono.get(),'pasajero',self.Correo.get()]
             Bab = Conection()
-            Bab.Cuentacrear(list)
+            self.user_id = Bab.Cuentacrear(list)
+
     def LimpiarDatos(self):
         self.preferencia.set('-Seleccionar-')
         self.Nombre.set('')
@@ -286,7 +287,7 @@ class App:
 
     def continuar(self):
         self.rootCC.destroy()
-        MU(self.ID.get())
+        MU(self.user_id)
 
     def ValidarCont(self):
         print(self.Nombre.get())

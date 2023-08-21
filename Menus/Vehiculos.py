@@ -10,7 +10,6 @@ class Vehiculos:
         self.rootCC = tk.Tk()
         self.Startup(self.rootCC)
         self.rootCC.mainloop()
-
     def Startup(self,rootCC):
         self.Car_count = 0
         def block_input(event):

@@ -27,10 +27,13 @@ class Conection:
         datos.append(Cuenta_ban)
         datos.append(Tarjet_credit)
         cursor.execute("INSERT INTO usuario (id,nombre,apellido,preferencia,ruta_foto_perfil,minibiografia,cedula,genero,direccion,fecha_nacimiento,numero_movil,rol,correo_electronico,cuenta_banco_id,tarjeta_credito_id) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)", datos)
+        user_id = cursor.lastrowid()
         self.conection.commit()
         cursor.close()
+        return user_id
     def EditarCuenta(self,datos):
         cursor = self.conection.cursor()
+        print(datos)
         cursor.execute(
             "UPDATE usuario SET nombre = %s,apellido= %s,preferencia= %s,minibiografia= %s,cedula= %s,genero= %s,direccion= %s,fecha_nacimiento= %s,numero_movil= %s,correo_electronico= %s where id = %s",
             datos)
@@ -39,7 +42,7 @@ class Conection:
     def InicioSesion(self,ID,NOMBRE):
         cursor = self.conection.cursor()
         cursor.execute('SELECT id,nombre from usuario where cedula = %s and nombre = %s', (ID,NOMBRE))
-        resultado = cursor.fetchall()
+        resultado = cursor.fetchone()
         print(resultado)
         cursor.close()
         if resultado == None:
@@ -72,6 +75,7 @@ class Conection:
 
     def ConsultarDatosUser(self,user_id):
         cursor = self.conection.cursor()
+        print(user_id)
         cursor.execute('SELECT nombre,apellido,preferencia,minibiografia,cedula,genero,direccion,fecha_nacimiento,numero_movil,correo_electronico from usuario where id = %s', (user_id,))
         values = cursor.fetchone()
         cursor.close()
