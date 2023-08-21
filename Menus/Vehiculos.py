@@ -25,6 +25,7 @@ class Vehiculos:
         alignstr = '%dx%d+%d+%d' % (width, height, (screenwidth - width) / 2, (screenheight - height) / 2)
         self.rootCC.geometry(alignstr)
         self.rootCC.resizable(width=False, height=False)
+        self.conection = CN()
         self.ConseguirDatos()
         frame = tk.Frame(rootCC, relief= 'solid',width= 500, height= 200, bd= 1)
         frame.pack(pady=20,padx=20)
@@ -191,20 +192,19 @@ class Vehiculos:
         self.Color.bind("<Key>", block_input)
         self.marca.bind("<Key>", block_input)
 
-        datos = ['','']
-#v.MODELO,v.MARCA,v.FECHA_MATRICULA,v.TIPO_VEHICULO,v.COLOR,v.PLACA,v.ACTIVO,v.ID
+        datos = [0,self.ModeloVar.get(),self.MarcaVar.get(),self.Fmatricula.get_date(),self.Tipo.get(),self.ColorVar.get(),self.PlacaVar.get(),1]
         if self._cache:
-            None
+            print('guardado')
+            print(datos)
+            self.conection.AutosCrear(datos,self.ID)
 
     def Crear(self):
         self.PermitirMod()
-
-        #v.MODELO,v.MARCA,v.FECHA_MATRICULA,v.TIPO_VEHICULO,v.COLOR,v.PLACA,v.ACTIVO,v.ID
+        self._cache = True
         self.Elimiar()
 
     def ConseguirDatos(self):
-        a = CN()
-        self.Carros = a.Autos(self.ID)
+        self.Carros = self.conection.Autos(self.ID)
         self.CantCarr = len(self.Carros)
         if self.CantCarr == 0:
             self.Carros.append(['','','','','','','',''])

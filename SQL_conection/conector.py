@@ -23,7 +23,7 @@ class Conection:
         cursor = self.conection.cursor()
         cursor.execute("INSERT INTO tarjeta_credito (id,nombre_titular,fecha_expiracion,numero_tarjeta,codigo_ccv) VALUES (%s,%s,%s,%s,%s)",(0,None,None,None,'000'))
         cursor.execute("INSERT INTO usuario (id,nombre,apellido,preferencia,ruta_foto,perfil,minibiografia,cedula,genero,direccion,fecha_nacimiento,numero_movil,rol,correo_electronico,cuenta_banco_id,tarjeta_credito_id) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)", datos)
-
+        self.conection.commit()
         cursor.close()
     def InicioSesion(self,ID,NOMBRE):
         cursor = self.conection.cursor()
@@ -41,3 +41,10 @@ class Conection:
         datos = cursor.fetchall()
         cursor.close()
         return datos
+    def AutosCrear(self,data,id):
+        cursor = self.conection.cursor()
+        cursor.execute('INSERT INTO VEHICULO (id,modelo,marca,fecha_matricula,tipo_vehiculo,color,placa,activo) values (%s,%s,%s,%s,%s,%s,%s,%s)', data)
+        veh_id = cursor.lastrowid
+        cursor.execute('INSERT INTO VEHICULO_CONDUCTOR (id,vehiculo_id,conductor_id) values (%s,%s,%s)',(0,veh_id,id))
+        self.conection.commit()
+        cursor.close()

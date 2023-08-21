@@ -124,3 +124,5 @@ if __name__ == "__main__":
     root = tk.Tk()
     app = MainMenu(root)
     root.mainloop()
+
+print('finalizado')
