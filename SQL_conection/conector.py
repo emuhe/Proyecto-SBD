@@ -93,7 +93,7 @@ class Conection:
     def CrearTarjeta(self,values):
         cursor = self.conection.cursor()
         cursor.execute(
-            'INSERT INTO tarjeta_credito (numero_tarjeta,nombre_titular,codigo_ccv) values (%s,%s,%s,%s) where id = %s',
+            'UPDATE tarjeta_credito SET numero_tarjeta = %s,nombre_titular = %s,codigo_ccv = %s, fecha_expiracion = %s where id = %s',
             values)
-        tarjeta = cursor.fetchone()
+        self.conection.commit()
         cursor.close()

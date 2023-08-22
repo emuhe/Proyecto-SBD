@@ -119,17 +119,18 @@ class MetodosPago:
         self.CCVentry.bind("<Key>", block_input)
         self.mesbox.config(state='disable')
         self.yearbox.config(state='disable')
-        if self._cache:
-            datos = [self.NTarjeta.get(), self.Titular.get(), self.CCV.get(), self.mes.get(),
-                     self.year.get(),self.id_tarjeta]
-            print('editar')
-            print(datos)
-            self.conection.CrearTarjeta(datos)
+        datos = [
+                self.NTarjeta.get(), self.Titular.get(),
+                self.CCV.get(), self.year.get() + '-' + self.mes.get() + '-01', self.id_tarjeta]
+        print('editar')
+        print(datos)
+        self.conection.CrearTarjeta(datos)
         self.ConseguirDatos()
     def ConseguirDatos(self):
         #INSERT INTO tarjeta_credito (id,nombre_titular,fecha_expiracion,numero_tarjeta,codigo_ccv) VALUES (%s,%s,%s,%s,%s)",(0,None,None,None,'000'))
         #'tc.nombre_titular,tc.MONTH(fecha_expiracion) AS month, tc.YEAR(fecha_expiracion) AS year,tc.numero_tarjeta,tc.codigo_ccv
         self.user_tarjeta,self.id_tarjeta = self.conection.TarjetaCredit(self.ID)
+        self.id_tarjeta = self.id_tarjeta[0]
         if self.user_tarjeta[0] == None:
             self.user_tarjeta = ['','','','','']
         print(self.user_tarjeta)

@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fff839a0-3c14-4ee0-b28d-c11a948149e7" name="Changes" comment="nueva ventana de metodos de pago">
+    <list default="true" id="fff839a0-3c14-4ee0-b28d-c11a948149e7" name="Changes" comment="mejores en ventana">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Menus/CrearCuenta.py" beforeDir="false" afterPath="$PROJECT_DIR$/Menus/CrearCuenta.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Menus/metodos_pagos.py" beforeDir="false" afterPath="$PROJECT_DIR$/Menus/metodos_pagos.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SQL_conection/conector.py" beforeDir="false" afterPath="$PROJECT_DIR$/SQL_conection/conector.py" afterDir="false" />
     </list>
@@ -326,7 +327,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692663745644</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="mejores en ventana">
+      <option name="closed" value="true" />
+      <created>1692666122917</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1692666122917</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -341,6 +350,7 @@
     <MESSAGE value="Arreglado un monton de bugs" />
     <MESSAGE value="Arreglado un error en una linea" />
     <MESSAGE value="nueva ventana de metodos de pago" />
-    <option name="LAST_COMMIT_MESSAGE" value="nueva ventana de metodos de pago" />
+    <MESSAGE value="mejores en ventana" />
+    <option name="LAST_COMMIT_MESSAGE" value="mejores en ventana" />
   </component>
 </project>

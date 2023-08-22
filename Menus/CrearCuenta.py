@@ -215,8 +215,6 @@ class App:
         self.preferencia.set('-Seleccionar-')
         Preferenc.place(x=160, y=333)
 
-
-
         GButton_748 = tk.Button(self.rootCC)
         GButton_748["bg"] = "#f0f0f0"
         ft = tkFont.Font(family='Times', size=10)
