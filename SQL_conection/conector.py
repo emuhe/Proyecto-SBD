@@ -117,6 +117,10 @@ class Conection:
     def Viajes(self,user_id):
         cursor = self.conection.cursor()
         operation = 'select u.nombre,u.apellido,v.punto_partida,v.punto_llegada,v.cantidad_pasajeros,v.precio_por_asiento,vh.placa,vh.modelo,v.viaje_completado from viaje v join vehiculo_conductor vc on vc.id = v.vehiculo_conductor_id join usuario u on u.id = vc.conductor_id join vehiculo vh on vh.id = vc.vehiculo_id where u.id <> %s'
+        asientos_disponibles = 'SELECT v.id AS viaje_id, v.cantidad_pasajeros - COUNT(ra.id) AS asientos_disponibles FROM viaje v LEFT JOIN reserva_asiento ra ON v.id = ra.viaje_id WHERE v.id = %s GROUP BY v.id, v.cantidad_pasajeros'
         values = (user_id,)
         cursor.execute(operation,values)
-        return cursor.fetchall()
+        viajes = cursor.fetchall()
+        cursor.execute(asientos_disponibles,values)
+        asientosd = cursor.fetchall()
+        return viajes,asientosd

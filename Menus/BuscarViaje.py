@@ -23,11 +23,13 @@ class BuscarViaje:
         root.geometry(alignstr)
         root.resizable(width=False, height=False)
         self.conection = CN()
+        self.TravelData()
 
     def TravelData(self):
         self.Travels = self.conection.Viajes(self.user_id)
+        print(self.Travels)
 
-    def CreateTravel(self,root,partida,llegada,pasajeros,tiempo_salida,estado):
+    def CreateTravel(self,root,partida,llegada,pasajeros,asientos,precio,tiempo_salida,estado):
         # Create outer frame
         outer_frame = tk.Frame(root, bg="blue", bd=5)
         outer_frame.pack(fill="both", expand=True)
@@ -43,7 +45,7 @@ class BuscarViaje:
         f_llegada.grid(row=0, column=4, pady=5, padx=5)
         cant_pasajeros = ''
         colour = ''
-        if int(pasajeros) == 4:
+        if int(pasajeros) == asientos:
             cant_pasajeros = 'ASIENTOS COMPLETOS'
             colour = 'red'
         else:
@@ -52,3 +54,7 @@ class BuscarViaje:
         tk.Label(first_frame,text='Asientos disponibles', fg=colour).grid(row=1,column=0,pady=5,padx=5)
         f_pasajeros = tk.Label(first_frame)
         f_pasajeros.grid(row=1,column=1,padx=5,pady=5)
+        tk.Label(first_frame,text='P. por asiento:').grid(row=1,column=3,pady=5,padx=5)
+        f_precio = tk.Label(first_frame,text='$'+str(precio))
+        f_precio.grid(row=1,column=4,pady=5,padx=5)
+        tk.Label(first_frame,text='Conductor:').grid(row=2,column=0,pady=5,padx=5)
