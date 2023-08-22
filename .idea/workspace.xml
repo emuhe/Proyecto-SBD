@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fff839a0-3c14-4ee0-b28d-c11a948149e7" name="Changes" comment="Arreglado un error en una linea">
-      <change afterPath="$PROJECT_DIR$/Menus/metodos_pagos.py" afterDir="false" />
+    <list default="true" id="fff839a0-3c14-4ee0-b28d-c11a948149e7" name="Changes" comment="nueva ventana de metodos de pago">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Menus/principal.py" beforeDir="false" afterPath="$PROJECT_DIR$/Menus/principal.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Menus/metodos_pagos.py" beforeDir="false" afterPath="$PROJECT_DIR$/Menus/metodos_pagos.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SQL_conection/conector.py" beforeDir="false" afterPath="$PROJECT_DIR$/SQL_conection/conector.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -311,7 +310,23 @@
       <option name="project" value="LOCAL" />
       <updated>1692660564448</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="nueva ventana de metodos de pago">
+      <option name="closed" value="true" />
+      <created>1692663252077</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1692663252077</updated>
+    </task>
+    <task id="LOCAL-00017" summary="nueva ventana de metodos de pago">
+      <option name="closed" value="true" />
+      <created>1692663745644</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1692663745644</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -325,6 +340,7 @@
     <MESSAGE value="Arreglado para que al editar usuario no cambie a todos xd" />
     <MESSAGE value="Arreglado un monton de bugs" />
     <MESSAGE value="Arreglado un error en una linea" />
-    <option name="LAST_COMMIT_MESSAGE" value="Arreglado un error en una linea" />
+    <MESSAGE value="nueva ventana de metodos de pago" />
+    <option name="LAST_COMMIT_MESSAGE" value="nueva ventana de metodos de pago" />
   </component>
 </project>

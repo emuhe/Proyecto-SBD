@@ -83,8 +83,17 @@ class Conection:
     def TarjetaCredit(self,user_id):
         cursor = self.conection.cursor()
         cursor.execute(
-            'Select tc.nombre_titular,tc.fecha_expiracion,tc.numero_tarjeta,tc.numero_tarjeta,tc.codigo_ccv from tarjeta_credito tc join usuario u on u.tarjeta_credito_id = tc.id where u.id = %s',
+            'Select tc.nombre_titular,MONTH(tc.fecha_expiracion) AS month, YEAR(tc.fecha_expiracion) AS year,tc.numero_tarjeta,tc.codigo_ccv from tarjeta_credito tc join usuario u on u.tarjeta_credito_id = tc.id where u.id = %s',
                        (user_id,))
         tarjeta = cursor.fetchone()
+        cursor.execute('select tarjeta_credito_id from usuario u where u.id = %s',(user_id,))
+        id_tar = cursor.fetchone()
         cursor.close()
-        return tarjeta
+        return tarjeta,id_tar
+    def CrearTarjeta(self,values):
+        cursor = self.conection.cursor()
+        cursor.execute(
+            'INSERT INTO tarjeta_credito (numero_tarjeta,nombre_titular,codigo_ccv) values (%s,%s,%s,%s) where id = %s',
+            values)
+        tarjeta = cursor.fetchone()
+        cursor.close()
