@@ -4,13 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fff839a0-3c14-4ee0-b28d-c11a948149e7" name="Changes" comment="Arreglado un monton de bugs">
+    <list default="true" id="fff839a0-3c14-4ee0-b28d-c11a948149e7" name="Changes" comment="Arreglado un error en una linea">
+      <change afterPath="$PROJECT_DIR$/Menus/metodos_pagos.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Menus/principal.py" beforeDir="false" afterPath="$PROJECT_DIR$/Menus/principal.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SQL_conection/conector.py" beforeDir="false" afterPath="$PROJECT_DIR$/SQL_conection/conector.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -293,7 +303,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692660143082</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Arreglado un error en una linea">
+      <option name="closed" value="true" />
+      <created>1692660564448</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1692660564448</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -306,6 +324,7 @@
     <MESSAGE value="Editar cuenta ahora es posible" />
     <MESSAGE value="Arreglado para que al editar usuario no cambie a todos xd" />
     <MESSAGE value="Arreglado un monton de bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Arreglado un monton de bugs" />
+    <MESSAGE value="Arreglado un error en una linea" />
+    <option name="LAST_COMMIT_MESSAGE" value="Arreglado un error en una linea" />
   </component>
 </project>

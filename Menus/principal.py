@@ -2,7 +2,7 @@ import tkinter as tk
 import tkinter.font as tkFont
 from Menus.EditarCuenta import EditarCuenta as EC #Ignorar lo rojo, la linea funciona correctamente!
 from Menus.Vehiculos import Vehiculos
-
+from Menus.metodos_pagos import MetodosPago
 class MenuUsuario:
     def __init__(self,usuario):
         self.user = usuario
@@ -124,6 +124,10 @@ class MenuUsuario:
 
     def GButton_83_command(self):
         print("command")
+        self.rootCC.destroy()
+        MetodosPago(self.user)
+        MenuUsuario(self.user)
+
 
     def GButton_923_command(self):
         print("command")
