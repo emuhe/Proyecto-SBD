@@ -29,7 +29,7 @@ class BuscarViaje:
         self.Travels = self.conection.Viajes(self.user_id)
         print(self.Travels)
 
-    def CreateTravel(self,root,partida,llegada,pasajeros,asientos,precio,tiempo_salida,estado):
+    def CreateTravel(self,root,Nombre,Apellido,partida,llegada,pasajeros,asientos,precio,tiempo_salida,estado,valoracion):
         # Create outer frame
         outer_frame = tk.Frame(root, bg="blue", bd=5)
         outer_frame.pack(fill="both", expand=True)
@@ -58,3 +58,6 @@ class BuscarViaje:
         f_precio = tk.Label(first_frame,text='$'+str(precio))
         f_precio.grid(row=1,column=4,pady=5,padx=5)
         tk.Label(first_frame,text='Conductor:').grid(row=2,column=0,pady=5,padx=5)
+        f_conductor = tk.Label(first_frame,text= Nombre + ' ' + Apellido)
+        f_conductor.grid(row=2,column=1,pady=5,padx=5)
+        tk.Label(first_frame,text='Valoracion:').grid(row=2,column=0,pady=5,padx=5)
