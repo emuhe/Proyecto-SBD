@@ -97,3 +97,20 @@ class Conection:
             values)
         self.conection.commit()
         cursor.close()
+    def CuentaEditar(self,values):
+        cursor = self.conection.cursor()
+        cursor.execute(
+            'UPDATE cuenta_bancaria SET numero_cuenta = %s,titular_cuenta = %s,cedula_titular = %s where id = %s',
+            values)
+        self.conection.commit()
+        cursor.close()
+    def CuentaDatos(self,user_id):
+        cursor = self.conection.cursor()
+        cursor.execute(
+            'Select cb.numero_cuenta,cb.titular_cuenta,cb.cedula_titular from cuenta_bancaria cb join usuario u on u.cuenta_banco_id = cb.id where u.id = %s',
+            (user_id,))
+        cuenta = cursor.fetchone()
+        cursor.execute('select cuenta_banco_id from usuario u where u.id = %s', (user_id,))
+        id_cut = cursor.fetchone()
+        cursor.close()
+        return cuenta, id_cut

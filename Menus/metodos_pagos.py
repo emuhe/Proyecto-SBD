@@ -52,7 +52,7 @@ class MetodosPago:
         self.Titu.bind("<Key>", block_input)
         self.Titu.grid(column = 1,columnspan=4, row = 2, padx= 5, pady=10)
 
-        label5 = tk.Label(frame,text='F. MATRICULA:')
+        label5 = tk.Label(frame,text='F. EXPIRACION:')
         label5.grid(column=0,row=3,padx=2,pady=5)
 
 
@@ -94,10 +94,58 @@ class MetodosPago:
         self.Guardar.pack(side = 'right',padx=5)
         self.AddValues()
 
-    def Elimiar(self):
-        self.ColorVar.set('')
-        self.ModeloVar.set('')
-        self.Fmatricula.set_date(date.today())
+        self.DatosCuenta()
+
+        frame4 = tk.Frame(rootCC, relief= 'solid',width= 500, height= 220, bd= 1)
+        frame4.pack(pady=20,padx=20)
+        frame4.grid_propagate(False)
+        label0 = tk.Label(frame4,text = 'CUENTA BANCO')
+        label0.grid(column=0,row=0,columnspan=5,pady=10)
+
+        label5 = tk.Label(frame4, text='NUMERO CUENTA:')
+        label5.grid(column=0, row=1, padx=5, pady=5)
+        self.Cuenta = tk.Entry(frame4, width=50)
+        self.NCuenta = tk.StringVar()
+        self.Cuenta.grid(columnspan=4, column=1, row=1, padx=5, pady=5)
+        self.Cuenta['validatecommand'] = (self.validate_cmd, '%P', 16)
+        self.Cuenta['textvariable'] = self.NCuenta
+        self.Cuenta.bind("<Key>", block_input)
+        self.Cuenta['validate'] = 'key'
+        self.Cuenta['validatecommand'] = (self.validate_cmd, '%P', 24)
+        self.Cuenta['validate'] = 'key'
+
+        label6 = tk.Label(frame4, text='TITULAR CUENTA:')
+        label6.grid(column=0, row=2, padx=5, pady=5)
+        self.TitularCuenta = tk.Entry(frame4, width=50)
+        self.NTitularCuenta = tk.StringVar()
+        self.TitularCuenta.grid(columnspan=4, column=1, row=2, padx=5, pady=5)
+        self.TitularCuenta['textvariable'] = self.NTitularCuenta
+        self.TitularCuenta.bind("<Key>", block_input)
+
+        label7 = tk.Label(frame4, text='CEDULA TITULAR:')
+        label7.grid(column=0, row=3, padx=5, pady=5)
+        self.CTitular = tk.Entry(frame4, width=50)
+        self.NCTitularCuenta = tk.StringVar()
+        self.CTitular.grid(columnspan=4, column=1, row=3, padx=5, pady=5)
+        self.CTitular['textvariable'] = self.NCTitularCuenta
+        self.CTitular.bind("<Key>", block_input)
+        self.CTitular['validatecommand'] = (self.validate_cmd, '%P', 10)
+        self.CTitular['validate'] = 'key'
+
+        frame5 = tk.Frame(frame4, width=400, height=30)
+        frame5.grid(column=0, row=5, columnspan=5)
+        frame5.pack_propagate(False)
+        self.editarCuenta = tk.Button(frame5, text='Editar', width=10)
+        self.editarCuenta['command'] = self.EditarCuenta
+
+        self.editarCuenta.pack(side='right', padx=5)
+        self.GuardarCuenta = tk.Button(frame5, text='Guardar', width=10, command = self.GuardarCuentaF)
+        self.GuardarCuenta.config(state="disabled")
+        self.GuardarCuenta.pack(side='right', padx=5)
+        self.ValuesCuenta()
+
+
+
     def Editar(self):
         self._cache = False
         self.PermitirMod()
@@ -144,3 +192,40 @@ class MetodosPago:
         self.CCV.set(self.user_tarjeta[4]),
         self.mes.set(str(self.user_tarjeta[1]))
         self.year.set(str(self.user_tarjeta[2]))
+
+    def GuardarCuentaF(self):
+        def block_input(event):
+            return "break"
+        self.editarCuenta.config(state='active')
+        self.GuardarCuenta.config(state="disabled")
+        self.CTitular.bind("<Key>", block_input)
+        self.TitularCuenta.bind("<Key>", block_input)
+        self.Cuenta.bind("<Key>", block_input)
+        datos = [
+            self.NCuenta.get(),self.NTitularCuenta.get(),self.NCTitularCuenta.get(),self.cuenta_user_id]
+        print('editar')
+        print(datos)
+        self.conection.CuentaEditar(datos)
+        self.DatosCuenta()
+
+
+    def DatosCuenta(self):
+        self.user_cuenta, self.cuenta_user_id = self.conection.CuentaDatos(self.ID)
+        self.cuenta_user_id = self.cuenta_user_id[0]
+        if self.user_cuenta[0] == None:
+            self.user_cuenta = ['', '', '']
+        print(self.user_cuenta)
+
+    def EditarCuenta(self):
+        self.PermitirModCuenta()
+    def PermitirModCuenta(self):
+        self.CTitular.unbind('<Key>')
+        self.TitularCuenta.unbind('<Key>')
+        self.Cuenta.unbind('<Key>')
+        self.GuardarCuenta.config(state="active")
+        self.editarCuenta.config(state="disabled")
+
+    def ValuesCuenta(self):
+        self.NCuenta.set(self.user_cuenta[0])
+        self.NTitularCuenta.set(self.user_cuenta[1])
+        self.NCTitularCuenta.set(self.user_cuenta[2]),
