@@ -80,3 +80,11 @@ class Conection:
         values = cursor.fetchone()
         cursor.close()
         return values
+    def TarjetaCredit(self,user_id):
+        cursor = self.conection.cursor()
+        cursor.execute(
+            'Select tc.nombre_titular,tc.fecha_expiracion,tc.numero_tarjeta,tc.numero_tarjeta,tc.codigo_ccv from tarjeta_credito tc join usuario u on u.tarjeta_credito_id = tc.id where u.id = %s',
+                       (user_id,))
+        tarjeta = cursor.fetchone()
+        cursor.close()
+        return tarjeta
