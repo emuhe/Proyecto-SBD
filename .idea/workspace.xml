@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fff839a0-3c14-4ee0-b28d-c11a948149e7" name="Changes" comment="e">
+    <list default="true" id="fff839a0-3c14-4ee0-b28d-c11a948149e7" name="Changes" comment="Se puede filtrar ahora los viajes por partida, y luego por destino">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Menus/BuscarViaje.py" beforeDir="false" afterPath="$PROJECT_DIR$/Menus/BuscarViaje.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SQL_conection/conector.py" beforeDir="false" afterPath="$PROJECT_DIR$/SQL_conection/conector.py" afterDir="false" />
@@ -422,7 +422,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692935065671</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Se puede filtrar ahora los viajes por partida, y luego por destino">
+      <option name="closed" value="true" />
+      <created>1692937578256</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1692937578256</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -445,6 +453,7 @@
     <MESSAGE value="BuscarViaje.py actualizado para que finalmente muestre todos los viajes" />
     <MESSAGE value="agregado boton de reservar viaje (falta funcionalidad)" />
     <MESSAGE value="e" />
-    <option name="LAST_COMMIT_MESSAGE" value="e" />
+    <MESSAGE value="Se puede filtrar ahora los viajes por partida, y luego por destino" />
+    <option name="LAST_COMMIT_MESSAGE" value="Se puede filtrar ahora los viajes por partida, y luego por destino" />
   </component>
 </project>

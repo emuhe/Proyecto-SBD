@@ -144,10 +144,11 @@ class Conection:
         result = [item[0] for item in valores]
         cursor.close()
         return result
-    def MostrarViajes(self, partida):
+    def MostrarViajes(self, partida, llegada):
         cursor = self.conection.cursor()
-        cursor.callproc('FiltrarViaje',[partida])
+        cursor.callproc('FiltrarViaje',[partida,llegada])
         Valores = []
+        print(Valores)
         for result in cursor.stored_results():
             Valores.extend(result.fetchall())
         return Valores

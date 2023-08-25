@@ -107,16 +107,14 @@ class BuscarViaje:
 
     def DestinoSelection(self,event):
         self.partida = self.Partida.get()
-        Destinos = self.conection.FiltrarViajes(self.partida)
+        Destinos = ['-Todos-'] + self.conection.FiltrarViajes(self.partida)
         self.Destino['state'] = 'readonly'
+        print(Destinos)
         self.Destino['values'] = Destinos
-        if self.Destino.get() is None:
-            pass
-        else:
-            self.Destino.set(Destinos[0])
-            self.PartidasSeleccion(None)
+        self.Destino.set(Destinos[0])
+        self.PartidasSeleccion(None)
     def PartidasSeleccion(self,event):
-        Viaje = self.conection.MostrarViajes(self.partida)
+        Viaje = self.conection.MostrarViajes(self.partida,self.Destino.get())
         for widget in self.scrollable_frame.winfo_children():
             widget.destroy()
         self.scrollable_frame.update()
