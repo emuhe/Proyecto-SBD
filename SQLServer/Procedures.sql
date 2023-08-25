@@ -28,3 +28,15 @@ SELECT
 end if;
 end
 %%
+
+-- Procedure par aobtener todos los puntos de destino segun el punto de partida (si es todos entonces retorna todos)
+DELIMITER $$
+create procedure obtenerLlegadas (in partida varchar(100))
+BEGIN
+IF partida = '-Todos-' then
+SELECT punto_llegada from viaje;
+else
+SELECT punto_llegada from viaje where punto_partida = partida;
+end if;
+end
+$$
