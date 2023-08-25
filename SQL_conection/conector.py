@@ -129,3 +129,10 @@ class Conection:
 
 
         return viajes
+
+    def FiltrarViajes(self,partida):
+        cursor = self.conection.cursor()
+        cursor.execute('CALL BuscarViaje(%s)',(partida,))
+        valores = cursor.fetchall()
+        cursor.close()
+        return valores

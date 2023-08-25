@@ -24,9 +24,20 @@ class BuscarViaje:
         alignstr = '%dx%d+%d+%d' % (width, height, (screenwidth - width) / 2, (screenheight - height) / 2)
         root.geometry(alignstr)
         root.resizable(width=False, height=False)
-        Filtros = tk.Frame(root,width=500,height=100,background='red')
+        Filtros = tk.Frame(root,width=500,height=100)
         Filtros.pack_propagate(False)
         Filtros.pack()
+
+        self.Partida = ttk.Combobox(Filtros,values = ['test1','test2'],state='readonly')
+        self.Partida.set('-Seleccionar-')
+        self.Partida.bind('<<ComboboxSelected>>', self.DestinoSelection)
+        tk.Label(Filtros,text='Partida:').grid(row=0,column=0,pady=5,padx=5)
+        self.Partida.grid(row=0,column=1,pady=5,padx=5)
+        tk.Label(Filtros,text='Destino:').grid(row=0,column=2,pady=5,padx=5)
+        self.Destino = ttk.Combobox(Filtros,state='disabled')
+        self.Destino.set('-Seleccionar-')
+        self.Destino.grid(row=0,column=3,pady=5,padx=5)
+
         canvas = tk.Canvas(root, bd=0, highlightthickness=0,background='green')
         canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
         v_scroll = ttk.Scrollbar(root, orient="vertical", command=canvas.yview)
@@ -88,3 +99,9 @@ class BuscarViaje:
         reserva['command'] = lambda numero=numero :self.reserva(numero)
     def reserva(self,num):
         print(num)
+
+    def DestinoSelection(self,event):
+        print('destino seleccionado')
+        Destinos = CN.FiltrarViajes(self.Partida.get())
+        self.Destino['state'] = 'readonly'
+        self.Destino['values'] = Destinos
