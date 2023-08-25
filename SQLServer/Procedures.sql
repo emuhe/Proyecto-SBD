@@ -56,3 +56,38 @@ SELECT punto_llegada from viaje where punto_partida = partida;
 end if;
 end
 $$
+
+-- Procedure para crear un vehiculo y que tambien se cree una conexion con vehiculo_Conductor. se utilizan transacciones y rollbacks
+DELIMITER //
+CREATE PROCEDURE InsertIntoVehiculoAndVehiculoConductor(
+    IN p_id INT, IN p_modelo VARCHAR(255), IN p_marca VARCHAR(255), IN p_fecha_matricula DATE,
+    IN p_tipo_vehiculo VARCHAR(255), IN p_color VARCHAR(255), IN p_placa VARCHAR(255), 
+    IN p_activo BOOLEAN, IN p_conductor_id INT)
+BEGIN
+    DECLARE v_veh_id INT;
+    DECLARE v_error_occurred INT DEFAULT 0;
+    
+    DECLARE CONTINUE HANDLER FOR SQLEXCEPTION
+    BEGIN
+        SET v_error_occurred = 1;
+    END;
+
+    START TRANSACTION;
+
+    INSERT INTO VEHICULO (id, modelo, marca, fecha_matricula, tipo_vehiculo, color, placa, activo)
+    VALUES (p_id, p_modelo, p_marca, p_fecha_matricula, p_tipo_vehiculo, p_color, p_placa, p_activo);
+    
+    SET v_veh_id = LAST_INSERT_ID();
+
+    INSERT INTO VEHICULO_CONDUCTOR (vehiculo_id, conductor_id)
+    VALUES (v_veh_id, p_conductor_id);
+
+    IF v_error_occurred = 1 THEN
+        ROLLBACK;
+    ELSE
+        COMMIT;
+    END IF;
+
+END;
+//
+DELIMITER ;
