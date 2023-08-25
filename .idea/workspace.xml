@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fff839a0-3c14-4ee0-b28d-c11a948149e7" name="Changes" comment="Ahora se puede filtrar tanto por destino como por partida" />
+    <list default="true" id="fff839a0-3c14-4ee0-b28d-c11a948149e7" name="Changes" comment="eliminado un boton que no se iba a usar">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -450,7 +452,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692940351064</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="eliminado un boton que no se iba a usar">
+      <option name="closed" value="true" />
+      <created>1692940620426</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1692940620426</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -477,6 +487,7 @@
     <MESSAGE value="Agregado filtro para buscar para todos los destinos desde una partida" />
     <MESSAGE value="eliminado lineas inecesarias" />
     <MESSAGE value="Ahora se puede filtrar tanto por destino como por partida" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ahora se puede filtrar tanto por destino como por partida" />
+    <MESSAGE value="eliminado un boton que no se iba a usar" />
+    <option name="LAST_COMMIT_MESSAGE" value="eliminado un boton que no se iba a usar" />
   </component>
 </project>
