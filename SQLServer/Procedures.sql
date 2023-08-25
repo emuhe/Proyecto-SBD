@@ -3,4 +3,3 @@ DELIMITER %%
     BEGIN
     SELECT punto_llegada from viaje where punto_partida = partida;
     END %%
-CALL BuscarViaje('Guayaquil')
