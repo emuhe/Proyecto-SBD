@@ -91,3 +91,17 @@ BEGIN
 END;
 //
 DELIMITER ;
+
+-- Procedure que automaticamente genera un pago despues de reservar un viaje
+DELIMITER %%
+create procedure ReservarViaje (in id_viaje varchar(100), in id_usuario varchar(100))
+BEGIN
+	insert into reserva_asiento values (0,id_viaje,id_usuario);
+    insert into pagos values 
+    (0,id_viaje,pasajero_id,(select precio_por_asiento from viaje where id = id_viaje),
+    'Tarjeta',
+    (select tarjeta_credito_id from usuario where id = id_usuario),
+    (select cuenta_banco_id from usuario join vehiculo_conductor vc on vc.conductor_id = usuario.id join viaje v on vc.id = v.vehiculo_conductor_id where v.id = id_viaje), now());
+    END;
+%%
+
