@@ -284,12 +284,10 @@ class EditarCuenta:
         self.pop.destroy()
         self.rootCC.destroy()
     def ValidarCont(self):
-        print(self.Nombre.get())
         if (self.Nombre.get() == '' or any(char.isdigit() for char in self.Nombre.get()))\
                 or (self.Apellido.get() == '' or any(char.isdigit() for char in self.Apellido.get()))\
                 or (self.Correo.get() == '' or not bool(re.match(pattern, self.Correo.get())))\
                 or self.preferencia.get() == '-Seleccionar-':
-            print('invalid')
             self.Valid = False
         else:
             self.Valid = True

@@ -103,6 +103,7 @@ class BuscarViaje:
     def reserva(self,num):
         print(num)
 
+
     def DestinoSelection(self,event):
         self.partida = self.Partida.get()
         Destinos = ['-Todos-'] + self.conection.FiltrarViajes(self.partida)

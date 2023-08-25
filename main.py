@@ -111,7 +111,6 @@ class MainMenu:
 
     def GButton_760_command(self): #Verificar si los datos ingresados son correctos
         _mcache,ID = self.conect.InicioSesion(self.Cedula.get(),self.Nombre.get())
-        print(_mcache)
         if _mcache:
             root.destroy()
             MU(ID)

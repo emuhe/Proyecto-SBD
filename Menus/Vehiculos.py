@@ -201,14 +201,10 @@ class Vehiculos:
         if self._cache:
             datos = [0, self.ModeloVar.get(), self.MarcaVar.get(), self.Fmatricula.get_date(), self.Tipo.get(),
                      self.ColorVar.get(), self.PlacaVar.get(), 1]
-            print('guardado')
-            print(datos)
             self.conection.AutosCrear(datos,self.ID)
         else:
-            print('editado')
             edited_data = [self.ModeloVar.get(), self.MarcaVar.get(), self.Fmatricula.get_date(), self.Tipo.get(),
                      self.ColorVar.get(), self.PlacaVar.get(), self.CarrosAct[7]]
-            print(edited_data)
             self.conection.AutoEditar(edited_data)
         self.ConseguirDatos()
 
@@ -221,7 +217,6 @@ class Vehiculos:
         if self.Car_count-1 > -1:
             if self.botrig.cget('state') == 'disabled':
                 self.botrig.config(state='active')
-            print('Atras')
             #SELECT v.MODELO,v.MARCA,v.FECHA_MATRICULA,v.TIPO_VEHICULO,v.COLOR,v.PLACA,v.ACTIVO,v.ID FROM VEHICULO V JOIN vehicul
             self.Car_count -= 1
             self._text_cache = 'VEHICULO ' + str(self.Car_count + 1)
@@ -229,7 +224,6 @@ class Vehiculos:
             self.CarrosAct = self.Carros[self.Car_count]
             self.ModeloVar.set(self.CarrosAct[0])
             self.MarcaVar.set(self.CarrosAct[1])
-            print(self.CarrosAct[2])
             self.Fmatricula.config(state='active')
             self.Fmatricula.set_date(self.CarrosAct[2])
             self.Fmatricula.config(state='disabled')
@@ -242,12 +236,10 @@ class Vehiculos:
         else: self.botlef.config(state='disabled')
     def Siguiente(self):
         if self.Car_count+1 < self.CantCarr:
-            print('siguiente')
             if self.botlef.cget('state') == 'disabled':
                 self.botlef.config(state='active')
             #SELECT v.MODELO,v.MARCA,v.FECHA_MATRICULA,v.TIPO_VEHICULO,v.COLOR,v.PLACA,v.ACTIVO,v.ID FROM VEHICULO V JOIN vehicul
             self.Car_count += 1
-            print(self.CarrosAct[2])
             self._text_cache = 'VEHICULO ' + str(self.Car_count + 1)
             self.label0.config(text=self._text_cache)
             self.CarrosAct = self.Carros[self.Car_count]
@@ -271,7 +263,6 @@ class Vehiculos:
             self.Carros.append(['','',date.today(),'','','','',''])
         self.CarrosAct = self.Carros[0]
         self.CantCarr = len(self.Carros)
-        print(self.Carros)
 
     def Delete(self):
         if self.CantCarr == 0:
