@@ -6,12 +6,14 @@ from SQL_conection.conector import Conection as CN
 
 class BuscarViaje:
     def __init__(self,user_id):
+        self.firsttime = True
         self.user_id = user_id
         self.conection = CN()
         self.TravelData()
         self.rootBV = tk.Tk()
         self.Startup(self.rootBV)
         self.rootBV.mainloop()
+
     def Startup(self,root):
         scroll_max = len(self.Travels)*180
         def on_frame_configure(canvas, scroll_height=scroll_max):
@@ -36,9 +38,10 @@ class BuscarViaje:
         tk.Label(Filtros,text='Destino:').grid(row=0,column=2,pady=5,padx=5)
         self.Destino = ttk.Combobox(Filtros,state='disabled')
         self.Destino.set('-Seleccionar-')
+        self.Destino.bind('<<ComboboxSelected>>', self.PartidasSeleccion)
         self.Destino.grid(row=0,column=3,pady=5,padx=5)
 
-        canvas = tk.Canvas(root, bd=0, highlightthickness=0,background='green')
+        canvas = tk.Canvas(root, bd=0, highlightthickness=0)
         canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
         v_scroll = ttk.Scrollbar(root, orient="vertical", command=canvas.yview)
         v_scroll.pack(side=tk.RIGHT, fill=tk.Y)
@@ -46,9 +49,11 @@ class BuscarViaje:
         self.scrollable_frame = ttk.Frame(canvas)
         self.scrollable_frame.bind("<Configure>", lambda e: on_frame_configure(canvas))
         canvas.create_window((0, 0), window=self.scrollable_frame, anchor="nw")
-
-        for Viaje,num in zip(self.Travels,range(len(self.Travels))):
-            self.CreateTravel(self.scrollable_frame,Viaje[0],Viaje[1],Viaje[2],Viaje[3],Viaje[4],Viaje[5],Viaje[6],Viaje[7],Viaje[8],Viaje[9],Viaje[10],num)
+        if self.firsttime:
+            print(self.firsttime)
+            for Viaje,num in zip(self.Travels,range(len(self.Travels))):
+                self.CreateTravel(self.scrollable_frame,Viaje[0],Viaje[1],Viaje[2],Viaje[3],Viaje[4],Viaje[5],Viaje[6],Viaje[7],Viaje[8],Viaje[9],Viaje[10],num)
+            self.firsttime = False
     def TravelData(self):
         self.Travels = self.conection.Viajes(self.user_id)
 
@@ -101,7 +106,21 @@ class BuscarViaje:
         print(num)
 
     def DestinoSelection(self,event):
-        partida = self.Partida.get()
-        Destinos = self.conection.FiltrarViajes(partida)
+        self.partida = self.Partida.get()
+        Destinos = self.conection.FiltrarViajes(self.partida)
         self.Destino['state'] = 'readonly'
         self.Destino['values'] = Destinos
+        if self.Destino.get() is None:
+            pass
+        else:
+            self.Destino.set(Destinos[0])
+            self.PartidasSeleccion(None)
+    def PartidasSeleccion(self,event):
+        Viaje = self.conection.MostrarViajes(self.partida)
+        for widget in self.scrollable_frame.winfo_children():
+            widget.destroy()
+        self.scrollable_frame.update()
+        for Viaje, num in zip(Viaje, range(len(self.Travels))):
+            self.CreateTravel(self.scrollable_frame, Viaje[0], Viaje[1], Viaje[2], Viaje[3], Viaje[4], Viaje[5],
+                              Viaje[6], Viaje[7], Viaje[8], Viaje[9], Viaje[10], num)
+

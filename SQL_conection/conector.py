@@ -127,21 +127,27 @@ class Conection:
         # cursor.execute(asientos_disponibles,values)
         # asientosd = cursor.fetchall()
         cursor.close()
-
         return viajes
-
     def FiltrarViajes(self, partida):
         cursor = self.conection.cursor()
         # cursor.callproc('BuscarViaje',[partida])
         cursor.execute('SELECT punto_llegada from viaje where punto_partida = %s', (partida,))
         print(partida)
         valores = cursor.fetchall()
-        print(valores)
+        result = [item[0] for item in valores]
         cursor.close()
-        return valores
+        return result
     def ObtenerPartidas(self):
         cursor = self.conection.cursor()
         cursor.execute('select * from Partidas')
         valores = cursor.fetchall()
+        result = [item[0] for item in valores]
         cursor.close()
-        return valores
+        return result
+    def MostrarViajes(self, partida):
+        cursor = self.conection.cursor()
+        cursor.callproc('FiltrarViaje',[partida])
+        Valores = []
+        for result in cursor.stored_results():
+            Valores.extend(result.fetchall())
+        return Valores
