@@ -15,7 +15,7 @@ SELECT
 	(SELECT count(*) from reserva_asiento ra where viaje_id = v.id),
     v.cantidad_pasajeros,v.precio_por_asiento,v.tiempo_salida,viaje_completado,
     (select avg(val.valoracion) from valoracion val join usuario usr on val.conductor_id = usr.id
-    where usr.id = vec.conductor_id),(select vehiculo.modelo from vehiculo where vehiculo.id = vec.vehiculo_id) 
+    where usr.id = vec.conductor_id),(select vehiculo.modelo from vehiculo where vehiculo.id = vec.vehiculo_id) , v.id
     from viaje v join vehiculo_conductor vec on vec.id = v.vehiculo_conductor_id join usuario c on c.id = vec.conductor_id;
 elseif llegada = '-Todos-' and partida <> '-Todos-' then
 SELECT
@@ -23,7 +23,7 @@ SELECT
 	(SELECT count(*) from reserva_asiento ra where viaje_id = v.id),
     v.cantidad_pasajeros,v.precio_por_asiento,v.tiempo_salida,viaje_completado,
     (select avg(val.valoracion) from valoracion val join usuario usr on val.conductor_id = usr.id
-    where usr.id = vec.conductor_id),(select vehiculo.modelo from vehiculo where vehiculo.id = vec.vehiculo_id) 
+    where usr.id = vec.conductor_id),(select vehiculo.modelo from vehiculo where vehiculo.id = vec.vehiculo_id) , v.id 
     from viaje v join vehiculo_conductor vec on vec.id = v.vehiculo_conductor_id join usuario c on c.id = vec.conductor_id where v.punto_partida = partida;
 elseif llegada <> '-Todos-' and partida = '-Todos-' then
 SELECT
@@ -31,7 +31,7 @@ SELECT
 	(SELECT count(*) from reserva_asiento ra where viaje_id = v.id),
     v.cantidad_pasajeros,v.precio_por_asiento,v.tiempo_salida,viaje_completado,
     (select avg(val.valoracion) from valoracion val join usuario usr on val.conductor_id = usr.id
-    where usr.id = vec.conductor_id),(select vehiculo.modelo from vehiculo where vehiculo.id = vec.vehiculo_id) 
+    where usr.id = vec.conductor_id),(select vehiculo.modelo from vehiculo where vehiculo.id = vec.vehiculo_id) , v.id
     from viaje v join vehiculo_conductor vec on vec.id = v.vehiculo_conductor_id join usuario c on c.id = vec.conductor_id where v.punto_llegada = llegada;
 else
 SELECT
@@ -39,7 +39,7 @@ SELECT
 	(SELECT count(*) from reserva_asiento ra where viaje_id = v.id),
     v.cantidad_pasajeros,v.precio_por_asiento,v.tiempo_salida,viaje_completado,
     (select avg(val.valoracion) from valoracion val join usuario usr on val.conductor_id = usr.id
-    where usr.id = vec.conductor_id),(select vehiculo.modelo from vehiculo where vehiculo.id = vec.vehiculo_id) 
+    where usr.id = vec.conductor_id),(select vehiculo.modelo from vehiculo where vehiculo.id = vec.vehiculo_id) , v.id
     from viaje v join vehiculo_conductor vec on vec.id = v.vehiculo_conductor_id join usuario c on c.id = vec.conductor_id where v.punto_partida = partida and v.punto_llegada = llegada;
 end if;
 end
@@ -91,3 +91,17 @@ BEGIN
 END;
 //
 DELIMITER ;
+
+-- Procedure que automaticamente genera un pago despues de reservar un viaje
+DELIMITER %%
+create procedure ReservarViaje (in id_viaje varchar(100), in id_usuario varchar(100))
+BEGIN
+	insert into reserva_asiento values (0,id_viaje,id_usuario);
+    insert into pagos values 
+    (0,id_viaje,pasajero_id,(select precio_por_asiento from viaje where id = id_viaje),
+    'Tarjeta',
+    (select tarjeta_credito_id from usuario where id = id_usuario),
+    (select cuenta_banco_id from usuario join vehiculo_conductor vc on vc.conductor_id = usuario.id join viaje v on vc.id = v.vehiculo_conductor_id where v.id = id_viaje), now());
+    END;
+%%
+
