@@ -13,7 +13,7 @@ class BuscarViaje:
         self.Startup(self.rootBV)
         self.rootBV.mainloop()
     def Startup(self,root):
-        scroll_max = len(self.Travels)*160+20
+        scroll_max = len(self.Travels)*180
         def on_frame_configure(canvas, scroll_height=scroll_max):
             width, height = canvas.winfo_width(), scroll_height
             canvas.configure(scrollregion=(0, 0, width, height))

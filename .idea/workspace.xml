@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fff839a0-3c14-4ee0-b28d-c11a948149e7" name="Changes" comment="BuscarViaje.py actualizado para que finalmente muestre todos los viajes">
+    <list default="true" id="fff839a0-3c14-4ee0-b28d-c11a948149e7" name="Changes" comment="agregado boton de reservar viaje (falta funcionalidad)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Menus/BuscarViaje.py" beforeDir="false" afterPath="$PROJECT_DIR$/Menus/BuscarViaje.py" afterDir="false" />
     </list>
@@ -389,7 +389,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692926252590</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="agregado boton de reservar viaje (falta funcionalidad)">
+      <option name="closed" value="true" />
+      <created>1692928291813</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1692928291813</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -410,6 +418,7 @@
     <MESSAGE value="soy el fuego que ardee" />
     <MESSAGE value="een tu pieeel" />
     <MESSAGE value="BuscarViaje.py actualizado para que finalmente muestre todos los viajes" />
-    <option name="LAST_COMMIT_MESSAGE" value="BuscarViaje.py actualizado para que finalmente muestre todos los viajes" />
+    <MESSAGE value="agregado boton de reservar viaje (falta funcionalidad)" />
+    <option name="LAST_COMMIT_MESSAGE" value="agregado boton de reservar viaje (falta funcionalidad)" />
   </component>
 </project>
