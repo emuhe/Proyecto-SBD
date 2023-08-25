@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fff839a0-3c14-4ee0-b28d-c11a948149e7" name="Changes" comment="eliminado un boton que no se iba a usar">
+    <list default="true" id="fff839a0-3c14-4ee0-b28d-c11a948149e7" name="Changes" comment="se agrego un trigger al momento de crear cuenta, por lo que se eliminaron lineas innecesarias">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -460,7 +460,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692940620426</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="se agrego un trigger al momento de crear cuenta, por lo que se eliminaron lineas innecesarias">
+      <option name="closed" value="true" />
+      <created>1692941238145</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1692941238145</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -488,6 +496,7 @@
     <MESSAGE value="eliminado lineas inecesarias" />
     <MESSAGE value="Ahora se puede filtrar tanto por destino como por partida" />
     <MESSAGE value="eliminado un boton que no se iba a usar" />
-    <option name="LAST_COMMIT_MESSAGE" value="eliminado un boton que no se iba a usar" />
+    <MESSAGE value="se agrego un trigger al momento de crear cuenta, por lo que se eliminaron lineas innecesarias" />
+    <option name="LAST_COMMIT_MESSAGE" value="se agrego un trigger al momento de crear cuenta, por lo que se eliminaron lineas innecesarias" />
   </component>
 </project>

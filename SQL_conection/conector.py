@@ -51,9 +51,10 @@ class Conection:
         return datos
     def AutosCrear(self,data,id):
         cursor = self.conection.cursor()
-        cursor.execute('INSERT INTO VEHICULO (id,modelo,marca,fecha_matricula,tipo_vehiculo,color,placa,activo) values (%s,%s,%s,%s,%s,%s,%s,%s)', data)
-        veh_id = cursor.lastrowid
-        cursor.execute('INSERT INTO VEHICULO_CONDUCTOR (id,vehiculo_id,conductor_id) values (%s,%s,%s)',(0,veh_id,id))
+        (p_id, p_modelo, p_marca, p_fecha_matricula, p_tipo_vehiculo, p_color, p_placa, p_activo) = data
+
+        cursor.callproc('InsertIntoVehiculoAndVehiculoConductor',
+                        (p_id, p_modelo, p_marca, p_fecha_matricula, p_tipo_vehiculo, p_color, p_placa, p_activo, id))
         self.conection.commit()
         cursor.close()
     def AutoEditar(self,data):
