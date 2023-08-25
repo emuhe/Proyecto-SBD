@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fff839a0-3c14-4ee0-b28d-c11a948149e7" name="Changes" comment="se agrego un trigger al momento de crear cuenta, por lo que se eliminaron lineas innecesarias">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="fff839a0-3c14-4ee0-b28d-c11a948149e7" name="Changes" comment="se agrego un procedure al momento de crear vehiculo, por lo que se eliminaron lineas innecesarias">
+      <change beforePath="$PROJECT_DIR$/Menus/BuscarViaje.py" beforeDir="false" afterPath="$PROJECT_DIR$/Menus/BuscarViaje.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Menus/principal.py" beforeDir="false" afterPath="$PROJECT_DIR$/Menus/principal.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SQL_conection/conector.py" beforeDir="false" afterPath="$PROJECT_DIR$/SQL_conection/conector.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -468,11 +471,18 @@
       <option name="project" value="LOCAL" />
       <updated>1692941238145</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="se agrego un procedure al momento de crear vehiculo, por lo que se eliminaron lineas innecesarias">
+      <option name="closed" value="true" />
+      <created>1692942229371</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1692942229371</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Security fix" />
     <MESSAGE value="Arreglos en ventana de Vehiculos.py" />
     <MESSAGE value="ahora es posible ver todos los vehiculos registrados por usuario" />
     <MESSAGE value="corregido errores en vehiculo, ahora se puede editar datos" />
@@ -497,6 +507,7 @@
     <MESSAGE value="Ahora se puede filtrar tanto por destino como por partida" />
     <MESSAGE value="eliminado un boton que no se iba a usar" />
     <MESSAGE value="se agrego un trigger al momento de crear cuenta, por lo que se eliminaron lineas innecesarias" />
-    <option name="LAST_COMMIT_MESSAGE" value="se agrego un trigger al momento de crear cuenta, por lo que se eliminaron lineas innecesarias" />
+    <MESSAGE value="se agrego un procedure al momento de crear vehiculo, por lo que se eliminaron lineas innecesarias" />
+    <option name="LAST_COMMIT_MESSAGE" value="se agrego un procedure al momento de crear vehiculo, por lo que se eliminaron lineas innecesarias" />
   </component>
 </project>

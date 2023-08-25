@@ -106,7 +106,6 @@ class BuscarViaje:
     def DestinoSelection(self,event):
         self.partida = self.Partida.get()
         Destinos = ['-Todos-'] + self.conection.FiltrarViajes(self.partida)
-        print(Destinos)
         self.Destino['values'] = Destinos
         self.Destino.set(Destinos[0])
         self.PartidasSeleccion(None)

@@ -18,7 +18,6 @@ class Conection:
         query = ''
 
     def Cuentacrear(self,datos):
-        print(datos)
         cursor = self.conection.cursor()
         cursor.execute("INSERT INTO usuario (id,nombre,apellido,preferencia,ruta_foto_perfil,minibiografia,cedula,genero,direccion,fecha_nacimiento,numero_movil,rol,correo_electronico) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)", datos)
         user_id = cursor.lastrowid
@@ -27,7 +26,6 @@ class Conection:
         return user_id
     def EditarCuenta(self,datos):
         cursor = self.conection.cursor()
-        print(datos)
         cursor.execute(
             "UPDATE usuario SET nombre = %s,apellido= %s,preferencia= %s,minibiografia= %s,cedula= %s,genero= %s,direccion= %s,fecha_nacimiento= %s,numero_movil= %s,correo_electronico= %s where id = %s",
             datos)
@@ -37,7 +35,6 @@ class Conection:
         cursor = self.conection.cursor()
         cursor.execute('SELECT id,nombre from usuario where cedula = %s and nombre = %s', (ID,NOMBRE))
         resultado = cursor.fetchone()
-        print(resultado)
         cursor.close()
         if resultado == None:
             return False,None
@@ -70,7 +67,6 @@ class Conection:
 
     def ConsultarDatosUser(self,user_id):
         cursor = self.conection.cursor()
-        print(user_id)
         cursor.execute('SELECT nombre,apellido,preferencia,minibiografia,cedula,genero,direccion,fecha_nacimiento,numero_movil,correo_electronico from usuario where id = %s', (user_id,))
         values = cursor.fetchone()
         cursor.close()
@@ -121,7 +117,6 @@ class Conection:
         # cursor.callproc('BuscarViaje',[partida])
         cursor.callproc('obtenerLlegadas', [partida])
         Valores = []
-        print(Valores)
         for result in cursor.stored_results():
             Valores.extend(result.fetchall())
         result = [item[0] for item in Valores]
@@ -138,7 +133,6 @@ class Conection:
         cursor = self.conection.cursor()
         cursor.callproc('FiltrarViaje',[partida,llegada])
         Valores = []
-        print(Valores)
         for result in cursor.stored_results():
             Valores.extend(result.fetchall())
         return Valores
