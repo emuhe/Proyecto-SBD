@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fff839a0-3c14-4ee0-b28d-c11a948149e7" name="Changes" comment="soy el fuego que ardee">
+    <list default="true" id="fff839a0-3c14-4ee0-b28d-c11a948149e7" name="Changes" comment="een tu pieeel">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Menus/BuscarViaje.py" beforeDir="false" afterPath="$PROJECT_DIR$/Menus/BuscarViaje.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SQL_conection/conector.py" beforeDir="false" afterPath="$PROJECT_DIR$/SQL_conection/conector.py" afterDir="false" />
@@ -366,7 +366,23 @@
       <option name="project" value="LOCAL" />
       <updated>1692676682651</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="een tu pieeel">
+      <option name="closed" value="true" />
+      <created>1692677144085</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1692677144085</updated>
+    </task>
+    <task id="LOCAL-00024" summary="een tu pieeel">
+      <option name="closed" value="true" />
+      <created>1692677482974</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1692677482974</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -385,6 +401,7 @@
     <MESSAGE value="tarjeta de credito totalmente accesible" />
     <MESSAGE value="actualizao" />
     <MESSAGE value="soy el fuego que ardee" />
-    <option name="LAST_COMMIT_MESSAGE" value="soy el fuego que ardee" />
+    <MESSAGE value="een tu pieeel" />
+    <option name="LAST_COMMIT_MESSAGE" value="een tu pieeel" />
   </component>
 </project>
