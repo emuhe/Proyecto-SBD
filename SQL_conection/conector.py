@@ -114,7 +114,7 @@ class Conection:
         id_cut = cursor.fetchone()
         cursor.close()
         return cuenta, id_cut
-    def Viajes(self,user_id):
+    def Viajes(self):
         cursor = self.conection.cursor()
         operation = 'SELECT * from BuscarViajes'
         cursor.execute(operation)
@@ -124,10 +124,12 @@ class Conection:
     def FiltrarViajes(self, partida):
         cursor = self.conection.cursor()
         # cursor.callproc('BuscarViaje',[partida])
-        cursor.execute('SELECT punto_llegada from viaje where punto_partida = %s', (partida,))
-        print(partida)
-        valores = cursor.fetchall()
-        result = [item[0] for item in valores]
+        cursor.callproc('obtenerLlegadas', [partida])
+        Valores = []
+        print(Valores)
+        for result in cursor.stored_results():
+            Valores.extend(result.fetchall())
+        result = [item[0] for item in Valores]
         cursor.close()
         return result
     def ObtenerPartidas(self):

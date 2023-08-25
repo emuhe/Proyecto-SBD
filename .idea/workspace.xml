@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fff839a0-3c14-4ee0-b28d-c11a948149e7" name="Changes" comment="Agregado filtro para buscar para todos los destinos desde una partida" />
+    <list default="true" id="fff839a0-3c14-4ee0-b28d-c11a948149e7" name="Changes" comment="eliminado lineas inecesarias">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Menus/BuscarViaje.py" beforeDir="false" afterPath="$PROJECT_DIR$/Menus/BuscarViaje.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SQL_conection/conector.py" beforeDir="false" afterPath="$PROJECT_DIR$/SQL_conection/conector.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -434,7 +438,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692938708541</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="eliminado lineas inecesarias">
+      <option name="closed" value="true" />
+      <created>1692939060659</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1692939060659</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -459,6 +471,7 @@
     <MESSAGE value="e" />
     <MESSAGE value="Se puede filtrar ahora los viajes por partida, y luego por destino" />
     <MESSAGE value="Agregado filtro para buscar para todos los destinos desde una partida" />
-    <option name="LAST_COMMIT_MESSAGE" value="Agregado filtro para buscar para todos los destinos desde una partida" />
+    <MESSAGE value="eliminado lineas inecesarias" />
+    <option name="LAST_COMMIT_MESSAGE" value="eliminado lineas inecesarias" />
   </component>
 </project>
