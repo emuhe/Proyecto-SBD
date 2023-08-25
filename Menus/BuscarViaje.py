@@ -27,8 +27,8 @@ class BuscarViaje:
         Filtros = tk.Frame(root,width=500,height=100)
         Filtros.pack_propagate(False)
         Filtros.pack()
-
-        self.Partida = ttk.Combobox(Filtros,values = ['test1','test2'],state='readonly')
+        partida_values = self.conection.ObtenerPartidas()
+        self.Partida = ttk.Combobox(Filtros,values = partida_values,state='readonly')
         self.Partida.set('-Seleccionar-')
         self.Partida.bind('<<ComboboxSelected>>', self.DestinoSelection)
         tk.Label(Filtros,text='Partida:').grid(row=0,column=0,pady=5,padx=5)
@@ -101,7 +101,7 @@ class BuscarViaje:
         print(num)
 
     def DestinoSelection(self,event):
-        print('destino seleccionado')
-        Destinos = CN.FiltrarViajes(self.Partida.get())
+        partida = self.Partida.get()
+        Destinos = self.conection.FiltrarViajes(partida)
         self.Destino['state'] = 'readonly'
         self.Destino['values'] = Destinos
