@@ -57,7 +57,7 @@ class BuscarViaje:
 
     def CreateTravel(self,root,Nombre,Apellido,partida,llegada,pasajeros,asientos,precio,tiempo_salida,estado,valoracion,vehiculo,numero):
         pad = 2
-        first_frame = tk.Frame(self.scrollable_frame,width=465,height=160,bg='white',bd=1, relief= 'solid')
+        first_frame = tk.Frame(self.scrollable_frame,width=465,height=160,bd=1, relief= 'solid')
         first_frame.pack(padx=10,pady=10)
         first_frame.grid_propagate(False)
         f_partida = tk.Label(first_frame, text=partida)

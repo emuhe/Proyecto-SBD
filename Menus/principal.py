@@ -95,17 +95,6 @@ class MenuUsuario:
         GButton_83.place(x=250, y=260, width=112, height=30)
         GButton_83["command"] = self.GButton_83_command
 
-        GButton_923 = tk.Button(rootCC)
-        GButton_923["bg"] = "#f0f0f0"
-        ft = tkFont.Font(family='Times', size=10)
-        GButton_923["font"] = ft
-        GButton_923["fg"] = "#000000"
-        GButton_923["justify"] = "center"
-        GButton_923["text"] = "Historial"
-        GButton_923["relief"] = "groove"
-        GButton_923.place(x=250, y=140, width=112, height=30)
-        GButton_923["command"] = self.GButton_923_command
-
     def GButton_248_command(self):
         print("command")
         self.rootCC.destroy()
@@ -131,7 +120,3 @@ class MenuUsuario:
         self.rootCC.destroy()
         MetodosPago(self.user)
         MenuUsuario(self.user)
-
-
-    def GButton_923_command(self):
-        print("command")
