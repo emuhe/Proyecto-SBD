@@ -136,3 +136,7 @@ class Conection:
         for result in cursor.stored_results():
             Valores.extend(result.fetchall())
         return Valores
+
+    def ReservarViaje(self,viaje,usuario):
+        cursor = self.conection.cursor()
+        cursor.callproc('ReservarViaje',[viaje,usuario])

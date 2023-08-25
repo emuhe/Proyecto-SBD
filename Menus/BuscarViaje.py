@@ -101,7 +101,7 @@ class BuscarViaje:
         reserva.pack(side=tk.RIGHT,padx=40)
         reserva['command'] = lambda numero=numero :self.reserva(numero)
     def reserva(self,num):
-        print(num)
+        print(self.Viaje[num][-1])
 
 
     def DestinoSelection(self,event):
@@ -111,11 +111,11 @@ class BuscarViaje:
         self.Destino.set(Destinos[0])
         self.PartidasSeleccion(None)
     def PartidasSeleccion(self,event):
-        Viaje = self.conection.MostrarViajes(self.partida,self.Destino.get())
+        self.Viaje = self.conection.MostrarViajes(self.partida,self.Destino.get())
         for widget in self.scrollable_frame.winfo_children():
             widget.destroy()
         self.scrollable_frame.update()
-        for Viaje, num in zip(Viaje, range(len(self.Travels))):
+        for Viaje, num in zip(self.Viaje, range(len(self.Travels))):
             self.CreateTravel(self.scrollable_frame, Viaje[0], Viaje[1], Viaje[2], Viaje[3], Viaje[4], Viaje[5],
                               Viaje[6], Viaje[7], Viaje[8], Viaje[9], Viaje[10], num)
 
