@@ -22,3 +22,7 @@ GRANT SELECT ON blablacar.vista1 TO 'Fernando'@'localhost';
 GRANT EXECUTE ON PROCEDURE blablacar.procedure_name TO 'Carolina'@'localhost';
 GRANT SELECT ON blablacar.vista1 TO 'Carolina'@'localhost';
 GRANT SELECT ON blablacar.vista2 TO 'Carolina'@'localhost';
+
+-- Creado usuario general
+create user 'usuario'@'%' identified by 'userlogin';
+GRANT SELECT, INSERT, UPDATE ON blablacar.* TO 'usuario'@'%';
