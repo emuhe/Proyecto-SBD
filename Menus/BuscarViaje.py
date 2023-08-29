@@ -40,7 +40,6 @@ class BuscarViaje:
         self.Destino.set('-Todos-')
         self.Destino.bind('<<ComboboxSelected>>', self.PartidasSeleccion)
         self.Destino.grid(row=0,column=3,pady=5,padx=5)
-
         canvas = tk.Canvas(root, bd=0, highlightthickness=0)
         canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
         v_scroll = ttk.Scrollbar(root, orient="vertical", command=canvas.yview)
