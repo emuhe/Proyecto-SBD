@@ -1,3 +1,4 @@
+-- Trigger que vincula una id de tarjeta y otro de cuenta de banco al usuario creado
 DELIMITER //
 
 CREATE TRIGGER antes_de_usuario BEFORE INSERT ON usuario
@@ -24,3 +25,8 @@ END;
 //
 
 DELIMITER ;
+
+
+-- TRIGGER CREADO PARA ELIMINAR EL VEHICULO Y SU CONEXION CON EL USUARIO
+create trigger ELimiarVehiculo before delete on vehiculo_conductor for each row
+	 DELETE FROM vehiculo WHERE vehiculo.id = old.vehiculo_id;
