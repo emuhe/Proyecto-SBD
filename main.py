@@ -120,6 +120,7 @@ class MainMenu:
 
     def GButton_748_command(self): #Abrir otra ventana para lo de crear cuenta
         root.destroy()
+        self.conect.CerrarConeccion()
         CC()
     def num_validation(self,P):
         if (P.isdigit() or P == "") and len(P) <= 10:

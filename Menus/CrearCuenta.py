@@ -237,7 +237,6 @@ class App:
         GButton_749.place(x=260, y=480, width=120, height=30)
         GButton_749["command"] = self.CrearCuenta
     def CrearCuenta(self):
-        print('hi')
         self.ValidarCont()
         if self.Valid:
             self.popup()
@@ -247,6 +246,7 @@ class App:
                     self.GDateEntry.get_date(),self.telefono.get(),'pasajero',self.Correo.get()]
             Bab = Conection()
             self.user_id = Bab.Cuentacrear(list)
+            Bab.CerrarConeccion()
 
     def LimpiarDatos(self):
         self.preferencia.set('-Seleccionar-')

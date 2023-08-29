@@ -15,6 +15,7 @@ class EditarCuenta:
         self.rootCC = tk.Tk()
         self.Startup(self.rootCC)
         self.rootCC.mainloop()
+        self.a.CerrarConeccion()
 
 
     def CreateVar(self):

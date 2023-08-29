@@ -10,6 +10,7 @@ class MetodosPago:
         self.rootCC = tk.Tk()
         self.Startup(self.rootCC)
         self.rootCC.mainloop()
+        self.CerrarConexion()
     def Startup(self,rootCC):
         self.Car_count = 0
         def block_input(event):
@@ -229,3 +230,6 @@ class MetodosPago:
         self.NCuenta.set(self.user_cuenta[0])
         self.NTitularCuenta.set(self.user_cuenta[1])
         self.NCTitularCuenta.set(self.user_cuenta[2]),
+
+    def CerrarConexion(self):
+        self.conection.CerrarConeccion()
