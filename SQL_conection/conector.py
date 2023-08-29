@@ -62,7 +62,6 @@ class Conection:
     def EliminarAuto(self,id):
         cursor = self.conection.cursor()
         cursor.execute('DELETE FROM vehiculo_conductor where vehiculo_id = %s',(id,))
-        cursor.execute('DELETE FROM vehiculo WHERE id = %s', (id,))
         self.conection.commit()
 
     def ConsultarDatosUser(self,user_id):

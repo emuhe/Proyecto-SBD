@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fff839a0-3c14-4ee0-b28d-c11a948149e7" name="Changes" comment="eliminado prints que se usaban para validar">
+    <list default="true" id="fff839a0-3c14-4ee0-b28d-c11a948149e7" name="Changes" comment="agregado funcion para reservar viaje, falta aplicar en codigo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Menus/BuscarViaje.py" beforeDir="false" afterPath="$PROJECT_DIR$/Menus/BuscarViaje.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SQL_conection/conector.py" beforeDir="false" afterPath="$PROJECT_DIR$/SQL_conection/conector.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -494,11 +493,18 @@
       <option name="project" value="LOCAL" />
       <updated>1692942614962</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="agregado funcion para reservar viaje, falta aplicar en codigo">
+      <option name="closed" value="true" />
+      <created>1692943474222</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1692943474222</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="ahora es posible ver todos los vehiculos registrados por usuario" />
     <MESSAGE value="corregido errores en vehiculo, ahora se puede editar datos" />
     <MESSAGE value="Ventana de vehiculos.py totalmente funcional, faltan corregir bugs" />
     <MESSAGE value="correccion en iniciar sesion (validacion de cedula)" />
@@ -523,6 +529,7 @@
     <MESSAGE value="se agrego un trigger al momento de crear cuenta, por lo que se eliminaron lineas innecesarias" />
     <MESSAGE value="se agrego un procedure al momento de crear vehiculo, por lo que se eliminaron lineas innecesarias" />
     <MESSAGE value="eliminado prints que se usaban para validar" />
-    <option name="LAST_COMMIT_MESSAGE" value="eliminado prints que se usaban para validar" />
+    <MESSAGE value="agregado funcion para reservar viaje, falta aplicar en codigo" />
+    <option name="LAST_COMMIT_MESSAGE" value="agregado funcion para reservar viaje, falta aplicar en codigo" />
   </component>
 </project>
