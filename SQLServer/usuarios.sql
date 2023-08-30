@@ -1,5 +1,4 @@
 -- Crear usuarios
-CREATE USER 'admin'@'localhost' IDENTIFIED BY '050'
 CREATE USER 'Derian'@'localhost' IDENTIFIED BY '123';
 CREATE USER 'Bryan'@'localhost' IDENTIFIED BY '345';
 CREATE USER 'Kiara'@'localhost' IDENTIFIED BY '567';
