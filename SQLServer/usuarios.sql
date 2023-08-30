@@ -21,16 +21,18 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON blablacar.mensaje TO 'admin'@'localhost'
 GRANT SELECT, INSERT, UPDATE, DELETE ON blablacar.opinion TO 'admin'@'localhost';
 FLUSH PRIVILEGES;
 
--- Asignar permisos al procedimiento almacenado
+-- Asignar permisos al procedimiento almacenado y una vista
 GRANT EXECUTE ON PROCEDURE blablacar.obtenerLlegadas TO 'Derian'@'localhost';
+GRANT SELECT ON blablacar.vista_info_conductores TO 'Derian'@'localhost';
 FLUSH PRIVILEGES;
 
 -- Asignar permisos a una vista
 GRANT SELECT ON blablacar.BuscarViajes  TO 'Bryan'@'localhost';
 FLUSH PRIVILEGES;
 
--- Asignar permisos a otra vista
+-- Asignar permisos a otras vistas 
 GRANT SELECT ON blablacar.Partidas TO 'Kiara'@'localhost';
+GRANT SELECT ON blablacar.vista_info_conductores TO 'Kiara'@'localhost';
 FLUSH PRIVILEGES;
 
 -- Asignar permisos a un procedimiento almacenado y una vista para un usuario
