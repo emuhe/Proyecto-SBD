@@ -6,8 +6,19 @@ CREATE USER 'Kiara'@'localhost' IDENTIFIED BY '567';
 CREATE USER 'Fernando'@'localhost' IDENTIFIED BY '789';
 CREATE USER 'Carolina'@'localhost' IDENTIFIED BY '101';
 
--- Asignar todos los permisos al usuario 'admin'
-GRANT ALL PRIVILEGES ON blablacar.* TO 'admin'@'localhost';
+-- Asignar todos los permisos al usuario 'admin' en las tablas pero no vistas ni procedures
+GRANT SELECT, INSERT, UPDATE, DELETE ON blablacar.cuenta_bancaria TO 'Derian'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE ON blablacar.tarjeta_credito TO 'Derian'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE ON blablacar.usuario TO 'Derian'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE ON blablacar.vehiculo TO 'Derian'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE ON blablacar.vehiculo_conductor TO 'Derian'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE ON blablacar.viaje TO 'Derian'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE ON blablacar.reserva_asiento TO 'Derian'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE ON blablacar.pagos TO 'Derian'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE ON blablacar.valoracion TO 'Derian'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE ON blablacar.conversacion TO 'Derian'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE ON blablacar.mensaje TO 'Derian'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE ON blablacar.opinion TO 'Derian'@'localhost';
 FLUSH PRIVILEGES;
 
 -- Asignar permisos al procedimiento almacenado
