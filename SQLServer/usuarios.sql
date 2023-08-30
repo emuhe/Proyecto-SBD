@@ -1,9 +1,14 @@
 -- Crear usuarios
+CREATE USER 'admin'@'localhost' IDENTIFIED BY '050'
 CREATE USER 'Derian'@'localhost' IDENTIFIED BY '123';
 CREATE USER 'Bryan'@'localhost' IDENTIFIED BY '345';
 CREATE USER 'Kiara'@'localhost' IDENTIFIED BY '567';
 CREATE USER 'Fernando'@'localhost' IDENTIFIED BY '789';
 CREATE USER 'Carolina'@'localhost' IDENTIFIED BY '101';
+
+-- Asignar todos los permisos al usuario 'admin'
+GRANT ALL PRIVILEGES ON blablacar.* TO 'admin'@'localhost';
+FLUSH PRIVILEGES;
 
 -- Asignar permisos al procedimiento almacenado
 GRANT EXECUTE ON PROCEDURE blablacar.obtenerLlegadas TO 'Derian'@'localhost';
