@@ -6,7 +6,7 @@ CREATE USER 'Fernando'@'localhost' IDENTIFIED BY '789';
 CREATE USER 'Carolina'@'localhost' IDENTIFIED BY '101';
 
 -- Asignar permisos al procedimiento almacenado
-GRANT EXECUTE ON PROCEDURE blablacar.procedure_name TO 'Derian'@'localhost';
+GRANT EXECUTE ON PROCEDURE blablacar.obtenerLlegadas TO 'Derian'@'localhost';
 FLUSH PRIVILEGES;
 
 -- Asignar permisos a una vista
