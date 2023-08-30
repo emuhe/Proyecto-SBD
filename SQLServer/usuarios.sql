@@ -28,6 +28,12 @@ GRANT SELECT ON blablacar.BuscarViajes TO 'Carolina'@'localhost';
 GRANT SELECT ON blablacar.Partidas TO 'Carolina'@'localhost';
 FLUSH PRIVILEGES;
 
+-- Asignar permisos procedimiento almacenado  para otro usuario
+GRANT EXECUTE ON PROCEDURE blablacar.InsertIntoVehiculoAndVehiculoConductor TO 'Bryan'@'localhost';
+GRANT EXECUTE ON PROCEDURE blablacar.obtenerLlegadas TO 'Bryan'@'localhost';
+GRANT EXECUTE ON PROCEDURE blablacar.ReservarViaje TO 'Bryan'@'localhost';
+FLUSH PRIVILEGES;
+
 -- Creado usuario general
 create user 'usuario'@'%' identified by 'userlogin';
 GRANT SELECT, INSERT, UPDATE ON blablacar.* TO 'usuario'@'%';
