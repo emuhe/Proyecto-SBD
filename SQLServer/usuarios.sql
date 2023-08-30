@@ -1,4 +1,5 @@
 -- Crear usuarios
+CREATE USER 'admin'@'localhost' IDENTIFIED BY '050';
 CREATE USER 'Derian'@'localhost' IDENTIFIED BY '123';
 CREATE USER 'Bryan'@'localhost' IDENTIFIED BY '345';
 CREATE USER 'Kiara'@'localhost' IDENTIFIED BY '567';
@@ -6,18 +7,18 @@ CREATE USER 'Fernando'@'localhost' IDENTIFIED BY '789';
 CREATE USER 'Carolina'@'localhost' IDENTIFIED BY '101';
 
 -- Asignar todos los permisos al usuario 'admin' en las tablas pero no vistas ni procedures
-GRANT SELECT, INSERT, UPDATE, DELETE ON blablacar.cuenta_bancaria TO 'Derian'@'localhost';
-GRANT SELECT, INSERT, UPDATE, DELETE ON blablacar.tarjeta_credito TO 'Derian'@'localhost';
-GRANT SELECT, INSERT, UPDATE, DELETE ON blablacar.usuario TO 'Derian'@'localhost';
-GRANT SELECT, INSERT, UPDATE, DELETE ON blablacar.vehiculo TO 'Derian'@'localhost';
-GRANT SELECT, INSERT, UPDATE, DELETE ON blablacar.vehiculo_conductor TO 'Derian'@'localhost';
-GRANT SELECT, INSERT, UPDATE, DELETE ON blablacar.viaje TO 'Derian'@'localhost';
-GRANT SELECT, INSERT, UPDATE, DELETE ON blablacar.reserva_asiento TO 'Derian'@'localhost';
-GRANT SELECT, INSERT, UPDATE, DELETE ON blablacar.pagos TO 'Derian'@'localhost';
-GRANT SELECT, INSERT, UPDATE, DELETE ON blablacar.valoracion TO 'Derian'@'localhost';
-GRANT SELECT, INSERT, UPDATE, DELETE ON blablacar.conversacion TO 'Derian'@'localhost';
-GRANT SELECT, INSERT, UPDATE, DELETE ON blablacar.mensaje TO 'Derian'@'localhost';
-GRANT SELECT, INSERT, UPDATE, DELETE ON blablacar.opinion TO 'Derian'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE ON blablacar.cuenta_bancaria TO 'admin'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE ON blablacar.tarjeta_credito TO 'admin'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE ON blablacar.usuario TO 'admin'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE ON blablacar.vehiculo TO 'admin'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE ON blablacar.vehiculo_conductor TO 'admin'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE ON blablacar.viaje TO 'admin'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE ON blablacar.reserva_asiento TO 'admin'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE ON blablacar.pagos TO 'admin'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE ON blablacar.valoracion TO 'admin'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE ON blablacar.conversacion TO 'admin'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE ON blablacar.mensaje TO 'admin'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE ON blablacar.opinion TO 'admin'@'localhost';
 FLUSH PRIVILEGES;
 
 -- Asignar permisos al procedimiento almacenado
