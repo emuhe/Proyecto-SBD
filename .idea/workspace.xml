@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fff839a0-3c14-4ee0-b28d-c11a948149e7" name="Changes" comment="agregado funcion para reservar viaje, falta aplicar en codigo">
+    <list default="true" id="fff839a0-3c14-4ee0-b28d-c11a948149e7" name="Changes" comment="mejorado la conexion">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SQL_conection/conector.py" beforeDir="false" afterPath="$PROJECT_DIR$/SQL_conection/conector.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Menus/principal.py" beforeDir="false" afterPath="$PROJECT_DIR$/Menus/principal.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,14 +48,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Deeje/OneDrive/Documents/Proyecto Base de Datos Blablacar/Proyecto-BD&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/Deeje/OneDrive/Documents/Proyecto Base de Datos Blablacar/Proyecto-BD",
+    "settings.editor.selected.configurable": "configurable.group.editor"
   }
-}</component>
+}]]></component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings>
+        <option name="useSoftWraps" value="true" />
+      </console-settings>
+    </option>
+  </component>
   <component name="RunManager">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="Proyecto-BD" />
@@ -501,13 +509,34 @@
       <option name="project" value="LOCAL" />
       <updated>1692943474222</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="mejorado la seguridad del codigo">
+      <option name="closed" value="true" />
+      <created>1693284119976</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1693284119976</updated>
+    </task>
+    <task id="LOCAL-00041" summary="a">
+      <option name="closed" value="true" />
+      <created>1693284976139</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1693284976139</updated>
+    </task>
+    <task id="LOCAL-00042" summary="mejorado la conexion">
+      <option name="closed" value="true" />
+      <created>1693285483607</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1693285483607</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="corregido errores en vehiculo, ahora se puede editar datos" />
-    <MESSAGE value="Ventana de vehiculos.py totalmente funcional, faltan corregir bugs" />
-    <MESSAGE value="correccion en iniciar sesion (validacion de cedula)" />
     <MESSAGE value="Editar cuenta ahora es posible" />
     <MESSAGE value="Arreglado para que al editar usuario no cambie a todos xd" />
     <MESSAGE value="Arreglado un monton de bugs" />
@@ -530,6 +559,9 @@
     <MESSAGE value="se agrego un procedure al momento de crear vehiculo, por lo que se eliminaron lineas innecesarias" />
     <MESSAGE value="eliminado prints que se usaban para validar" />
     <MESSAGE value="agregado funcion para reservar viaje, falta aplicar en codigo" />
-    <option name="LAST_COMMIT_MESSAGE" value="agregado funcion para reservar viaje, falta aplicar en codigo" />
+    <MESSAGE value="mejorado la seguridad del codigo" />
+    <MESSAGE value="a" />
+    <MESSAGE value="mejorado la conexion" />
+    <option name="LAST_COMMIT_MESSAGE" value="mejorado la conexion" />
   </component>
 </project>

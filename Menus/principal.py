@@ -14,7 +14,7 @@ class MenuUsuario:
 
     def Startup(self,rootCC):
         #setting title
-        self.rootCC.title("BlaBlaCar - Crear Cuenta")
+        self.rootCC.title("BlaBlaCar - Principal")
         #setting window size
         width=500
         height=550

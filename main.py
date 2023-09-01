@@ -4,6 +4,12 @@ from Menus.CrearCuenta import App as CC
 from Menus.principal import MenuUsuario as MU
 from Menus.EditarCuenta import EditarCuenta as EC
 from SQL_conection.conector import Conection as SQLC
+from datetime import date,timedelta
+import re
+from tkcalendar import DateEntry
+from datetime import date
+import mysql.connector
+
 class MainMenu:
     def __init__(self,root):
         self.conect = SQLC()
@@ -131,3 +137,5 @@ if __name__ == "__main__":
     root = tk.Tk()
     app = MainMenu(root)
     root.mainloop()
+
+input("Press enter to proceed...")

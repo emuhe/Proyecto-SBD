@@ -1,8 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
-from tkcalendar import DateEntry
-from datetime import date
 from SQL_conection.conector import Conection as CN
+
 
 class BuscarViaje:
     def __init__(self,user_id):
