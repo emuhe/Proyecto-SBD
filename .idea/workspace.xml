@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fff839a0-3c14-4ee0-b28d-c11a948149e7" name="Changes" comment="mejorado la conexion">
+    <list default="true" id="fff839a0-3c14-4ee0-b28d-c11a948149e7" name="Changes" comment="a">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Menus/principal.py" beforeDir="false" afterPath="$PROJECT_DIR$/Menus/principal.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SQL_conection/conector.py" beforeDir="false" afterPath="$PROJECT_DIR$/SQL_conection/conector.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,15 +49,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/Deeje/OneDrive/Documents/Proyecto Base de Datos Blablacar/Proyecto-BD",
-    "settings.editor.selected.configurable": "configurable.group.editor"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Deeje/OneDrive/Documents/Proyecto Base de Datos Blablacar/Proyecto-BD&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.editor&quot;
   }
-}]]></component>
+}</component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
       <console-settings>
@@ -533,7 +534,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693285483607</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="a">
+      <option name="closed" value="true" />
+      <created>1693530172328</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1693530172328</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -560,8 +569,8 @@
     <MESSAGE value="eliminado prints que se usaban para validar" />
     <MESSAGE value="agregado funcion para reservar viaje, falta aplicar en codigo" />
     <MESSAGE value="mejorado la seguridad del codigo" />
-    <MESSAGE value="a" />
     <MESSAGE value="mejorado la conexion" />
-    <option name="LAST_COMMIT_MESSAGE" value="mejorado la conexion" />
+    <MESSAGE value="a" />
+    <option name="LAST_COMMIT_MESSAGE" value="a" />
   </component>
 </project>

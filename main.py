@@ -9,6 +9,8 @@ import re
 from tkcalendar import DateEntry
 from datetime import date
 import mysql.connector
+from mysql.connector.locales.eng import client_error
+import mysql.connector.plugins.mysql_native_password
 
 class MainMenu:
     def __init__(self,root):
@@ -137,5 +139,3 @@ if __name__ == "__main__":
     root = tk.Tk()
     app = MainMenu(root)
     root.mainloop()
-
-input("Press enter to proceed...")

@@ -1,13 +1,16 @@
 import mysql.connector
+import mysql.connector.plugins.mysql_native_password
 
 
 class Conection:
     def __init__(self):
         self.conection = mysql.connector.connect(
             host="proyecto-blablacar.mysql.database.azure.com",
+            port ='3306',
             user='usuario',
             password='userlogin',
-            database="blablacar"
+            database="blablacar",
+            ssl_verify_cert=False
             )
     def recopilar_viajes(self):
         query = ''
