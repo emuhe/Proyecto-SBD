@@ -143,3 +143,10 @@ class Conection:
     def CerrarConeccion(self):
         self.conection.close()
 
+    def placas(self,user_id):
+        cursor = self.conection.cursor()
+        cursor.callproc('Placas',[user_id])
+        Valores = []
+        for result in cursor.stored_results():
+            Valores.extend(result.fetchall())
+        return Valores

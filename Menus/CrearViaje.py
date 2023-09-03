@@ -36,17 +36,17 @@ class MisViajes:
         tk.Label(frame,text = 'Crear Viaje').grid(column = 0, row = 0, columnspan = 5)
         pad = 1
         pady = 6
-        f_partida = tk.Entry(frame)
+        f_partida = tk.Entry(frame,width=20)
         tk.Label(frame, text='Punto de Partida:').grid(row=1, column=0, pady=5, padx=pad)
         f_partida.grid(row=1, column=1, pady=pady, padx=pad)
         tk.Label(frame, text='Punto de Llegada:').grid(row=1, column=3, pady=5, padx=pad)
-        f_llegada = tk.Entry(frame)
+        f_llegada = tk.Entry(frame,width=15)
         f_llegada.grid(row=1, column=4, pady=pady, padx=pad)
         tk.Label(frame, text='Asientos disponibles:').grid(row=2, column=0, pady=pady, padx=pad)
-        f_pasajeros = tk.Entry(frame)
+        f_pasajeros = tk.Spinbox(frame, from_=0, to_=10, width=5, format="%02.0f",state='readonly')
         f_pasajeros.grid(row=2, column=1, padx=pad, pady=pady)
         tk.Label(frame, text='P. por asiento:').grid(row=2, column=3, pady=pady, padx=pad)
-        f_precio = tk.Entry(frame,validate='key')
+        f_precio = tk.Entry(frame,validate='key',width=10)
         f_precio['validate'] = "key"
         f_precio['validatecommand'] = (self.validate_cmd,'%S', '%P')
         f_precio.place(x=300, y=215, width=130, height=30)
@@ -60,13 +60,16 @@ class MisViajes:
         self.FechaSalida.set_date(date.today())
         self.FechaSalida.grid(row=0, column=0)
 
+        self.ObtenerAutos(self.user_id)
+
 
         hour_spinbox = tk.Spinbox(tiempoframe, from_=0, to_=23, width=3, format="%02.0f",state='readonly')
         hour_spinbox.grid(row=0, column=1)
-        minute_spinbox = tk.Spinbox(tiempoframe, from_=0, to_=59, width=3, format="%02.0f",state='readonly')
+        minute_spinbox = tk.Spinbox(tiempoframe, from_=0, to_=55, width=3, format="%02.0f",state='readonly',increment=5)
         minute_spinbox.grid(row=0, column=2)
         tk.Label(frame, text='Vehiculo:').grid(row=3, column=3, pady=pady, padx=pad)
-        tk.Entry(frame).grid(row=3, column=4, pady=pady, padx=pad)
+        Vehiculos = ttk.Combobox(frame,values=self.NombresAutos,width=15,state='readonly')
+        Vehiculos.grid(row=3, column=4, pady=pady, padx=pad)
         Botones = tk.Frame(frame, width=460, height=30)
         Botones.pack_propagate(False)
         Botones.grid(row=4, column=0, columnspan=5)
@@ -86,3 +89,6 @@ class MisViajes:
             if len(dec_part) > 2:
                 return False
         return True
+    def ObtenerAutos(self,user_id):
+        self.NombresAutos = self.conection.placas(user_id)
+        print(self.NombresAutos)
