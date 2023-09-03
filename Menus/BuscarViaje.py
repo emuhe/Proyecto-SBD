@@ -12,7 +12,6 @@ class BuscarViaje:
         self.rootBV = tk.Tk()
         self.Startup(self.rootBV)
         self.rootBV.mainloop()
-        print('cerrao')
         self.conection.CerrarConeccion()
 
     def Startup(self,root):

@@ -4,6 +4,7 @@ from Menus.EditarCuenta import EditarCuenta as EC
 from Menus.Vehiculos import Vehiculos
 from Menus.metodos_pagos import MetodosPago
 from Menus.BuscarViaje import BuscarViaje
+from Menus.CrearViaje import MisViajes
 class MenuUsuario:
     def __init__(self,usuario):
         self.user = usuario
@@ -49,7 +50,7 @@ class MenuUsuario:
         GButton_804["font"] = ft
         GButton_804["fg"] = "#000000"
         GButton_804["justify"] = "center"
-        GButton_804["text"] = "Crear Viaje"
+        GButton_804["text"] = "Mis Viajes"
         GButton_804["relief"] = "groove"
         GButton_804.place(x=310, y=100, width=112, height=30)
         GButton_804["command"] = self.GButton_804_command
@@ -101,7 +102,10 @@ class MenuUsuario:
         MenuUsuario(self.user)
 
     def GButton_804_command(self):
-        None
+        self.rootCC.destroy()
+        MisViajes(self.user)
+        MenuUsuario(self.user)
+
     def GButton_171_command(self):
         self.rootCC.destroy()
         Vehiculos(self.user)
