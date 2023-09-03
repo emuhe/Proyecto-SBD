@@ -30,3 +30,7 @@ DELIMITER ;
 -- TRIGGER CREADO PARA ELIMINAR EL VEHICULO Y SU CONEXION CON EL USUARIO
 create trigger ELimiarVehiculo before delete on vehiculo_conductor for each row
 	 DELETE FROM vehiculo WHERE vehiculo.id = old.vehiculo_id;
+
+--TRIGGER QUE CAMBIA LA CANTIDAD DE ASIENTOS RESERVADOS EN LA TABLA DE VIAJES AL CREAR UNA RESERVACION DE ASIENTO
+create trigger ReservaViaje AFTER insert on reserva_asiento for each row
+update viaje set cantidad_pasajeros = cantidad_pasajeros + 1 where new.viaje_id = viaje.id;
