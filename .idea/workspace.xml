@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fff839a0-3c14-4ee0-b28d-c11a948149e7" name="Changes" comment="a">
+    <list default="true" id="fff839a0-3c14-4ee0-b28d-c11a948149e7" name="Changes" comment="ventana de mis viajes">
       <change afterPath="$PROJECT_DIR$/debug.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Menus/CrearViaje.py" beforeDir="false" afterPath="$PROJECT_DIR$/Menus/CrearViaje.py" afterDir="false" />
@@ -220,14 +220,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1692509107047</updated>
-    </task>
-    <task id="LOCAL-00001" summary="Security fix">
-      <option name="closed" value="true" />
-      <created>1692510006641</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1692510006641</updated>
     </task>
     <task id="LOCAL-00002" summary="Security fix">
       <option name="closed" value="true" />
@@ -613,11 +605,18 @@
       <option name="project" value="LOCAL" />
       <updated>1693776992920</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="ventana de mis viajes">
+      <option name="closed" value="true" />
+      <created>1693778669228</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1693778669228</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Editar cuenta ahora es posible" />
     <MESSAGE value="Arreglado para que al editar usuario no cambie a todos xd" />
     <MESSAGE value="Arreglado un monton de bugs" />
     <MESSAGE value="Arreglado un error en una linea" />
@@ -642,6 +641,7 @@
     <MESSAGE value="mejorado la seguridad del codigo" />
     <MESSAGE value="mejorado la conexion" />
     <MESSAGE value="a" />
-    <option name="LAST_COMMIT_MESSAGE" value="a" />
+    <MESSAGE value="ventana de mis viajes" />
+    <option name="LAST_COMMIT_MESSAGE" value="ventana de mis viajes" />
   </component>
 </project>

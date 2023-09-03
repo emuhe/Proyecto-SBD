@@ -62,14 +62,16 @@ class MisViajes:
 
         self.ObtenerAutos(self.user_id)
 
-
         hour_spinbox = tk.Spinbox(tiempoframe, from_=0, to_=23, width=3, format="%02.0f",state='readonly')
         hour_spinbox.grid(row=0, column=1)
         minute_spinbox = tk.Spinbox(tiempoframe, from_=0, to_=55, width=3, format="%02.0f",state='readonly',increment=5)
         minute_spinbox.grid(row=0, column=2)
+
         tk.Label(frame, text='Vehiculo:').grid(row=3, column=3, pady=pady, padx=pad)
-        Vehiculos = ttk.Combobox(frame,values=self.NombresAutos,width=15,state='readonly')
-        Vehiculos.grid(row=3, column=4, pady=pady, padx=pad)
+        self.Vehiculos = ttk.Combobox(frame,values=[self.format_plate(plate) for plate in self.NombresAutos],width=15,state='readonly')
+        self.Vehiculos.grid(row=3, column=4, pady=pady, padx=pad)
+        self.Vehiculos.bind("<<ComboboxSelected>>", self.conseguirVehiculo)
+
         Botones = tk.Frame(frame, width=460, height=30)
         Botones.pack_propagate(False)
         Botones.grid(row=4, column=0, columnspan=5)
@@ -92,3 +94,10 @@ class MisViajes:
     def ObtenerAutos(self,user_id):
         self.NombresAutos = self.conection.placas(user_id)
         print(self.NombresAutos)
+
+    def format_plate(self,plate):
+        return plate[:-4] + '-' + plate[-4:]
+
+    def conseguirVehiculo(self,event):
+        selected = self.Vehiculos.get().replace('-', '')
+        print("Selected original plate:", selected)

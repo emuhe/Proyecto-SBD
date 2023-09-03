@@ -148,5 +148,6 @@ class Conection:
         cursor.callproc('Placas',[user_id])
         Valores = []
         for result in cursor.stored_results():
-            Valores.extend(result.fetchall())
+            for value in result.fetchall():
+                Valores.append(value[0])
         return Valores
