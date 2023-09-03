@@ -72,7 +72,7 @@ class BuscarViaje:
             cant_pasajeros = 'ASIENTOS COMPLETOS'
             colour = 'red'
         else:
-            cant_pasajeros = str(4-pasajeros)+'/4 DISPONIBLES'
+            cant_pasajeros = str(asientos-pasajeros)+'/'+str(asientos)+' DISPONIBLES'
             colour = 'green'
         tk.Label(first_frame,text='Asientos disponibles:').grid(row=1,column=0,pady=5,padx=pad)
         f_pasajeros = tk.Label(first_frame,text=cant_pasajeros,fg=colour)
@@ -98,11 +98,13 @@ class BuscarViaje:
         Botones.pack_propagate(False)
         Botones.grid(row=4,column=0,columnspan=5)
         reserva = tk.Button(Botones,text='Reservar')
+        if cant_pasajeros == 'ASIENTOS COMPLETOS':
+            reserva['state'] = 'disabled'
         reserva.pack(side=tk.RIGHT,padx=40)
         reserva['command'] = lambda numero=numero :self.reserva(numero)
     def reserva(self,num):
-        print(self.Viaje[num][-1])
-
+        self.conection.ReservarViaje(self.Viaje[num][-1],self.user_id)
+        self.PartidasSeleccion(None)
 
     def DestinoSelection(self,event):
         self.partida = self.Partida.get()

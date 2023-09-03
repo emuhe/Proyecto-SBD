@@ -137,6 +137,9 @@ class Conection:
     def ReservarViaje(self,viaje,usuario):
         cursor = self.conection.cursor()
         cursor.callproc('ReservarViaje',[viaje,usuario])
+        self.conection.commit()
+        cursor.close()
 
     def CerrarConeccion(self):
         self.conection.close()
+
