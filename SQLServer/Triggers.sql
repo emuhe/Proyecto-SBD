@@ -17,8 +17,8 @@ BEGIN
 
     SET CuentaId = LAST_INSERT_ID();
 
-    SET NEW.cuenta_banco_id = lastCuentaId;
-    SET NEW.tarjeta_credito_id = lastTarjetaId;
+    SET NEW.cuenta_banco_id = CuentaId;
+    SET NEW.tarjeta_credito_id = TarjetaId;
 
 END;
 
