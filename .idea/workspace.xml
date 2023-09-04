@@ -221,14 +221,6 @@
       <option name="presentableId" value="Default" />
       <updated>1692509107047</updated>
     </task>
-    <task id="LOCAL-00004" summary="Arreglos en ventana de Vehiculos.py">
-      <option name="closed" value="true" />
-      <created>1692639419375</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1692639419375</updated>
-    </task>
     <task id="LOCAL-00005" summary="ahora es posible ver todos los vehiculos registrados por usuario">
       <option name="closed" value="true" />
       <created>1692644129886</created>
@@ -613,7 +605,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693786341023</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="ahora se puede crear correctamente viajes">
+      <option name="closed" value="true" />
+      <created>1693788167427</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1693788167427</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

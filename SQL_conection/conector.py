@@ -163,3 +163,10 @@ class Conection:
         for result in cursor.stored_results():
             Valores.extend(result.fetchall())
         return Valores
+    def ViajesCreados(self,user_id):
+        cursor = self.conection.cursor()
+        cursor.callproc('ViajesCreados',[user_id])
+        Valores = []
+        for result in cursor.stored_results():
+            Valores.extend(result.fetchall())
+        return Valores

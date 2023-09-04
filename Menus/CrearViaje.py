@@ -1,3 +1,4 @@
+import tkinter
 import tkinter as tk
 from tkinter import ttk
 from SQL_conection.conector import Conection as CN
@@ -15,10 +16,9 @@ class MisViajes:
         self.conection.CerrarConeccion()
     def Startup(self,root):
         scroll_max = 3 * 180
-
         def on_frame_configure(canvas, scroll_height=scroll_max):
             width, height = canvas.winfo_width(), scroll_height
-            canvas.configure(scrollregion=(0, 0, width, height))
+            canvas.config(scrollregion=canvas.bbox("all"))
 
         width = 500
         height = 550
@@ -34,18 +34,18 @@ class MisViajes:
         botones = tk.Frame(root,width=500,height=40)
         botones.pack_propagate(False)
         botones.pack()
-        Opt1 = tk.Button(botones,text='Viajes Creados')
-        Opt1.pack(pady=5,padx=30,side ='left',anchor = 'center',expand = True)
-        Opt2 = tk.Button(botones,text='Viajes Unidos')
-        Opt2.pack(pady=5,padx=30,side ='left',anchor = 'center',expand = True)
-        canvas = tk.Canvas(root, bd=0, highlightthickness=0)
-        canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
-        v_scroll = ttk.Scrollbar(root, orient="vertical", command=canvas.yview)
+        self.Opt1 = tk.Button(botones,text='Viajes Creados',command=self.ViajesCreados)
+        self.Opt1.pack(pady=5,padx=30,side ='left',anchor = 'center',expand = True)
+        self.Opt2 = tk.Button(botones,text='Viajes Unidos',command=self.ViajesUnidos)
+        self.Opt2.pack(pady=5,padx=30,side ='left',anchor = 'center',expand = True)
+        self.canvas = tk.Canvas(root, bd=0, highlightthickness=0)
+        self.canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        v_scroll = ttk.Scrollbar(root, orient="vertical", command=self.canvas.yview)
         v_scroll.pack(side=tk.RIGHT, fill=tk.Y)
-        canvas.configure(yscrollcommand=v_scroll.set)
-        self.scrollable_frame = ttk.Frame(canvas)
-        self.scrollable_frame.bind("<Configure>", lambda e: on_frame_configure(canvas))
-        canvas.create_window((0, 0), window=self.scrollable_frame, anchor="nw")
+        self.canvas.configure(yscrollcommand=v_scroll.set)
+        self.scrollable_frame = ttk.Frame(self.canvas)
+        self.scrollable_frame.bind("<Configure>", lambda e: on_frame_configure(self.canvas))
+        self.canvas.create_window((0, 0), window=self.scrollable_frame, anchor="nw")
         self.ViajesUnidos()
     def CrearViajes(self,frame):
         self.validate_cmd = frame.register(self.num_validation)
@@ -127,6 +127,10 @@ class MisViajes:
         datos = [self.user_id,self.selected,int(self.f_pasajeros.get()),float(self.f_precio.get()),self.f_partida.get(),self.f_llegada.get(),tiempo]#usuario_id,placa,cantidad,precio,partida,llegada,tiempo
         if '' not in datos or datos[2] > 0:
             self.conection.CrearViaje(datos)
+        estado = self.Opt1['state']
+        if estado == tkinter.DISABLED:
+            self.ViajesCreados()
+
     def conseguirVehiculo(self,event):
         self.selected = self.Vehiculos.get().replace('-', '')
     def on_entry_click(self,event):
@@ -180,12 +184,41 @@ class MisViajes:
         tk.Label(first_frame,text='Estado:').grid(row=4,column=0,pady=5,padx=pad)
         if estado == 0:
             textado = 'En progreso'
+            color = 'green'
+
         else:
             textado = 'Finalizado'
-        tk.Label(first_frame,text = textado).grid(row=4,column=1,pady=5,padx=pad)
+            color = 'red'
+
+        tk.Label(first_frame,text = textado,fg=color).grid(row=4,column=1,pady=5,padx=pad)
 
     def ViajesUnidos(self):
+        self.Opt2['state'] = 'disabled'
+        self.Opt1['state'] = 'normal'
         self.Valores = self.conection.ViajesUnidos(self.user_id)
+        for widget in self.scrollable_frame.winfo_children():
+            widget.destroy()
+        # self.on_frame_configure(self.canvas, len(self.Valores) * 180)
+        self.scrollable_frame.update()
         for Viaje in self.Valores:
             self.CreateTravel(self.scrollable_frame, Viaje[0], Viaje[1], Viaje[2], Viaje[3], Viaje[4], Viaje[5],
                               Viaje[6], Viaje[7], Viaje[8], Viaje[9], Viaje[10])
+    def ViajesCreados(self):
+        self.Opt2['state'] = 'normal'
+        self.Opt1['state'] = 'disabled'
+        self.Valores = self.conection.ViajesCreados(self.user_id)
+        for widget in self.scrollable_frame.winfo_children():
+            widget.destroy()
+        self.scrollable_frame.update()
+        # self.on_frame_configure(self.canvas,len(self.Valores)*180)
+        for Viaje in self.Valores:
+            self.CreateTravel(self.scrollable_frame, Viaje[0], Viaje[1], Viaje[2], Viaje[3], Viaje[4], Viaje[5],
+                              Viaje[6], Viaje[7], Viaje[8], Viaje[9], Viaje[10])
+
+
+    def on_frame_configure(self,canvas, scroll_height):
+        width, height = canvas.winfo_width(), scroll_height
+        canvas.configure(scrollregion=(0, 0, width, height))
+        v_scroll = ttk.Scrollbar(self.rootBV, orient="vertical", command=self.canvas.yview)
+        v_scroll.pack(side=tk.RIGHT, fill=tk.Y)
+        self.canvas.configure(yscrollcommand=v_scroll.set)
