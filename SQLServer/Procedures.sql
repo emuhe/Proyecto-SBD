@@ -104,4 +104,20 @@ BEGIN
     (select cuenta_banco_id from usuario join vehiculo_conductor vc on vc.conductor_id = usuario.id join viaje v on vc.id = v.vehiculo_conductor_id where v.id = id_viaje), now());
     END;
 %%
+-- Procedure que recopila los viajes creados del usuario
+delimiter %%
+create procedure ViajesCreados (in User_id int)
+begin
+SELECT
+	c.nombre,c.apellido,v.punto_partida,v.punto_llegada,
+	(SELECT count(*) from reserva_asiento ra where viaje_id = v.id),
+    v.cantidad_pasajeros,v.precio_por_asiento,v.tiempo_salida,viaje_completado,
+    (select avg(val.valoracion) from valoracion val join usuario usr on val.conductor_id = usr.id
+    where usr.id = vec.conductor_id),(select vehiculo.modelo from vehiculo where vehiculo.id = vec.vehiculo_id) , v.id
+    from viaje v join vehiculo_conductor vec on vec.id = v.vehiculo_conductor_id join usuario c on c.id = vec.conductor_id where vec.conductor_id = User_id;
+end
+%%
+grant execute on procedure ViajesCreados to 'usuario'@'%';
+flush privileges;
+
 
