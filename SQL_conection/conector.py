@@ -151,3 +151,8 @@ class Conection:
             for value in result.fetchall():
                 Valores.append(value[0])
         return Valores
+    def CrearViaje(self,datos):
+        cursor = self.conection.cursor()
+        cursor.callproc('CrearViaje',datos)
+        self.conection.commit()
+        cursor.close()

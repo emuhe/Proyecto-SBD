@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 from SQL_conection.conector import Conection as CN
-from datetime import date
+from datetime import date,datetime,timedelta
 from tkcalendar import DateEntry
 
 
@@ -36,36 +36,39 @@ class MisViajes:
         tk.Label(frame,text = 'Crear Viaje').grid(column = 0, row = 0, columnspan = 5)
         pad = 1
         pady = 6
-        f_partida = tk.Entry(frame,width=20)
+        self.f_partida = tk.Entry(frame,width=20)
         tk.Label(frame, text='Punto de Partida:').grid(row=1, column=0, pady=5, padx=pad)
-        f_partida.grid(row=1, column=1, pady=pady, padx=pad)
+        self.f_partida.grid(row=1, column=1, pady=pady, padx=pad)
         tk.Label(frame, text='Punto de Llegada:').grid(row=1, column=3, pady=5, padx=pad)
-        f_llegada = tk.Entry(frame,width=15)
-        f_llegada.grid(row=1, column=4, pady=pady, padx=pad)
+        self.f_llegada = tk.Entry(frame,width=15)
+        self.f_llegada.grid(row=1, column=4, pady=pady, padx=pad)
         tk.Label(frame, text='Asientos disponibles:').grid(row=2, column=0, pady=pady, padx=pad)
-        f_pasajeros = tk.Spinbox(frame, from_=0, to_=10, width=5, format="%02.0f",state='readonly')
-        f_pasajeros.grid(row=2, column=1, padx=pad, pady=pady)
+        self.f_pasajeros = tk.Spinbox(frame, from_=0, to_=10, width=5, format="%02.0f",state='readonly')
+        self.f_pasajeros.grid(row=2, column=1, padx=pad, pady=pady)
         tk.Label(frame, text='P. por asiento:').grid(row=2, column=3, pady=pady, padx=pad)
-        f_precio = tk.Entry(frame,validate='key',width=10)
-        f_precio['validate'] = "key"
-        f_precio['validatecommand'] = (self.validate_cmd,'%S', '%P')
-        f_precio.place(x=300, y=215, width=130, height=30)
-        f_precio.grid(row=2, column=4, pady=5, padx=pad)
+        self.f_precio = tk.Entry(frame,validate='key',width=10)
+        self.f_precio.insert(0, '00.00')
+        self.f_precio.bind('<FocusIn>', self.on_entry_click)
+        self.f_precio.bind('<FocusOut>',self.out_focus)
+        self.f_precio['validate'] = "key"
+        self.f_precio['validatecommand'] = (self.validate_cmd,'%S', '%P')
+        self.f_precio.place(x=300, y=215, width=130, height=30)
+        self.f_precio.grid(row=2, column=4, pady=5, padx=pad)
         tk.Label(frame, text='Fecha de Salida:').grid(row=3, column=0, pady=pady, padx=pad)
         tiempoframe = tk.Frame(frame)
         tiempoframe.grid(row=3, column=1, pady=pady, padx=pady)
         self.FechaSalida = DateEntry(tiempoframe, width=8,state='readonly')
         self.FechaSalida['date_pattern'] = 'DD/MM/YY'
-        self.FechaSalida['mindate'] = date.today()
+        self.FechaSalida['mindate'] = date.today() + timedelta(days=1)
         self.FechaSalida.set_date(date.today())
         self.FechaSalida.grid(row=0, column=0)
 
         self.ObtenerAutos(self.user_id)
 
-        hour_spinbox = tk.Spinbox(tiempoframe, from_=0, to_=23, width=3, format="%02.0f",state='readonly')
-        hour_spinbox.grid(row=0, column=1)
-        minute_spinbox = tk.Spinbox(tiempoframe, from_=0, to_=55, width=3, format="%02.0f",state='readonly',increment=5)
-        minute_spinbox.grid(row=0, column=2)
+        self.hour_spinbox = tk.Spinbox(tiempoframe, from_=0, to_=23, width=3, format="%02.0f",state='readonly')
+        self.hour_spinbox.grid(row=0, column=1)
+        self.minute_spinbox = tk.Spinbox(tiempoframe, from_=0, to_=55, width=3, format="%02.0f",state='readonly',increment=5)
+        self.minute_spinbox.grid(row=0, column=2)
 
         tk.Label(frame, text='Vehiculo:').grid(row=3, column=3, pady=pady, padx=pad)
         self.Vehiculos = ttk.Combobox(frame,values=[self.format_plate(plate) for plate in self.NombresAutos],width=15,state='readonly')
@@ -75,14 +78,17 @@ class MisViajes:
         Botones = tk.Frame(frame, width=460, height=30)
         Botones.pack_propagate(False)
         Botones.grid(row=4, column=0, columnspan=5)
-        crear = tk.Button(Botones, text='Crear Viaje')
+        crear = tk.Button(Botones, text='Crear Viaje',command=self.CrearV)
+
         crear.pack(side=tk.RIGHT, padx=40)
 
     def num_validation(self,char,value):
+        if value == '00.00' or '':
+            return True
+
         if not char.isdigit() and char != ".":
             return False
 
-            # Only allow one decimal point in the input.
         if char == "." and value.count(".") > 1:
             return False
 
@@ -98,6 +104,21 @@ class MisViajes:
     def format_plate(self,plate):
         return plate[:-4] + '-' + plate[-4:]
 
+    def CrearV(self):
+
+        self.conseguirVehiculo(None)
+        tiempo = datetime.combine(self.FechaSalida.get_date(),datetime.min.time()).replace(hour=int(self.hour_spinbox.get()),minute=int(self.minute_spinbox.get()))
+        datos = [self.user_id,self.selected,int(self.f_pasajeros.get()),float(self.f_precio.get()),self.f_partida.get(),self.f_llegada.get(),tiempo]#usuario_id,placa,cantidad,precio,partida,llegada,tiempo
+        if '' not in datos or datos[2] > 0:
+            self.conection.CrearViaje(datos)
     def conseguirVehiculo(self,event):
-        selected = self.Vehiculos.get().replace('-', '')
-        print("Selected original plate:", selected)
+        self.selected = self.Vehiculos.get().replace('-', '')
+    def on_entry_click(self,event):
+        self.f_precio.configure(validate='none')
+        if self.f_precio.get() == '00.00':
+            self.f_precio.delete(0, tk.END)
+        self.f_precio.configure(validate='key', validatecommand= (self.validate_cmd, '%S','%P'))
+    def out_focus(self,event):
+        print('out')
+        if not self.f_precio.get():
+            self.f_precio.insert(0,'00.00')
