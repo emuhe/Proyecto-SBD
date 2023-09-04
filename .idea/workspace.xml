@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fff839a0-3c14-4ee0-b28d-c11a948149e7" name="Changes" comment="ahora se puede crear correctamente viajes">
+    <list default="true" id="fff839a0-3c14-4ee0-b28d-c11a948149e7" name="Changes" comment="ventana de mis viajes completo">
       <change afterPath="$PROJECT_DIR$/debug.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Menus/BuscarViaje.py" beforeDir="false" afterPath="$PROJECT_DIR$/Menus/BuscarViaje.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Menus/CrearViaje.py" beforeDir="false" afterPath="$PROJECT_DIR$/Menus/CrearViaje.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SQL_conection/conector.py" beforeDir="false" afterPath="$PROJECT_DIR$/SQL_conection/conector.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +66,7 @@
       </console-settings>
     </option>
   </component>
-  <component name="RunManager" selected="Python.debug">
+  <component name="RunManager" selected="Python.main">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="Proyecto-BD" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -207,8 +207,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.debug" />
         <item itemvalue="Python.main" />
+        <item itemvalue="Python.debug" />
       </list>
     </recent_temporary>
   </component>
@@ -220,14 +220,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1692509107047</updated>
-    </task>
-    <task id="LOCAL-00005" summary="ahora es posible ver todos los vehiculos registrados por usuario">
-      <option name="closed" value="true" />
-      <created>1692644129886</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1692644129886</updated>
     </task>
     <task id="LOCAL-00006" summary="corregido errores en vehiculo, ahora se puede editar datos">
       <option name="closed" value="true" />
@@ -613,11 +605,18 @@
       <option name="project" value="LOCAL" />
       <updated>1693788167427</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="ventana de mis viajes completo">
+      <option name="closed" value="true" />
+      <created>1693789605740</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1693789605740</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Arreglado un monton de bugs" />
     <MESSAGE value="Arreglado un error en una linea" />
     <MESSAGE value="nueva ventana de metodos de pago" />
     <MESSAGE value="mejores en ventana" />
@@ -642,6 +641,7 @@
     <MESSAGE value="a" />
     <MESSAGE value="ventana de mis viajes" />
     <MESSAGE value="ahora se puede crear correctamente viajes" />
-    <option name="LAST_COMMIT_MESSAGE" value="ahora se puede crear correctamente viajes" />
+    <MESSAGE value="ventana de mis viajes completo" />
+    <option name="LAST_COMMIT_MESSAGE" value="ventana de mis viajes completo" />
   </component>
 </project>

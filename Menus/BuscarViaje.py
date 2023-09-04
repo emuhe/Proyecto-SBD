@@ -117,6 +117,9 @@ class BuscarViaje:
             widget.destroy()
         self.scrollable_frame.update()
         for Viaje, num in zip(self.Viaje, range(len(self.Travels))):
-            self.CreateTravel(self.scrollable_frame, Viaje[0], Viaje[1], Viaje[2], Viaje[3], Viaje[4], Viaje[5],
+            if Viaje[8] == '1':
+                pass
+            else:
+                self.CreateTravel(self.scrollable_frame, Viaje[0], Viaje[1], Viaje[2], Viaje[3], Viaje[4], Viaje[5],
                               Viaje[6], Viaje[7], Viaje[8], Viaje[9], Viaje[10], num)
 

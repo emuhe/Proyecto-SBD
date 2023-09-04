@@ -198,7 +198,6 @@ class MisViajes:
         self.Valores = self.conection.ViajesUnidos(self.user_id)
         for widget in self.scrollable_frame.winfo_children():
             widget.destroy()
-        # self.on_frame_configure(self.canvas, len(self.Valores) * 180)
         self.scrollable_frame.update()
         for Viaje in self.Valores:
             self.CreateTravel(self.scrollable_frame, Viaje[0], Viaje[1], Viaje[2], Viaje[3], Viaje[4], Viaje[5],
@@ -210,7 +209,6 @@ class MisViajes:
         for widget in self.scrollable_frame.winfo_children():
             widget.destroy()
         self.scrollable_frame.update()
-        # self.on_frame_configure(self.canvas,len(self.Valores)*180)
         for Viaje in self.Valores:
             self.CreateTravel(self.scrollable_frame, Viaje[0], Viaje[1], Viaje[2], Viaje[3], Viaje[4], Viaje[5],
                               Viaje[6], Viaje[7], Viaje[8], Viaje[9], Viaje[10])
