@@ -156,3 +156,10 @@ class Conection:
         cursor.callproc('CrearViaje',datos)
         self.conection.commit()
         cursor.close()
+    def ViajesUnidos(self,user_id):
+        cursor = self.conection.cursor()
+        cursor.callproc('ViajesUnidos',[user_id])
+        Valores = []
+        for result in cursor.stored_results():
+            Valores.extend(result.fetchall())
+        return Valores

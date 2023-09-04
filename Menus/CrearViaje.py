@@ -31,6 +31,22 @@ class MisViajes:
         CrearViaje.grid_propagate(False)
         CrearViaje.pack(pady= 10)
         self.CrearViajes(CrearViaje)
+        botones = tk.Frame(root,width=500,height=40)
+        botones.pack_propagate(False)
+        botones.pack()
+        Opt1 = tk.Button(botones,text='Viajes Creados')
+        Opt1.pack(pady=5,padx=30,side ='left',anchor = 'center',expand = True)
+        Opt2 = tk.Button(botones,text='Viajes Unidos')
+        Opt2.pack(pady=5,padx=30,side ='left',anchor = 'center',expand = True)
+        canvas = tk.Canvas(root, bd=0, highlightthickness=0)
+        canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        v_scroll = ttk.Scrollbar(root, orient="vertical", command=canvas.yview)
+        v_scroll.pack(side=tk.RIGHT, fill=tk.Y)
+        canvas.configure(yscrollcommand=v_scroll.set)
+        self.scrollable_frame = ttk.Frame(canvas)
+        self.scrollable_frame.bind("<Configure>", lambda e: on_frame_configure(canvas))
+        canvas.create_window((0, 0), window=self.scrollable_frame, anchor="nw")
+        self.ViajesUnidos()
     def CrearViajes(self,frame):
         self.validate_cmd = frame.register(self.num_validation)
         tk.Label(frame,text = 'Crear Viaje').grid(column = 0, row = 0, columnspan = 5)
@@ -79,9 +95,9 @@ class MisViajes:
         Botones.pack_propagate(False)
         Botones.grid(row=4, column=0, columnspan=5)
         crear = tk.Button(Botones, text='Crear Viaje',command=self.CrearV)
-
-        crear.pack(side=tk.RIGHT, padx=40)
-
+        if len(self.NombresAutos) == 0:
+            crear['state'] = 'disabled'
+        crear.pack(padx=5,anchor = 'center')
     def num_validation(self,char,value):
         if value == '00.00' or '':
             return True
@@ -122,3 +138,54 @@ class MisViajes:
         print('out')
         if not self.f_precio.get():
             self.f_precio.insert(0,'00.00')
+    def CreateTravel(self,root,Nombre,Apellido,partida,llegada,pasajeros,asientos,precio,tiempo_salida,estado,valoracion,vehiculo):
+        pad = 2
+        first_frame = tk.Frame(self.scrollable_frame,width=465,height=160,bd=1, relief= 'solid')
+        first_frame.pack(padx=10,pady=10)
+        first_frame.grid_propagate(False)
+        f_partida = tk.Label(first_frame, text=partida)
+        tk.Label(first_frame,text='Punto de Partida:').grid(row=0,column=0,pady=5,padx=pad)
+        f_partida.grid(row=0,column=1,pady=5,padx=pad)
+        tk.Label(first_frame,text='Punto de Llegada:').grid(row=0,column=3,pady=5,padx=pad)
+        f_llegada = tk.Label(first_frame, text=llegada)
+        f_llegada.grid(row=0, column=4, pady=5, padx=pad)
+        cant_pasajeros = ''
+        colour = ''
+        if int(pasajeros) == asientos:
+            cant_pasajeros = 'ASIENTOS COMPLETOS'
+            colour = 'red'
+        else:
+            cant_pasajeros = str(asientos-pasajeros)+'/'+str(asientos)+' DISPONIBLES'
+            colour = 'green'
+        tk.Label(first_frame,text='Asientos disponibles:').grid(row=1,column=0,pady=5,padx=pad)
+        f_pasajeros = tk.Label(first_frame,text=cant_pasajeros,fg=colour)
+        f_pasajeros.grid(row=1,column=1,padx=pad,pady=5)
+        tk.Label(first_frame,text='P. por asiento:').grid(row=1,column=3,pady=5,padx=pad)
+        f_precio = tk.Label(first_frame,text='$'+str(precio))
+        f_precio.grid(row=1,column=4,pady=5,padx=pad)
+        tk.Label(first_frame,text='Conductor:').grid(row=2,column=0,pady=5,padx=pad)
+        f_conductor = tk.Label(first_frame,text= Nombre + ' ' + Apellido)
+        f_conductor.grid(row=2,column=1,pady=5,padx=pad)
+        tk.Label(first_frame,text='Valoracion:').grid(row=2,column=3,pady=5,padx=pad)
+        if valoracion is None:
+            valorac = 'N/C'
+        else:
+            valorac = round(valoracion,2)
+        tk.Label(first_frame,text=valorac).grid(row=2,column=4,pady=5,padx=pad)
+        tk.Label(first_frame,text='Fecha de Salida:').grid(row=3,column=0,pady=5,padx=pad)
+        salida = tk.Label(first_frame,text=tiempo_salida)
+        salida.grid(row=3,column=1,pady=5,padx=5)
+        tk.Label(first_frame,text='Vehiculo:').grid(row=3,column=3,pady=5,padx=pad)
+        tk.Label(first_frame,text=vehiculo).grid(row=3,column=4,pady=5,padx=pad)
+        tk.Label(first_frame,text='Estado:').grid(row=4,column=0,pady=5,padx=pad)
+        if estado == 0:
+            textado = 'En progreso'
+        else:
+            textado = 'Finalizado'
+        tk.Label(first_frame,text = textado).grid(row=4,column=1,pady=5,padx=pad)
+
+    def ViajesUnidos(self):
+        self.Valores = self.conection.ViajesUnidos(self.user_id)
+        for Viaje in self.Valores:
+            self.CreateTravel(self.scrollable_frame, Viaje[0], Viaje[1], Viaje[2], Viaje[3], Viaje[4], Viaje[5],
+                              Viaje[6], Viaje[7], Viaje[8], Viaje[9], Viaje[10])

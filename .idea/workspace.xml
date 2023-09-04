@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fff839a0-3c14-4ee0-b28d-c11a948149e7" name="Changes" comment="ventana de mis viajes">
+    <list default="true" id="fff839a0-3c14-4ee0-b28d-c11a948149e7" name="Changes" comment="ahora se puede crear correctamente viajes">
       <change afterPath="$PROJECT_DIR$/debug.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Menus/CrearViaje.py" beforeDir="false" afterPath="$PROJECT_DIR$/Menus/CrearViaje.py" afterDir="false" />
@@ -220,14 +220,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1692509107047</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Arreglos en ventana de Vehiculos.py">
-      <option name="closed" value="true" />
-      <created>1692565877480</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1692565877480</updated>
     </task>
     <task id="LOCAL-00004" summary="Arreglos en ventana de Vehiculos.py">
       <option name="closed" value="true" />
@@ -613,11 +605,18 @@
       <option name="project" value="LOCAL" />
       <updated>1693780045471</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="ahora se puede crear correctamente viajes">
+      <option name="closed" value="true" />
+      <created>1693786341023</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1693786341023</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Arreglado para que al editar usuario no cambie a todos xd" />
     <MESSAGE value="Arreglado un monton de bugs" />
     <MESSAGE value="Arreglado un error en una linea" />
     <MESSAGE value="nueva ventana de metodos de pago" />
@@ -642,6 +641,7 @@
     <MESSAGE value="mejorado la conexion" />
     <MESSAGE value="a" />
     <MESSAGE value="ventana de mis viajes" />
-    <option name="LAST_COMMIT_MESSAGE" value="ventana de mis viajes" />
+    <MESSAGE value="ahora se puede crear correctamente viajes" />
+    <option name="LAST_COMMIT_MESSAGE" value="ahora se puede crear correctamente viajes" />
   </component>
 </project>
