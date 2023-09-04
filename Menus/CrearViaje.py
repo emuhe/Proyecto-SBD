@@ -124,7 +124,7 @@ class MisViajes:
         self.conseguirVehiculo(None)
         tiempo = datetime.combine(self.FechaSalida.get_date(),datetime.min.time()).replace(hour=int(self.hour_spinbox.get()),minute=int(self.minute_spinbox.get()))
         datos = [self.user_id,self.selected,int(self.f_pasajeros.get()),float(self.f_precio.get()),self.f_partida.get(),self.f_llegada.get(),tiempo]#usuario_id,placa,cantidad,precio,partida,llegada,tiempo
-        if '' not in datos or datos[2] > 0:
+        if '' not in datos and datos[2] > 0 and datos[1] != '':
             self.conection.CrearViaje(datos)
         estado = self.Opt1['state']
         if estado == tkinter.DISABLED:
@@ -151,8 +151,6 @@ class MisViajes:
         tk.Label(first_frame,text='Punto de Llegada:').grid(row=0,column=3,pady=5,padx=pad)
         f_llegada = tk.Label(first_frame, text=llegada)
         f_llegada.grid(row=0, column=4, pady=5, padx=pad)
-        cant_pasajeros = ''
-        colour = ''
         if int(pasajeros) == asientos:
             cant_pasajeros = 'ASIENTOS COMPLETOS'
             colour = 'red'

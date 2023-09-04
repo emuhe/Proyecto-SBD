@@ -1,0 +1,14 @@
+Index: debug.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/debug.py b/debug.py
+new file mode 100644
+--- /dev/null	(date 1693775077655)
++++ b/debug.py	(date 1693775077655)
+@@ -0,0 +1,3 @@
++from Menus.CrearViaje import MisViajes
++
++MisViajes(1)
+\ No newline at end of file
