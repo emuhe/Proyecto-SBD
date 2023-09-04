@@ -115,7 +115,6 @@ class MisViajes:
         return True
     def ObtenerAutos(self,user_id):
         self.NombresAutos = self.conection.placas(user_id)
-        print(self.NombresAutos)
 
     def format_plate(self,plate):
         return plate[:-4] + '-' + plate[-4:]
@@ -139,7 +138,6 @@ class MisViajes:
             self.f_precio.delete(0, tk.END)
         self.f_precio.configure(validate='key', validatecommand= (self.validate_cmd, '%S','%P'))
     def out_focus(self,event):
-        print('out')
         if not self.f_precio.get():
             self.f_precio.insert(0,'00.00')
     def CreateTravel(self,root,Nombre,Apellido,partida,llegada,pasajeros,asientos,precio,tiempo_salida,estado,valoracion,vehiculo):

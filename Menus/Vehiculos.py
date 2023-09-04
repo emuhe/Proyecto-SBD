@@ -118,44 +118,22 @@ class Vehiculos:
         self.Restablecer = tk.Button(frame3, text='Restablecer', width=10)
         self.Restablecer.config(state="disabled")
         self.Restablecer.pack(side = 'right',padx=5)
-        self.Guardar = tk.Button(frame3, text = 'Guardar', width=10, command= self.Guardar)
-        self.Guardar.config(state="disabled")
+        self.Guardar = tk.Button(frame3, text = 'Guardar', width=10, command= self.Guardar,state='disabled')
         self.Guardar.pack(side = 'right',padx=5)
-
 
         frame2 = tk.Frame(rootCC)
         frame2.pack()
-
-        label01 = tk.Label(frame2,text=' ')
-
-        label01.grid(column=0,row=0,padx=5)
-
+        label = tk.Label(frame2,text=' ').grid(column=0,row=0,padx=5)
         self.eliminaract = tk.Button(frame2)
         self.eliminaract['text'] = 'Eliminar'
         self.eliminaract['command'] = self.Delete
         self.eliminaract.grid(column=1,row=0,padx=5)
-
-        self.editaract = tk.Button(frame2)
-        self.editaract['text'] = 'Editar'
-        self.editaract.grid(column=2, row=0,padx=5)
-        self.editaract['command'] = self.Editar
-
-        self.nuevoact = tk.Button(frame2)
-        self.nuevoact['text'] = 'Nuevo'
-        self.nuevoact['command'] = self.Crear
-        self.nuevoact.grid(column=3, row=0, padx=5)
-
-        label02 = tk.Label(frame2,text=' ')
-        label02.grid(column=4,row=0,padx=50)
-
-        self.botlef = tk.Button(frame2)
-        self.botlef['text'] = '<-'
-        self.botlef['command'] = self.Atras
+        self.editaract = tk.Button(frame2,text='Editar',command=self.Editar).grid(column=2, row=0,padx=5)
+        self.nuevoact = tk.Button(frame2,text='Nuevo',command=self.Crear).grid(column=3, row=0, padx=5)
+        tk.Label(frame2,text=' ').grid(column=4,row=0,padx=50)
+        self.botlef = tk.Button(frame2,text='<-',command=self.Atras)
         self.botlef.grid(column=5,row=0,padx=1)
-
-        self.botrig = tk.Button(frame2)
-        self.botrig['text'] = '->'
-        self.botrig['command'] = self.Siguiente
+        self.botrig = tk.Button(frame2,text='->',command=self.Siguiente)
         self.botrig.grid(column=6, row=0, padx=1)
 
     def Elimiar(self):
@@ -268,8 +246,5 @@ class Vehiculos:
         if self.CantCarr == 0:
             None
         else:
-
-            print('eliminar carro ' + str(self.CarrosAct[-1]))
-
             self.conection.EliminarAuto(self.CarrosAct[-1])
             self.ConseguirDatos()

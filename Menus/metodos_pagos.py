@@ -171,8 +171,6 @@ class MetodosPago:
         datos = [
                 self.NTarjeta.get(), self.Titular.get(),
                 self.CCV.get(), self.year.get() + '-' + self.mes.get() + '-01', self.id_tarjeta]
-        print('editar')
-        print(datos)
         self.conection.CrearTarjeta(datos)
         self.ConseguirDatos()
     def ConseguirDatos(self):
@@ -182,7 +180,6 @@ class MetodosPago:
         self.id_tarjeta = self.id_tarjeta[0]
         if self.user_tarjeta[0] == None:
             self.user_tarjeta = ['','','','','']
-        print(self.user_tarjeta)
     def num_validation(self,P,x):
         if (P.isdigit() or P == "") and len(P) <= int(x):
             return True
@@ -204,8 +201,6 @@ class MetodosPago:
         self.Cuenta.bind("<Key>", block_input)
         datos = [
             self.NCuenta.get(),self.NTitularCuenta.get(),self.NCTitularCuenta.get(),self.cuenta_user_id]
-        print('editar')
-        print(datos)
         self.conection.CuentaEditar(datos)
         self.DatosCuenta()
 
@@ -215,8 +210,6 @@ class MetodosPago:
         self.cuenta_user_id = self.cuenta_user_id[0]
         if self.user_cuenta[0] == None:
             self.user_cuenta = ['', '', '']
-        print(self.user_cuenta)
-
     def EditarCuenta(self):
         self.PermitirModCuenta()
     def PermitirModCuenta(self):

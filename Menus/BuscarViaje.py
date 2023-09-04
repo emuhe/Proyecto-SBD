@@ -65,8 +65,6 @@ class BuscarViaje:
         tk.Label(first_frame,text='Punto de Llegada:').grid(row=0,column=3,pady=5,padx=pad)
         f_llegada = tk.Label(first_frame, text=llegada)
         f_llegada.grid(row=0, column=4, pady=5, padx=pad)
-        cant_pasajeros = ''
-        colour = ''
         if int(pasajeros) == asientos:
             cant_pasajeros = 'ASIENTOS COMPLETOS'
             colour = 'red'
